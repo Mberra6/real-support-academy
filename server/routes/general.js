@@ -1,8 +1,9 @@
 const express = require('express');
 let courses = require('./coursesdb');
-const public_users = express.Router();
 let users = require('./auth_users.js').users;
+const public_users = express.Router();
 
+// Function to check if username exists in users db
 const doesExist = (username) => {
     let userswithsamename = users.filter((user) => {
         return user.username === username;
