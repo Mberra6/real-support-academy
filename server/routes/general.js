@@ -8,4 +8,45 @@ public_users.get('/', (req, res) => {
     res.status(200).send(JSON.stringify({courses}, null, 4));
 });
 
+// Get course by title
+public_users.get('/courses/title/:title', (req, res) => {
+    const title = req.params.title;
+    let keys = Object.keys(courses);
+    let record;
+
+    keys.forEach((key) => {
+        if (courses[key]["title"] === title) {
+            record = Object.assign({CourseNumber: key}, courses[key]);
+        }
+    });
+
+    if (record) {
+        res.status(200).send(JSON.stringify(record, null, 4));
+    } else {
+        res.status(403).send("No course with such title.");
+    }
+
+});
+
+// Get courses by length
+public_users.get('/courses/length/:length', (req, res) => {
+    const length = req.params.length;
+    let keys = Object.keys(courses);
+    let record;
+    listofcourses = [];
+
+    keys.forEach((key) => {
+        if (courses[key]["length"] === length) {
+            record = Object.assign({CourseNumber: key}, courses[key]);
+            listofcourses.push(record);
+        }
+    });
+
+    if (listofcourses.length > 0) {
+        res.status(200).send(JSON.stringify(listofcourses, null, 4));
+    } else {
+        res.status(403).send("No courses with such length.");
+    }
+});
+
 module.exports.general = public_users;
