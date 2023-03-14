@@ -9,10 +9,10 @@ app.use(express.json());
 
 
 
-const PORT = 5000;
+const PORT = 3333;
 
 app.use('/', gen_routes);
 
-// Server listening on Port 5000
+// Server listening on Port 3333
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 
