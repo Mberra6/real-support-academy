@@ -13,5 +13,6 @@ const PORT = 5000;
 
 app.use('/', gen_routes);
 
+// Server listening on Port 5000
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
 
