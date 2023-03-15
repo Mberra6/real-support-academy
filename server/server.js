@@ -3,8 +3,11 @@ const jwt = require('jsonwebtoken');
 const session = require('express-session');
 const gen_routes = require('./routes/general.js').general;
 const reg_routes = require('./routes/auth_users.js').authenticated;
+const cors = require('cors');
 
 const app = express();
+
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
 
 app.use(express.json());
 
