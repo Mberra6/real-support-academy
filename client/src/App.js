@@ -26,7 +26,7 @@ export default function App() {
       {(() => {if (backendData.length > 0) {
         return (<p>{backendData}</p>)
       }
-    })()}
+    })()} ///hello
     </div>
   )
 }
