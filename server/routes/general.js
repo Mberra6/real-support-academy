@@ -28,9 +28,9 @@ public_users.post('/register', (req, res) => {
     const password = req.body.password;
 
     if (!username || !password) {
-        return res.status(403).send("Missing username/password.");
+        return res.status(201).send("Missing username/password.");
     } else if (doesExist(username)) {
-        return res.status(403).send("Username already exists.");
+        return res.status(202).send("Username already exists.");
     } else {
         users.push({"username": username, "password": password});
         return res.status(200).send("Registration successful. Now you can login.");
