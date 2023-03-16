@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import axios from 'axios'
-// hello
+
 export default function App() {
   const [backendData, setBackendData] = useState([]);
   const usernameRef = useRef();
@@ -17,7 +17,6 @@ export default function App() {
       response => setBackendData(response.data)
     )
   };
-  //test test test
   return (
     <div>
       <input ref={usernameRef} type="text" />
@@ -26,7 +25,7 @@ export default function App() {
       {(() => {if (backendData.length > 0) {
         return (<p>{backendData}</p>)
       }
-    })()} ///hello
+    })()}
     </div>
   )
 }
