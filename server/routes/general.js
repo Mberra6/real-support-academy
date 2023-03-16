@@ -5,11 +5,11 @@ const public_users = express.Router();
 
 // Function to check if username exists in users db
 const doesExist = (username) => {
-    let userswithsamename = users.filter((user) => {
+    let usersWithSameName = users.filter((user) => {
         return user.username === username;
     });
 
-    if (userswithsamename.length > 0) {
+    if (usersWithSameName.length > 0) {
         return true;
     } else {
         return false;
@@ -63,7 +63,7 @@ public_users.get('/courses/length/:length', (req, res) => {
     const length = req.params.length;
     let keys = Object.keys(courses);
     let record;
-    listofcourses = [];
+    listOfCourses = [];
 
     keys.forEach((key) => {
         if (courses[key]["length"] === length) {
@@ -72,7 +72,7 @@ public_users.get('/courses/length/:length', (req, res) => {
         }
     });
 
-    if (listofcourses.length > 0) {
+    if (listOfCourses.length > 0) {
         res.status(200).send(JSON.stringify(listofcourses, null, 4));
     } else {
         res.status(403).send("No courses with such length.");
