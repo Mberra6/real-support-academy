@@ -1,5 +1,3 @@
-// vivian's comment
-
 const express = require('express');
 const jwt = require('jsonwebtoken');
 const registered_users = express.Router();
@@ -8,11 +6,11 @@ let users = []
 
 // Function to check if username and password pair ecist in the db
 const authenticateUser = (username, password) => {
-    let validusers = users.filter((user) => {
+    let validUsers = users.filter((user) => {
         return (user.username === username && user.password === password);
     });
 
-    if (validusers.length > 0) {
+    if (validUsers.length > 0) {
         return true;
     } else {
         return false;
