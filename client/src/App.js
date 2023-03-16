@@ -16,6 +16,11 @@ export default function App() {
     .then(
       response => setBackendData(response.data)
     )
+    .catch( (err) => {
+      setBackendData(err.response.data);
+    }
+
+    )
   };
   return (
     <div>
