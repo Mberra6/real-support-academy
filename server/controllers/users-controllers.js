@@ -3,6 +3,12 @@ const jwt = require('jsonwebtoken');
 
 
 
+// Function to check if passwords match
+const checkPasswords = (passwordOne, passwordTwo) => {
+    if (passwordOne === passwordTwo) return true;
+    return false;
+};
+
 // Function to check if username exists in db
 const doesExistUsername = async (username) => {
     try {
@@ -60,13 +66,15 @@ const authenticateUserByEmail = async (email, password) => {
 // Function to register new user
 exports.userRegister = async (req, res, next) => {
     try {
-        let { firstName, lastName, email, password, username } = req.body;
-        if (!firstName || !lastName || !email || !password || !username) {
+        let { firstName, lastName, email, password, repeatPassword, username } = req.body;
+        if (!firstName || !lastName || !email || !password || !repeatPassword || !username) {
             res.status(403).json({ message: 'Missing parameters!' });
-        } else if (await doesExistUsername(username)) {
-            res.status(403).json({ message: 'Username already exists. Please choose a different username.' });
         } else if (await doesExistEmail(email)) {
             res.status(403).json({ message: 'Email already exists!' });
+        } else if (await doesExistUsername(username)) {
+            res.status(403).json({ message: 'Username already exists. Please choose a different username.' });
+        } else if (!checkPasswords(password, repeatPassword)) {
+            res.status(403).json({ message: "Passwords do not match!" });
         } else {
             let user = new User(firstName, lastName, email, password, username.toLowerCase());
             user = await user.save();
