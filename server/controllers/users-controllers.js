@@ -68,17 +68,19 @@ exports.userRegister = async (req, res, next) => {
     try {
         let { firstName, lastName, email, password, repeatPassword, username } = req.body;
         if (!firstName || !lastName || !email || !password || !repeatPassword || !username) {
-            res.status(403).json({ message: 'Missing parameters!' });
+            res.status(403).json({ message: 'Missing parameters! Please fill out all the fields in the form.' });
         } else if (await doesExistEmail(email)) {
-            res.status(403).json({ message: 'Email already exists!' });
+            res.status(403).json({ message: 'Email already exists! Please choose a different email' });
         } else if (await doesExistUsername(username)) {
-            res.status(403).json({ message: 'Username already exists. Please choose a different username.' });
+            res.status(403).json({ message: 'Username already exists! Please choose a different username.' });
+        } else if (password.length < 8) {
+            res.status(403).json({ message: "Password must be at least 8 characters long!" });
         } else if (!checkPasswords(password, repeatPassword)) {
             res.status(403).json({ message: "Passwords do not match!" });
         } else {
             let user = new User(firstName, lastName, email, password, username.toLowerCase());
             user = await user.save();
-            res.status(201).json({ message: 'User successfully registered. '});
+            res.status(201).json({ message: 'Registration successful. You can now login.'});
         }
         
     } catch (error) {
