@@ -92,7 +92,7 @@ exports.userRegister = async (req, res, next) => {
  // Function to login user
  exports.userLogin = async (req, res, next) => {
     try {
-        let { username, email, password } = req.body;
+        let { email, username, password } = req.body;
 
         if (!username || !password) return res.status(403).json({ message: 'Missing email/username or password.' });
 
