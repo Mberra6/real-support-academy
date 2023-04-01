@@ -11,7 +11,8 @@ export const Register = (props) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [username, setUsername] = useState('');
-    const [backendData, setBackendData] = useState([]);
+    const [backendPositiveData, setBackendPositiveData] = useState([]);
+    const [backendErrorData, setBackendErrorData] = useState([]);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,15 +25,15 @@ export const Register = (props) => {
         username: username
         })
         .then(
-            response => setBackendData(response.data.message)
+            response => setBackendPositiveData(response.data.message)
         )
         .catch((err) =>{
-            setBackendData(err.response.data.message);
+            setBackendErrorData(err.response.data.message);
         })
     }
 
     return(
-        <div className="auth-form-container">
+        <div className="auth-form-container animate">
         <form onSubmit={handleSubmit}>
             <label htmlFor="FirstName">First Name</label>
             <input value={firstName} onChange={(e) => setFirstName(e.target.value)} type="firstname" placeholder="First Name" id="FirstName" name="FirstName"/>
@@ -49,12 +50,14 @@ export const Register = (props) => {
             <button type="submit">Register</button>
         </form>
         { (() => {
-            if (backendData.length > 0) {
-                return (<p>{backendData}</p>)
+            if (backendPositiveData.length > 0) {
+                return (<p className="positive">{backendPositiveData}</p>)
+            } else if (backendErrorData.length > 0) {
+                return (<p className="negative">{backendErrorData}</p>)
             }
         })()}
-        <button onClick={ () => props.onFormSwitch('Login')}>
-            Already have an account? Login here.
+        <button className="login" onClick={ () => props.onFormSwitch('Login')}>
+            Already have an account? Login here
         </button>
         </div>
     )
