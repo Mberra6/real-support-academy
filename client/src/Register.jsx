@@ -1,6 +1,9 @@
 import './register.css';
 import React, { useState } from "react";
 import axios from 'axios'
+
+
+
 export const Register = (props) => {
     const [email, setEmail] = useState('');
     const [password, setPass] = useState('');
@@ -45,6 +48,11 @@ export const Register = (props) => {
             <input value={rPassword} onChange={(e) => setRpass(e.target.value)} type="password" placeholder="Repeat password" id="Password" name="Password"/>
             <button type="submit">Register</button>
         </form>
+        { (() => {
+            if (backendData.length > 0) {
+                return (<p>{backendData}</p>)
+            }
+        })()}
         <button onClick={ () => props.onFormSwitch('Login')}>
             Already have an account? Login here.
         </button>
