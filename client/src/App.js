@@ -1,13 +1,12 @@
 import React from 'react'
-import {RegisterLogin} from './RegisterLogin'
+import Home from './pages/Home';
 
 export default function App() {
   
   return (
     <div className="App">
       {
-        <RegisterLogin/>
-        // This is for RegisterLogin page
+        <Home/>
       }
     </div>
   );

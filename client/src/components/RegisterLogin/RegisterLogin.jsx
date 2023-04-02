@@ -28,9 +28,10 @@ export const RegisterLogin = (props) => {
             setEmail('');
             setUsername('');
             setPass('');
+            nextBtn.current.style.color = "white";
+            initialBtn.current.style.color = "black";
             formData.current.style.marginLeft = "-50%";
-            heading.current.style.marginLeft = "-50%";
-            
+            heading.current.style.marginLeft = "-50%";   
         };
         initialBtn.current.onclick = () => {
             setBackendPositiveData([]);
@@ -41,6 +42,8 @@ export const RegisterLogin = (props) => {
             setUsername('');
             setPass('');
             setRpass('');
+            initialBtn.current.style.color = "white";
+            nextBtn.current.style.color = "black";
             formData.current.style.marginLeft = "0%";
             heading.current.style.marginLeft = "0%";
             formData.current.reset();
