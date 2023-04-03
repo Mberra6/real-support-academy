@@ -7,8 +7,11 @@ const router = express.Router();
 
 
 
-// Register user
-router.post('/register', userControllers.userRegister);
+// Login user
+router.post('/login', userControllers.userLogin);
+
+// Get user's details
+router.get('/account', checkAuth.auth, userControllers.userDetails);
 
 
 

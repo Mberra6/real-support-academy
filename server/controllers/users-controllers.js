@@ -63,6 +63,28 @@ const authenticateUserByEmail = async (email, password) => {
     }
 };
 
+// Function to get user id by email
+const getIdByEmail = async (email) => {
+    try {
+        let [user, _] = await User.getIdByEmail(email);
+        return user[0].user_id;
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+};
+
+// Function to get user id by username
+const getIdByUsername = async (username) => {
+    try {
+        let [user, _] = await User.getIdByUsername(username);
+        return user[0].user_id;
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+};
+
 // Function to register new user
 exports.userRegister = async (req, res, next) => {
     try {
@@ -97,22 +119,24 @@ exports.userRegister = async (req, res, next) => {
         if (!username || !password) return res.status(403).json({ message: 'Missing email/username or password.' });
 
         if (await authenticateUserByEmail(email, password)) {
+            let id = await getIdByEmail(email);
             let accessToken = jwt.sign({
                 data: password
             }, 'access', { expiresIn: 60 * 60 });
 
             req.session.authorization = {
-                accessToken, email
+                accessToken, id
             };
 
             return res.status(201).json({ message: 'User successfully logged in.' });
         } else if (await authenticateUserByUsername(username, password)) {
+            let id = await getIdByUsername(username);
             let accessToken = jwt.sign({
                 data: password
             }, 'access', { expiresIn: 60 * 60 });
 
             req.session.authorization = {
-                accessToken, username
+                accessToken, id
             };
 
             return res.status(201).json({ message: 'User successfully logged in.' });
@@ -125,4 +149,17 @@ exports.userRegister = async (req, res, next) => {
         next(error);
     }
 };
+
+// Function to get user details
+exports.userDetails = async (req, res, next) => {
+    try {
+        let id = req.session.authorization["id"];
+        let [user, _] = await User.findById(id);
+
+        res.status(200).json({user});
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
 
