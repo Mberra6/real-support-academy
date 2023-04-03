@@ -12,7 +12,7 @@ const ChooseUs = () => {
         <Row>
           <Col lg="6" md="6">
             <div className="choose__content">
-              <h2>Why Choose Us?</h2>
+              <h2>About</h2>
               <p>
               RS-academy is committed to providing top-quality online education and training to individuals from socially disadvantaged backgrounds.
                Our target audience includes ethnic minorities, refugees, and people with limited technological backgrounds. 

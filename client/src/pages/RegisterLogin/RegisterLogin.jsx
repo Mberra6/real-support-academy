@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
+import Navbar from "../../components/Navbar/Navbar";
+
 import './registerlogin.css';
 
 
@@ -99,6 +101,7 @@ export const RegisterLogin = (props) => {
 
     return(
         <>
+        <Navbar/> 
         <button className="home_button"></button>
         <div className="auth-form-container">
             <div className="heading">
