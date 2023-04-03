@@ -1,11 +1,6 @@
-require('dotenv').config();
-const session = require('express-session');
 const jwt = require('jsonwebtoken');
 
 
-
-// Create session
-exports.createSession = session({secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true});
 
 // Check if user is authenticated
 exports.auth = (req, res, next) => {
