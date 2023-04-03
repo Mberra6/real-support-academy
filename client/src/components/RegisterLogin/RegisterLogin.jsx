@@ -84,7 +84,7 @@ export const RegisterLogin = (props) => {
         setEmail('');
         setUsername('');
         setPass('');
-        axios.post('http://localhost:3333/login', {
+        axios.post('http://localhost:3333/user/login', {
         email: email,
         username: username,
         password: password
@@ -98,6 +98,8 @@ export const RegisterLogin = (props) => {
     }
 
     return(
+        <>
+        <button className="home_button"></button>
         <div className="auth-form-container">
             <div className="heading">
                 <div ref={heading} className="head login">
@@ -111,7 +113,7 @@ export const RegisterLogin = (props) => {
                 <div className="slider-control">
                     <input type="radio" name="slider" id="login" defaultChecked/>
                     <input type="radio" name="slider" id="register" />
-                    <label htmlFor="login" ref={initialBtn} className="slider login">Login</label>
+                    <label htmlFor="login" ref={initialBtn} className="slider login" style={{color: 'white'}}>Login</label>
                     <label htmlFor="register" ref={nextBtn} className="slider register">Register</label>
                     <div className="slide-tab"></div>
                 </div>
@@ -176,5 +178,6 @@ export const RegisterLogin = (props) => {
             </div>
 
         </div>
+        </>
     )
 }

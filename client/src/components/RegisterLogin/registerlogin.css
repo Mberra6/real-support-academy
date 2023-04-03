@@ -9,6 +9,18 @@ body {
     background-image: url("../../assets/images/RegistrationLogin.png");
 }
 
+.home_button {
+    width: 75px;
+    height: 75px;
+    border: none;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 15px;
+    background-image: url("../../assets/images/home-button.png");
+    background-color: transparent;
+    background-size: cover;
+}
+
 .auth-form-container {
     position: absolute;
     top: 50%;
@@ -148,7 +160,7 @@ input::placeholder {
 .btn {
     position: relative;
     overflow: hidden;
-    height: 50px;
+    height: 65px;
     width: 100%;
     border-radius: 5px;
     background-color: #007bff;
