@@ -89,12 +89,11 @@ const getIdByUsername = async (username) => {
 exports.userRegister = async (req, res, next) => {
     try {
         let { firstName, lastName, email, password, repeatPassword, username } = req.body;
-        if (!firstName || !lastName || !email || !password || !repeatPassword || !username) {
-            res.status(403).json({ message: 'Missing parameters! Please fill out all the fields in the form.' });
-        } else if (await doesExistEmail(email)) {
+        
+        if (await doesExistEmail(email)) {
             res.status(403).json({ message: 'Email already exists! Please choose a different email' });
         } else if (await doesExistUsername(username)) {
-            res.status(403).json({ message: 'Username already exists! Please choose a different username.' });
+            res.status(403).json({ message: 'Username already exists!' });
         } else if (password.length < 8) {
             res.status(403).json({ message: "Password must be at least 8 characters long!" });
         } else if (!checkPasswords(password, repeatPassword)) {
@@ -115,8 +114,6 @@ exports.userRegister = async (req, res, next) => {
  exports.userLogin = async (req, res, next) => {
     try {
         let { email, username, password } = req.body;
-
-        if (!username || !password) return res.status(403).json({ message: 'Missing email/username or password.' });
 
         if (await authenticateUserByEmail(email, password)) {
             let id = await getIdByEmail(email);
@@ -141,7 +138,7 @@ exports.userRegister = async (req, res, next) => {
 
             return res.status(201).json({ message: 'User successfully logged in.' });
         } else {
-            return res.status(403).json({ message: 'Invalid login credentials. Check username/email and password.' });
+            return res.status(403).json({ message: 'Invalid authentication. Check your credentials.' });
         }
 
     } catch (error) {
