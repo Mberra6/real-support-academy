@@ -36,7 +36,7 @@ class Course {
     }
 
     static findByTitle = (title) => {
-        let sql = `SELECT * FROM courses WHERE course_title LIKE %'${title}'%;`;
+        let sql = `SELECT * FROM courses WHERE course_title LIKE '%${title}%';`;
 
         return db.execute(sql);
     }
