@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 
 import styles from './registerlogin.module.css';
 
@@ -81,6 +81,8 @@ export const RegisterLogin = (props) => {
         })
     }
 
+    let navigate = useNavigate();
+
     const handleSubmitLogin = (e) => {
         e.preventDefault();
         setEmail('');
@@ -92,7 +94,7 @@ export const RegisterLogin = (props) => {
         password: password
         })
         .then(
-            response => setBackendPositiveData(response.data.message)
+            response => navigate('/')
         )
         .catch((err) =>{
             setBackendErrorData(err.response.data.message);
@@ -134,9 +136,7 @@ export const RegisterLogin = (props) => {
                                 <input type="submit" value="Login" className={styles.input}/>
                             </div>
                             { (() => {
-                                if (backendPositiveData.length > 0) {
-                                    return (<p className={styles.positive}>{backendPositiveData}</p>)
-                                } else if (backendErrorData.length > 0) {
+                                 if (backendErrorData.length > 0) {
                                     return (<p className={styles.negative}>{backendErrorData}</p>)
                                 }
                             })()}
