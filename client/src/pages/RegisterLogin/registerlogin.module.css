@@ -26,7 +26,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 400px;
+    width: 450px;
     overflow: hidden;
     background-color: white;
     padding: 35px;
@@ -151,13 +151,13 @@
 
 .registerlink {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 15px;
     font-weight: bolder;
 }
 
 .loginlink {
     text-align: center;
-    margin-top: 30px;
+    margin-top: 15px;
     font-weight: bolder;
 }
 
@@ -213,12 +213,10 @@
     font-size: 1rem;
     color: green;
     padding-top: 15px;
-    padding-bottom: 15px;
 }
 
 .negative {
     font-size: 1rem;
     color: #cc0000;
     padding-top: 15px;
-    padding-bottom: 15px;
 }
