@@ -2,10 +2,11 @@
 
 .body {
     background-image: url("../../assets/images/RegistrationLogin.png");
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
-    background-size: contain;
-    height: 1400px;
-    width: 100%;
+    height: 100vh;
+    width: 100vw;
 }
 
 .home_button {
@@ -20,7 +21,7 @@
     background-size: cover;
 }
 
-.auth-form-container {
+.auth_form_container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -43,14 +44,15 @@
     font-size: 40px;
     font-weight: bolder;
     text-align: center;
+    transition: all 0.5s ease;
 }
 
-.slide-container {
+.slide_container {
     width: 100%;
     overflow: hidden;
 }
 
-.slider-control {
+.slider_control {
     position: relative;
     display: flex;
     margin: 25px 0 10px 0;
@@ -68,48 +70,57 @@
     text-align: center;
     z-index: 1;
     cursor: pointer;
+    transition: all 0.5s ease;
 }
 
-.radio {
+.radiologin {
     display: none;
 }
 
-.slide-tab {
+.radioregister {
+    display: none;
+}
+
+.slide_tab {
     position: absolute;
+    left: 0;
     z-index: 0;
     height: 100%;
     width: 50%;
     background: #007bff;
     border-radius: 5px;
+    transition: all 0.5s ease;
 }
 
-#register:checked ~ .slide-tab {
+.radioregister:checked ~ .slide_tab {
     left: 50%;
 }
 
-#register:checked ~ label .register {
+.radioregisterr:checked ~ label .register {
     color: white;
 }
 
-#login:checked ~ label .login {
+.radiologin:checked ~ label .login {
     color: white;
 }
 
-.form-data {
+.form_data {
     display: flex;
     width: 200%;
 }
 
 .login {
     width: 50%;
+    transition: all 0.5s ease;
 }
 
 .register {
     width: 50%;
+    transition: all 0.5s ease;
 }
 
 .fields {
-    height: 50px;
+    height: 55px;
     width: 100%;
     margin: 20px 0px 10px 0px;
 }
@@ -121,12 +132,16 @@
     border-radius: 5px;
     outline: none;
     border: 1px solid black;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bolder;
 
 }
 
-form .fields input:focus {
+.login .fields .input:focus {
+    border-color: #007bff;
+}
+
+.register .fields .input:focus {
     border-color: #007bff;
 }
 
@@ -134,36 +149,42 @@ form .fields input:focus {
     color:black;
 }
 
-.registerlink .loginlink {
+.registerlink {
     text-align: center;
     margin-top: 30px;
     font-weight: bolder;
 }
 
-.registerlink a {
+.loginlink {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: bolder;
+}
+
+.registerlinka {
     color:#007bff;
     font-weight: bolder;
     text-decoration: none;
 }
 
-.loginlink a {
+.loginlinka {
     color:#007bff;
     font-weight: bolder;
     text-decoration: none;
 }
 
-.registerlink a:hover {
+.registerlinka:hover {
     text-decoration: underline;
 }
 
-.loginlink a:hover {
+.loginlinka:hover {
     text-decoration: underline;
 }
 
 .btn {
     position: relative;
     overflow: hidden;
-    height: 65px;
+    height: 60px;
     width: 100%;
     border-radius: 5px;
     background-color: #007bff;
@@ -180,13 +201,12 @@ form .fields input:focus {
     border: none;
 }
 
-.btn-style {
+.btn_style {
     position: absolute;
     left: -100%;
     height: 100%;
     width: 200%;
     border-radius: 5px;
-    transition: all 0.5s ease;
 }
 
 .positive {

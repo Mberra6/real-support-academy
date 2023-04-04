@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 
-import './registerlogin.css';
+import styles from './registerlogin.module.css';
 
 
 
@@ -100,82 +100,82 @@ export const RegisterLogin = (props) => {
     }
 
     return(
-        <body className="body">
+        <body className={styles.body}>
             <Link to="/">
-            <button className="home_button"></button>
+            <button className={styles.home_button}></button>
             </Link>
-            <div className="auth-form-container">
-                <div className="heading">
-                    <div ref={heading} className="head login">
+            <div className={styles.auth_form_container}>
+                <div className={styles.heading}>
+                    <div ref={heading} className={styles.head}>
                         Login
                     </div>
-                    <div className="head register">
+                    <div className={styles.head}>
                         Register
                     </div>
                 </div>
-                <div className="slide-container">
-                    <div className="slider-control">
-                        <input type="radio" name="slider" className="radio" id="login" defaultChecked/>
-                        <input type="radio" name="slider" className="radio" id="register" />
-                        <label htmlFor="login" ref={initialBtn} className="slider login" style={{color: 'white'}}>Login</label>
-                        <label htmlFor="register" ref={nextBtn} className="slider register">Register</label>
-                        <div className="slide-tab"></div>
+                <div className={styles.slide_container}>
+                    <div className={styles.slider_control}>
+                        <input type="radio" name="slider" className={styles.radiologin} id="login" defaultChecked/>
+                        <input type="radio" name="slider" className={styles.radioregister} id="register" />
+                        <label htmlFor="login" ref={initialBtn} className={styles.slider} style={{color: 'white'}}>Login</label>
+                        <label htmlFor="register" ref={nextBtn} className={styles.slider}>Register</label>
+                        <div className={styles.slide_tab}></div>
                     </div>
-                    <div className="form-data">
-                        <form className="login" ref={formData} onSubmit={handleSubmitLogin}>
-                            <div className="fields">
-                                <input value={email} onChange={(e) => {setEmail(e.target.value); setUsername(e.target.value)}} placeholder="Email/Username" id="Email" name="Email" className="input" required/>
+                    <div className={styles.form_data}>
+                        <form className={styles.login} ref={formData} onSubmit={handleSubmitLogin}>
+                            <div className={styles.fields}>
+                                <input value={email} onChange={(e) => {setEmail(e.target.value); setUsername(e.target.value)}} placeholder="Email/Username" id="Email" name="Email" className={styles.input} required/>
                             </div>
-                            <div className="fields">
-                                <input value={password} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="Password" name="Password" className="input" required/>
+                            <div className={styles.fields}>
+                                <input value={password} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="Password" name="Password" className={styles.input} required/>
                             </div>
-                            <div className="fields btn">
-                                <div className="btn-style"></div>
-                                <input type="submit" value="Login" className="input"/>
+                            <div className={styles.btn}>
+                                <div className={styles.btn_style}></div>
+                                <input type="submit" value="Login" className={styles.input}/>
                             </div>
                             { (() => {
                                 if (backendPositiveData.length > 0) {
-                                    return (<p className="positive">{backendPositiveData}</p>)
+                                    return (<p className={styles.positive}>{backendPositiveData}</p>)
                                 } else if (backendErrorData.length > 0) {
-                                    return (<p className="negative">{backendErrorData}</p>)
+                                    return (<p className={styles.negative}>{backendErrorData}</p>)
                                 }
                             })()}
-                            <div className="registerlink">
-                                Not a Member? <a href="#" ref={registerNow}>Register Now</a>
+                            <div className={styles.registerlink}>
+                                Not a Member? <a className={styles.registerlinka} href="#" ref={registerNow}>Register Now</a>
                             </div>
                         </form>
-                        <form className="register" onSubmit={handleSubmitRegister}>
-                            <div className="fields">
-                                <input value={firstName} onChange={(e) => setFirstName(e.target.value)} type="firstname" placeholder="First Name" id="FirstName" name="FirstName" className="input" required/>
+                        <form className={styles.register} onSubmit={handleSubmitRegister}>
+                            <div className={styles.fields}>
+                                <input value={firstName} onChange={(e) => setFirstName(e.target.value)} type="firstname" placeholder="First Name" id="FirstName" name="FirstName" className={styles.input} required/>
                             </div>
-                            <div className="fields">
-                                <input value={lastName} onChange={(e) => setLastName(e.target.value)} type="lastname" placeholder="Last Name" id="LastName" name="LastName" className="input" required/>
+                            <div className={styles.fields}>
+                                <input value={lastName} onChange={(e) => setLastName(e.target.value)} type="lastname" placeholder="Last Name" id="LastName" name="LastName" className={styles.input} required/>
                             </div>
-                            <div className="fields">
-                                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" id="Email" name="Email" className="input" required/>
+                            <div className={styles.fields}>
+                                <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" id="Email" name="Email" className={styles.input} required/>
                             </div>
-                            <div className="fields">
-                                <input value={username} onChange={(e) => setUsername(e.target.value)} type="username" placeholder="Username" id="Username" name="Username" className="input" required/>
+                            <div className={styles.fields}>
+                                <input value={username} onChange={(e) => setUsername(e.target.value)} type="username" placeholder="Username" id="Username" name="Username" className={styles.input} required/>
                             </div>
-                            <div className="fields">
-                                <input value={password} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="Password" name="Password" className="input" required/>
+                            <div className={styles.fields}>
+                                <input value={password} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="Password" name="Password" className={styles.input} required/>
                             </div>
-                            <div className="fields">
-                                <input value={rPassword} onChange={(e) => setRpass(e.target.value)} type="password" placeholder="Confirm password" id="Password" name="Password" className="input" required/>
+                            <div className={styles.fields}>
+                                <input value={rPassword} onChange={(e) => setRpass(e.target.value)} type="password" placeholder="Confirm password" id="Password" name="Password" className={styles.input} required/>
                             </div>
-                            <div className="fields btn">
-                                <div className="btn-style"></div>
-                                <input type="submit" value="Register" className="input"/>
+                            <div className={styles.btn}>
+                                <div className={styles.btn_style}></div>
+                                <input type="submit" value="Register" className={styles.input}/>
                             </div>
                             { (() => {
                                 if (backendPositiveData.length > 0) {
-                                    return (<p className="positive">{backendPositiveData}</p>)
+                                    return (<p className={styles.positive}>{backendPositiveData}</p>)
                                 } else if (backendErrorData.length > 0) {
-                                    return (<p className="negative">{backendErrorData}</p>)
+                                    return (<p className={styles.negative}>{backendErrorData}</p>)
                                 }
                             })()}
-                            <div className="loginlink">
-                                Already have an account? <a href="#" ref={loginNow}>Login Now</a>
+                            <div className={styles.loginlink}>
+                                Already have an account? <a className={styles.loginlinka} href="#" ref={loginNow}>Login Now</a>
                             </div>
                         </form>
                     </div>
