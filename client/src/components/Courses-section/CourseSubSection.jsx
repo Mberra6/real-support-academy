@@ -58,9 +58,21 @@ const CourseSubSection = () => {
                   set of practise quizzes and a final exam to test your knowledge.
                 </p>
                 <div className="search">
-                  <input type="text" placeholder="Search for courses" />
-                  <button className="btn">Search</button>
-              </div>
+                  <text>Difficulties:</text>
+                  <select>
+                    <option value="All">All</option>
+                    <option value="Eazy">Eazy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                  </select>
+                  <text>Time:</text>
+                  <select>
+                    <option value="All">All</option>
+                    <option value="4weeks">Less than 4 weeks</option>
+                    <option value="8weeks">Less than 8 weeks</option>
+                    <option value="8weeksmore">more than 8 weeks</option>
+                  </select>
+                </div>
               </div>
 
               <div className="w-50 text-end">
