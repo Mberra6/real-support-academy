@@ -1,7 +1,7 @@
 
 
 .body {
-    background-image: url("../../assets/images/RegistrationLogin.png");
+    background-image: url("/Users/vivian/Desktop/real-support-academy/client/src/assets/profileHeroImg1.jpg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -16,7 +16,7 @@
     cursor: pointer;
     margin-top: 15px;
     margin-left: 15px;
-    background-image: url("../../assets/images/home-button.png");
+    background-image: url("/Users/vivian/Desktop/real-support-academy/client/src/assets/home-button.png");
     background-color: transparent;
     background-size: cover;
 }
