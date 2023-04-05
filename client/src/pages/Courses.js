@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero/Hero';
-import CourseHeroImg from "/Users/vivian/Desktop/real-support-academy/client/src/assets/coursesHeroImg.jpg";
+import CourseHeroImg from "../assets/coursesHeroImg.jpg";
 import Footer from '../components/Footer/Footer';
 import CourseSubSection from '../components/Courses-section/CourseSubSection';
 

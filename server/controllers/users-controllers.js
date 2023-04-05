@@ -125,7 +125,7 @@ exports.userRegister = async (req, res, next) => {
                 accessToken, id
             };
 
-            return res.status(201).json({ message: 'User successfully logged in.' });
+            return res.status(201).json({accessToken, id});
         } else if (await authenticateUserByUsername(username, password)) {
             let id = await getIdByUsername(username);
             let accessToken = jwt.sign({
@@ -136,7 +136,7 @@ exports.userRegister = async (req, res, next) => {
                 accessToken, id
             };
 
-            return res.status(201).json({ message: 'User successfully logged in.' });
+            return res.status(201).json({accessToken, id});
         } else {
             return res.status(403).json({ message: 'Invalid authentication. Check your credentials.' });
         }
@@ -150,7 +150,7 @@ exports.userRegister = async (req, res, next) => {
 // Function to get user details
 exports.userDetails = async (req, res, next) => {
     try {
-        let id = req.session.authorization["id"];
+        let {id} = req.body;
         let [user, _] = await User.findById(id);
 
         res.status(200).json({user});

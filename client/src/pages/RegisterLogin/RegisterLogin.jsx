@@ -94,7 +94,14 @@ export const RegisterLogin = (props) => {
         password: password
         })
         .then(
-            response => navigate('/')
+            response => {
+                const token = response.data.accessToken;
+                const userId = response.data.id;
+                localStorage.setItem("token", token);
+                localStorage.setItem("userId", userId);
+                console.log(localStorage.getItem("userId"));
+                navigate('/');
+            }
         )
         .catch((err) =>{
             setBackendErrorData(err.response.data.message);

@@ -1,6 +1,6 @@
 import React from 'react';
 import "../AboutSubSection/aboutUs.css";
-import Logo from "/Users/vivian/Desktop/real-support-academy/client/src/assets/logo.png";
+import Logo from "../../assets/logo.png";
 
 const HomeSub = () => {
   return (

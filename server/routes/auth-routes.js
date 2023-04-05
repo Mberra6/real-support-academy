@@ -11,7 +11,7 @@ const router = express.Router();
 router.post('/login', userControllers.userLogin);
 
 // Get user's details
-router.get('/account', checkAuth.auth, userControllers.userDetails);
+router.post('/account', userControllers.userDetails);
 
 
 

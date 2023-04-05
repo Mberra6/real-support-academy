@@ -1,7 +1,9 @@
 import React from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Navbar2 from '../components/Navbar/Navbar2';
 import Hero from '../components/Hero/Hero';
-import ProfileHeroImg from '/Users/vivian/Desktop/real-support-academy/client/src/assets/profileHeroImg1.jpg';
+import ProfileHeroImg from '../assets/profileHeroImg1.jpg';
 import{Link} from'react-router-dom';
 import Profile from '../components/UserProfile/Profile';
 import Footer from '../components/Footer/Footer';
@@ -10,6 +12,32 @@ import Footer from '../components/Footer/Footer';
 
 
 const Account = () => {
+  const [backendData, setBackendData] = useState(null);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
+  const [year, setYear] = useState('');
+
+  useEffect(() => {
+    let userId = localStorage.getItem("userId");
+    axios.post('http://localhost:3333/user/account', {
+      id: userId
+    })
+    .then(
+      response => {
+        setFirstName(response.data.user[0].first_name);
+        setLastName(response.data.user[0].last_name);
+        setEmail(response.data.user[0].email);
+        setUsername(response.data.user[0].username);
+        setYear(response.data.user[0].created_at.slice(0, 10));
+      }
+    )
+    .catch((err) => {
+      console.log(err.response.data);
+      setBackendData(err.response.data);
+    })
+  }, []);
   return (
     <>
     <Navbar2/>
@@ -23,11 +51,11 @@ const Account = () => {
       searchBtnClass = "hide"
     />
     <Profile
-    username = "vivian230"
+    username = {username}
     profileImg = "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
-    fullname="Vivian Efiannayi"
-    email="efia@gmail.com"
-    memberSince = "04-04-2020"
+    fullname= {firstName + " " + lastName}
+    email= {email}
+    memberSince = {year}
     />
     <Footer/>
     </>

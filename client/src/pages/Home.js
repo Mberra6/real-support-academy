@@ -1,7 +1,7 @@
 import React from 'react';
 import Navbar from '../components/Navbar/Navbar';
 import Hero from '../components/Hero/Hero';
-import HomeImg from "/Users/vivian/Desktop/real-support-academy/client/src/assets/homeHeroImg.jpg";
+import HomeImg from "../assets/homeHeroImg.jpg";
 import Footer from '../components/Footer/Footer';
 import HomeSub from '../components/HomeSubSection/HomeSub';
 

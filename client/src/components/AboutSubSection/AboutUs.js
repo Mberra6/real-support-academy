@@ -1,6 +1,6 @@
 import React from 'react';
 import "./aboutUs.css";
-import Lightbulb from "/Users/vivian/Desktop/real-support-academy/client/src/assets/lightbulb.png";
+import Lightbulb from "../../assets/lightbulb.png";
 
 const AboutUs = () => {
   return (

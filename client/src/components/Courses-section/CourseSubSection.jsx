@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "reactstrap";
 // images of the three courses
-import courseImg1 from "/Users/vivian/Desktop/real-support-academy/client/src/assets/english-course.png";
-import courseImg2 from "/Users/vivian/Desktop/real-support-academy/client/src/assets/cloud-storage-course.png";
-import courseImg3 from "/Users/vivian/Desktop/real-support-academy/client/src/assets/wifi-course.png";
+import courseImg1 from "../../assets/english-course.png";
+import courseImg2 from "../../assets/cloud-storage-course.png";
+import courseImg3 from "../../assets/wifi-course.png";
 // import styling
 import "./courses.css";
 // import function CourseCard
