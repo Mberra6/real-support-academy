@@ -2,6 +2,7 @@ import { Component } from 'react';
 import "./navbar.css";
 import { MenuItems } from './MenuItems';
 import { Link } from 'react-router-dom';
+import LoginBtn from '../LoginButton/LoginBtn';
 
 
 class Navbar extends Component {
@@ -27,7 +28,7 @@ class Navbar extends Component {
         {/* retrieve index number menu items using map */}
         {MenuItems.map((item, index) => {
           return(
-            // list tage needs to target index number
+            // list tag needs to target index number
             <li key={index}>
               {/* make links dynamic to = {} */}
               <Link className={item.cName} to={item.url}>
@@ -37,9 +38,7 @@ class Navbar extends Component {
             </li>
           )
         })}
-        <button>
-          Login/Register
-        </button>
+        <LoginBtn/>
       </ul>
 
     </nav>
