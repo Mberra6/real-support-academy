@@ -44,7 +44,7 @@ const coursesData = [
 const CourseSubSection = () => {
   return (
     <section>
-     {/*  CSS STYLING reference - container,row,col className*/}
+      {/*  CSS STYLING reference - container,row,col className*/}
       <Container>
         {/* Roq aligns courses into  */}
         <Row>
@@ -53,14 +53,29 @@ const CourseSubSection = () => {
               <div className="course__top__left w-50">
                 <h2>Courses</h2>
                 <p>
-                  Explore the range of courses available, where you can gain essential digital skills. 
-                  Courses vary in difficulty level; easy, medium and hard, and each course comes with a 
+                  Explore the range of courses available, where you can gain essential digital skills.
+                  Courses vary in difficulty level; easy, medium and hard, and each course comes with a
                   set of practise quizzes and a final exam to test your knowledge.
                 </p>
-                <div className="search">
-                  <input type="text" placeholder="Search for courses" />
-                  <button className="btn">Search</button>
-              </div>
+                <div class="search">
+                  <label for="difficulty-select">Filter:</label>
+                  <select id="difficulty-select" name="difficulty">
+                    <option value="" disabled selected>Select Difficulty</option>
+                    <option value="All">All</option>
+                    <option value="Easy">Easy</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Hard">Hard</option>
+                  </select>
+
+              
+                  <select id="time-select" name="time">
+                    <option value="" disabled selected>Select Time</option>
+                    <option value="All">All</option>
+                    <option value="4weeks">Less than 4 weeks</option>
+                    <option value="8weeks">Less than 8 weeks</option>
+                    <option value="8weeksmore">More than 8 weeks</option>
+                  </select>
+                </div>
               </div>
 
               <div className="w-50 text-end">
