@@ -1,14 +1,11 @@
 require('dotenv').config();
 const express = require('express');
-const session = require('express-session');
 const cors = require('cors');
 
 const genRoutes = require('./routes/general-routes');
 const authRoutes = require('./routes/auth-routes');
 
 const app = express();
-
-app.use("/user",session({secret:process.env.SESSION_SECRET,resave: true, saveUninitialized: true}));
 
 app.use(cors({credentials: true, origin: process.env.ORIGIN_URL}));
 

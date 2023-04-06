@@ -7,6 +7,7 @@ import styles from './registerlogin.module.css';
 
 
 export const RegisterLogin = (props) => {
+    const [user, setUser] = useState(null);
     const [email, setEmail] = useState('');
     const [password, setPass] = useState('');
     const [rPassword, setRpass] = useState('');
@@ -83,23 +84,20 @@ export const RegisterLogin = (props) => {
 
     let navigate = useNavigate();
 
-    const handleSubmitLogin = (e) => {
+    const handleSubmitLogin = async (e) => {
         e.preventDefault();
         setEmail('');
         setUsername('');
         setPass('');
-        axios.post('http://localhost:3333/user/login', {
+        await axios.post('http://localhost:3333/login', {
         email: email,
         username: username,
         password: password
         })
         .then(
             response => {
-                const token = response.data.accessToken;
-                const userId = response.data.id;
-                localStorage.setItem("token", token);
-                localStorage.setItem("userId", userId);
-                console.log(localStorage.getItem("userId"));
+                localStorage.setItem('userId', response.data.id);
+                localStorage.setItem('token', response.data.accessToken);
                 navigate('/');
             }
         )

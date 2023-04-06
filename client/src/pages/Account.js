@@ -20,10 +20,12 @@ const Account = () => {
   const [username, setUsername] = useState('');
   const [year, setYear] = useState('');
 
+
   useEffect(() => {
-    let userId = localStorage.getItem("userId");
-    axios.post('http://localhost:3333/user/account', {
-      id: userId
+    const userId = localStorage.getItem('userId');
+    const token = localStorage.getItem('token');
+    axios.get('http://localhost:3333/user/account/' + userId, {
+      headers: { authorization: "Bearer " + token }
     })
     .then(
       response => {
