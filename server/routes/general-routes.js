@@ -11,6 +11,9 @@ const router = express.Router();
 // Register user
 router.post('/register', userControllers.userRegister);
 
+// Login user
+router.post('/login', userControllers.userLogin);
+
 // Get all courses
 router.get('/allcourses', courseControllers.getAllCourses);
 

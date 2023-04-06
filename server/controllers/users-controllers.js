@@ -1,3 +1,4 @@
+require('dotenv').config();
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 
@@ -63,6 +64,11 @@ const authenticateUserByEmail = async (email, password) => {
     }
 };
 
+// function to create json web token
+const generateAccessToken = (user) => {
+    return jwt.sign({ id: user.id, username: user.username}, process.env.SESSION_SECRET, { expiresIn: "3600s" });
+};
+
 // Function to get user id by email
 const getIdByEmail = async (email) => {
     try {
@@ -116,27 +122,21 @@ exports.userRegister = async (req, res, next) => {
         let { email, username, password } = req.body;
 
         if (await authenticateUserByEmail(email, password)) {
-            let id = await getIdByEmail(email);
-            let accessToken = jwt.sign({
-                data: password
-            }, 'access', { expiresIn: 60 * 60 });
+            let [user, _] = await User.findByEmail(email);
+            const accessToken = generateAccessToken(user[0]);
 
-            req.session.authorization = {
-                accessToken, id
-            };
-
-            return res.status(201).json({accessToken, id});
+            return res.status(201).json({
+                id: user[0].user_id,
+                accessToken
+            });
         } else if (await authenticateUserByUsername(username, password)) {
-            let id = await getIdByUsername(username);
-            let accessToken = jwt.sign({
-                data: password
-            }, 'access', { expiresIn: 60 * 60 });
+            let [user, _] = await User.findByUsername(username);
+            const accessToken = generateAccessToken(user[0]);
 
-            req.session.authorization = {
-                accessToken, id
-            };
-
-            return res.status(201).json({accessToken, id});
+            return res.status(201).json({
+                id: user[0].user_id,
+                accessToken
+            });
         } else {
             return res.status(403).json({ message: 'Invalid authentication. Check your credentials.' });
         }
@@ -150,7 +150,7 @@ exports.userRegister = async (req, res, next) => {
 // Function to get user details
 exports.userDetails = async (req, res, next) => {
     try {
-        let {id} = req.body;
+        let id = req.params.userId;
         let [user, _] = await User.findById(id);
 
         res.status(200).json({user});
