@@ -1,74 +1,204 @@
 .profile-container{
-    margin: 4rem 6rem;
+    margin: 4rem 2rem;
     color: black;
+    width: auto;
+    /* height: 70vh; */
+    position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
 
-.personalInfoSection {
-    border: 1px solid grey;
-    text-align: left;
-    padding-left: 2rem;
-    width: 30%;
-    
 }
-.personalInfoSection h1{
-    margin-left: 4rem;
-    padding-bottom: 1rem;
-}
-
-.personalInfoSection h3{
+ 
+.profile-container h3{
     font-size: 1.5rem;
 }
+.profile-container button{
+    cursor: pointer;
+}
+.profile-container button:hover{
+    color: rgb(241, 119, 48);
+}
 
-.personalInfoSection p{
+
+.box1 {
+    border: 1px solid grey;
+    margin-right: 1rem;
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+.userIconArea {
+    margin-right: 2rem;
+}
+
+
+.userTextArea{
+    margin-top: 8rem;
+    margin-left: 2rem;
+}
+
+.box1 h1{
+    padding-top: 1rem;
+    text-align: center;
+}
+.box1 img{
+    height: auto;
+    width: 25rem;
+}
+
+
+.box1 p{
     font-size: 1.2rem;
-    padding-bottom: 0.5rem;
+    padding-bottom: 1.5rem;
+    font-style: italic;
 }
 
-.personalInfoSection img{
-    width: 75%;
-}
-
-.personalInfoSection button{
+.box1 button{
     padding: 0.5rem ;
-    font-size: 1rem;
+    color: white;
+    background-color: rgb(169, 192, 223);
+    font-size: 1.2rem;
+    font-weight: 500;
     margin-bottom: 2rem;
     border-radius: 0.3rem;
     border: 1px solid black;
 
 }
 
-/* 
-.certificateSection{
-    padding-top: 2rem;
+
+
+.box2{
+    border: 1px solid grey;
+    margin-left: 1rem;
+    text-align: center;
+    padding: 1rem 1rem;
+    width: 50%;
+    height: 70vh;
+    /* display: flex; */
+    /* flex-direction: row; */
+}
+
+.box3 {
+    margin-top: 3rem;
+    margin-right: 1rem;
+    width: 50%;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+}
+
+.box3 p{
+    font-size: 1.1rem;
+    padding-top: 0.8rem;
+}
+
+.quizzes{
+    border: 1px solid grey;
+    position: absolute;
+    margin-left: 3rem;
+    width: 20rem;    
+}
+
+.exams{
+    border: 1px solid grey;
+    margin-left: 27rem;
+    position: absolute;
+    width: 20rem;    
+}
+
+.box2 img{
+    width: auto;
+    height: 18rem;
     margin-top: 2rem;
-    margin-left: 30rem;
+    margin-right: 0.5rem;
+    border: 2px solid black;
 
-} */
+    
+}
 
-@media screen and (max-width: 1000px) {
+.box3 button{
+    padding: 0.3rem ;
+    color: white;
+    background-color: rgb(169, 192, 223);
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    border-radius: 0.3rem;
+    border: 1px solid black;
+} 
+
+@media screen and (max-width: 900px) {
     .profile-container{
-        margin: 2rem 2rem;
+        margin: 1rem 1rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
     }
 
-    .personalInfoSection {
+    .box1 {
         text-align: left;
-        padding-left: 2rem;
-        width: 50%;
+        padding: 2rem 1rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+        width: 100%;
     }
 
-    .personalInfoSection h1{
+    .box2 {
+        padding: 1rem 1rem;
+        margin-top: 1rem;
+        margin-left:0 !important;
+        width: 100%;
+        height: 70vh;
+    }
+
+    .box1 h1{
         margin-left: 1rem;
         padding-bottom: 1rem;
     }
     
-    .personalInfoSection button{
+    .box1 button{
         margin-left: 1rem;
     }
-    .personalInfoSectionimg{
+    .box1 img{
+        height: auto;
+        width: 20rem;
+    }
+    .profile-container img{
+        height: auto;
+        width: 20rem;
+    }
+    .userIconArea {
+        margin-right: 1rem;
+    }
+    .userTextArea{
+        margin-top: 5rem;
+        margin-bottom: 5rem;
         margin-left: 1rem;
     }
 
+    .box3{
+        margin-top: 2rem;
+        position: relative !important;
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .quizzes{
+        width: 20rem;
+        flex-shrink: 3 !important;
+        position: absolute !important;
+    }
+    
+    .exams{
+        width: 20rem;  
+        position: absolute !important;  
+    }
+    
+    
 }

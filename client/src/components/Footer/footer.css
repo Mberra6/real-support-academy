@@ -19,7 +19,7 @@
 }
 
 .top i:hover{
-    color: rgb(42, 95, 243);
+    color: rgb(241, 119, 48);
 }
 
 .bottom{
@@ -38,6 +38,12 @@
 .bottom h4{
     font-size: 1.3rem;
     padding: 1rem 0 0.8rem 0;
+}
+
+.bottom a:hover{
+    color: rgb(241, 119, 48);
+    transition: 2ms ease-in-out;
+
 }
 
 .bottom a{
