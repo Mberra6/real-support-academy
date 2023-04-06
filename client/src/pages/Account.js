@@ -7,7 +7,7 @@ import ProfileHeroImg from '../assets/profileHeroImg1.jpg';
 import{Link} from'react-router-dom';
 import Profile from '../components/UserProfile/Profile';
 import Footer from '../components/Footer/Footer';
-import UserIcon from '/Users/vivian/Desktop/real-support-academy/client/src/assets/userIcon.png';
+import UserIcon from '../assets/userIcon.png';
 
 // import MetaData from ''
 
