@@ -51,7 +51,7 @@ const CourseList = () => {
     return (
         <div>
             <input type="text" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} />
-            <button onClick={handleSearchClick}>Search</button>
+            <button onClick={() =>handleSearchClick}>Search</button>
             {backendData ? backendData : <p>{backendErrorData}</p>}
         </div>
     );
