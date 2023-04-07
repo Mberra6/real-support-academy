@@ -15,11 +15,21 @@ const CourseCard = (props) => {
         <h6 className="course__title mb-4">{title}</h6>
 
 {/* https://blade-ui-kit.com/ -> link for the componenets 'ri'*/}
+      <p className="lesson">
+        <span className="material-symbols-outlined book">menu_book
+           </span>
+            {lesson} Lessons
+      </p>
+      <span className="material-symbols-outlined Difficulty">monitoring
+         </span> <p className="difficulty">
+             <i></i> {difficulty}
+           </p>
+
 
         <div className="space">
 
-          <p className="enroll center-button">
-            <a href="#"> Enroll Now</a>
+          <p className="enroll">
+             <a href="#"> Enroll Now</a>
           </p>
  
         </div>
