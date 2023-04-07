@@ -18,12 +18,8 @@ export const MenuItems = [
         title : "Contact Us",
         url : "/contact",
         cName : "nav-links"
-    }, 
-    {
-        title : "Account",
-        url : "/account",
-        cName : "nav-links"
-    }, 
+    }
+    
     // {
     //     title : "Register/Login",
     //     url : "/register-login",

@@ -5,10 +5,12 @@ const userControllers = require('../controllers/users-controllers');
 
 const router = express.Router();
 
+// Check if user authorized
+router.get('/auth', checkAuth.auth);
 
 
 // Get user's details
-router.get('/account/:userId', checkAuth.auth, userControllers.userDetails);
+router.get('/account/:userId', userControllers.userDetails);
 
 
 

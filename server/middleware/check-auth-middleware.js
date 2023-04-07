@@ -15,6 +15,7 @@ exports.auth = (req, res, next) => {
             }
 
             req.user = user;
+            res.status(200).json("You are authenticated");
             next();
         });
     } else {

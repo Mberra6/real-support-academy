@@ -7,7 +7,6 @@ import styles from './registerlogin.module.css';
 
 
 export const RegisterLogin = (props) => {
-    const [user, setUser] = useState(null);
     const [email, setEmail] = useState('');
     const [password, setPass] = useState('');
     const [rPassword, setRpass] = useState('');
@@ -98,7 +97,7 @@ export const RegisterLogin = (props) => {
             response => {
                 localStorage.setItem('userId', response.data.id);
                 localStorage.setItem('token', response.data.accessToken);
-                navigate('/');
+                navigate('/user/home');
             }
         )
         .catch((err) =>{

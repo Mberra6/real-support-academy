@@ -1,6 +1,6 @@
 import React from 'react';
 import "./profile.css"
-import Certificate from "/Users/vivian/Desktop/real-support-academy/client/src/assets/certificate.png";
+import Certificate from '../../assets/certificate.png';
 // import ProfileIcon from './assets/profileIcon.png';
 
 const Profile = (props) => {
