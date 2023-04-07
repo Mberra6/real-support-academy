@@ -4,6 +4,10 @@ import { Container, Row, Col } from "reactstrap";
 import courseImg1 from "../../assets/english-course.png";
 import courseImg2 from "../../assets/cloud-storage-course.png";
 import courseImg3 from "../../assets/wifi-course.png";
+import courseImg4 from "../../assets/maths.png";
+import courseImg5 from "../../assets/story.webp";
+import courseImg6 from "../../assets/science.png";
+
 // import styling
 import "./courses.css";
 // import function CourseCard
@@ -25,7 +29,7 @@ const coursesData = [
     id: "02",
     title: "Managing Cloud Storage",
     lesson: 12,
-    difficulty: "Hard",
+    difficulty : "Hard!!!",
     rating: 6.7,
     imgUrl: courseImg2,
   },
@@ -34,10 +38,39 @@ const coursesData = [
     id: "03",
     title: "Wifi Connections",
     lesson: 12,
-    difficulty: "Easy",
+    difficulty: "Easy :)",
     rating: 11.3,
     imgUrl: courseImg3,
   },
+
+  {
+    id: "01",
+    title: "Maths",
+    lesson: 12,
+    difficulty: "Medium",
+    rating: 7.8,
+    imgUrl: courseImg4,
+  },
+
+  {
+    id: "02",
+    title: "Storytelling Workshop",
+    lesson: 12,
+    difficulty: "Hard!!!",
+    rating: 6.7,
+    imgUrl: courseImg5,
+  },
+
+  {
+    id: "03",
+    title: "Science",
+    lesson: 12,
+    difficulty: "Easy :)",
+    rating: 11.3,
+    imgUrl: courseImg6,
+  },
+
+
 ];
 
 
@@ -45,17 +78,18 @@ const CourseSubSection = () => {
   return (
     <section>
       {/*  CSS STYLING reference - container,row,col className*/}
-      <Container>
+      <Container className="container">
         {/* Roq aligns courses into  */}
         <Row>
           <Col lg="12" className="mb-5">
             <div className="course__top d-flex justify-content-between align-items-center">
               <div className="course__top__left w-50">
-                <h2>Courses</h2>
-                <p>
-                  Explore the range of courses available, where you can gain essential digital skills.
+                <h1 className="courses">Courses</h1>
+                <p className="para">
+                  Explore the range of courses we have available, where you can gain essential digital skills 
+                  opening many employment opportunities for their future.
                   Courses vary in difficulty level; easy, medium and hard, and each course comes with a
-                  set of practise quizzes and a final exam to test your knowledge.
+                  set of practice quizzes and a final exam to test your knowledge. 
                 </p>
                 <div class="search">
                   <label for="difficulty-select">Filter:</label>
@@ -67,7 +101,7 @@ const CourseSubSection = () => {
                     <option value="Hard">Hard</option>
                   </select>
 
-
+              
                   <select id="time-select" name="time">
                     <option value="" disabled selected>Select Time</option>
                     <option value="All">All</option>
@@ -83,25 +117,14 @@ const CourseSubSection = () => {
               </div>
             </div>
           </Col>
+          <div className="flexcontainer">
+          {coursesData.map((item) => (
+            <Col className="flexitem" lg="4" md="6" sm="6">
+              <CourseCard key={item.id} item={item} />
+            </Col>
+          ))}
+          </div>
         </Row>
-        <div className="course__container">
-          <Row>
-            {coursesData.map((item, index) => {
-              if (index % 3 === 0) {
-                return (
-                  <Row className="course-row" key={item.id}>
-                    {coursesData.slice(index, index + 3).map((course) => (
-                      <Col lg="4" md="6" sm="6">
-                        <CourseCard key={course.id} item={course} />
-                      </Col>
-                    ))}
-                  </Row>
-                );
-              }
-              return null;
-            })}
-          </Row>
-        </div>
       </Container>
     </section>
   );

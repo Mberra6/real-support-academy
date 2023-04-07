@@ -15,22 +15,25 @@ const CourseCard = (props) => {
         <h6 className="course__title mb-4">{title}</h6>
 
 {/* https://blade-ui-kit.com/ -> link for the componenets 'ri'*/}
-        <div className=" d-flex justify-content-between align-items-center">
-          <p className="lesson d-flex align-items-center gap-1">
-            <i class="ri-book-open-line"></i> {lesson} Lessons
+        <div className="space">
+          <p className="lesson">
+        <span className="material-symbols-outlined book">menu_book
+          </span> 
+          {lesson} Lessons
           </p>
-
-          <p className="students d-flex align-items-center gap-1">
-            <i class="ri-dashboard-3-line"></i> {difficulty}
+        <span className="material-symbols-outlined Difficulty">monitoring
+          </span> <p className="difficulty">
+            <i></i> {difficulty}
           </p>
         </div>
 
-        <div className=" d-flex justify-content-between align-items-center">
-          <p className="rating d-flex align-items-center gap-1">
-            <i class="ri-star-fill"></i> {rating}K
+        <div className="space">
+          <p className="rating">
+          <span className="material-symbols-outlined star">star</span>
+           {rating}K 
           </p>
 
-          <p className="enroll d-flex align-items-center gap-1">
+          <p className="enroll">
             <a href="#"> Enroll Now</a>
           </p>
         </div>
