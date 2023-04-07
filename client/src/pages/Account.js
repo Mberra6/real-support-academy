@@ -1,25 +1,24 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import { Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
-import Navbar2 from '../components/Navbar/Navbar2';
+import Navbar2 from '../components/Navbar-loggedin/Navbar-loggedin';
 import Hero from '../components/Hero/Hero';
 import ProfileHeroImg from '../assets/profileHeroImg1.jpg';
-import{Link} from'react-router-dom';
 import Profile from '../components/UserProfile/Profile';
 import Footer from '../components/Footer/Footer';
-import UserIcon from '../assets/userIcon.png';
 
 // import MetaData from ''
 
 
 const Account = () => {
-  const [backendData, setBackendData] = useState(null);
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [username, setUsername] = useState('');
   const [year, setYear] = useState('');
 
+  const navigate = useNavigate();
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
@@ -38,9 +37,11 @@ const Account = () => {
     )
     .catch((err) => {
       console.log(err.response.data);
-      setBackendData(err.response.data);
+
+      navigate('/');
     })
   }, []);
+  
   return (
     <>
     <Navbar2/>
@@ -55,7 +56,7 @@ const Account = () => {
     />
     <Profile
     username = {username}
-    profileImg = {UserIcon}
+    profileImg = "https://cdn-icons-png.flaticon.com/512/3177/3177440.png"
     fullname= {firstName + " " + lastName}
     email= {email}
     memberSince = {year}
