@@ -15,23 +15,8 @@ const CourseCard = (props) => {
         <h6 className="course__title mb-4">{title}</h6>
 
 {/* https://blade-ui-kit.com/ -> link for the componenets 'ri'*/}
-        <div className="space">
-          <p className="lesson">
-        <span className="material-symbols-outlined book">menu_book
-          </span> 
-          {lesson} Lessons
-          </p>
-        <span className="material-symbols-outlined Difficulty">monitoring
-          </span> <p className="difficulty">
-            <i></i> {difficulty}
-          </p>
-        </div>
 
         <div className="space">
-          <p className="rating">
-          <span className="material-symbols-outlined star">star</span>
-           {rating}K 
-          </p>
 
           <p className="enroll">
             <a href="#"> Enroll Now</a>

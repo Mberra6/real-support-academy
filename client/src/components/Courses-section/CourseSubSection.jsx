@@ -112,9 +112,7 @@ const CourseSubSection = () => {
                 </div>
               </div>
 
-              <div className="w-50 text-end">
-                <button className="btn">View All</button>
-              </div>
+
             </div>
           </Col>
           <div className="flexcontainer">
