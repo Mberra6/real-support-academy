@@ -17,10 +17,6 @@ const CourseCard = (props) => {
 {/* https://blade-ui-kit.com/ -> link for the componenets 'ri'*/}
 
         <div className="space">
-          <p className="rating">
-          <span className="material-symbols-outlined star">star</span>
-           {rating}K 
-          </p>
 
           <p className="enroll">
             <a href="#"> Enroll Now</a>
