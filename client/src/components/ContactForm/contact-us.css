@@ -31,7 +31,14 @@
 .form-container button{
     height: 3rem;
     font-size: 1.5rem;
+    font-weight: 500;
     margin-bottom: 2rem;
     border-radius: 0.3rem;
     border: 1px solid black;
+    cursor: pointer;
+}
+
+.form-container button:hover{
+    background-color:rgb(241, 119, 48);
+    color: white;
 }
