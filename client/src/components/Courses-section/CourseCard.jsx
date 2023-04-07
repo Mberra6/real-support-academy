@@ -27,7 +27,6 @@ const CourseCard = (props) => {
 
 
         <div className="space">
-
           <p className="enroll">
              <a href="#"> Enroll Now</a>
           </p>
