@@ -54,16 +54,23 @@
   padding-inline: 20%;
 }
 
-.enroll a:hover{
- border-radius: 5px;
- background-color: rgb(25, 180, 223);
+.center-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .enroll a {
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  color: blue;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: blue;
+    display: inline-block;
+}
+
+.enroll a:hover {
+    border-radius: 5px;
+    background-color: rgb(25, 180, 223);
 }
 
 .lesson,

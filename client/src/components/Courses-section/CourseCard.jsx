@@ -18,9 +18,10 @@ const CourseCard = (props) => {
 
         <div className="space">
 
-          <p className="enroll">
+          <p className="enroll center-button">
             <a href="#"> Enroll Now</a>
           </p>
+ 
         </div>
       </div>
     </div>

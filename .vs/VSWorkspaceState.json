@@ -1,6 +1,13 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\client",
+    "\\client\\src",
+    "\\client\\src\\components",
+    "\\client\\src\\components\\Courses-section",
+    "\\client\\src\\components\\ExploreCourses",
+    "\\client\\src\\pages"
   ],
+  "SelectedNode": "\\client\\src\\components\\Courses-section\\CourseSubSection.jsx",
   "PreviewInSolutionExplorer": false
 }
