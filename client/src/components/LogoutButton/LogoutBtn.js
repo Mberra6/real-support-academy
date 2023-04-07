@@ -4,9 +4,14 @@ import "../Hero/hero.css";
 
 const LogoutBtn = (props) => {
     const navigate = useNavigate();
+
+    const handleLogout = () => {
+        window.localStorage.clear();
+        navigate('/');
+    }
     return(
         <>
-            <button className="navbarBtn" onClick={() => navigate("/")}>Logout</button>
+            <button className="navbarBtn" onClick={handleLogout}>Logout</button>
         </>
 
     )

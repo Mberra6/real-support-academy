@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
 import Navbar2 from '../components/Navbar-loggedin/Navbar-loggedin';
 import Hero from '../components/Hero/Hero';
@@ -22,10 +22,7 @@ const Account = () => {
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
-    const token = localStorage.getItem('token');
-    axios.get('http://localhost:3333/user/account/' + userId, {
-      headers: { authorization: "Bearer " + token }
-    })
+    axios.get('http://localhost:3333/user/account/' + userId)
     .then(
       response => {
         setFirstName(response.data.user[0].first_name);
@@ -37,7 +34,6 @@ const Account = () => {
     )
     .catch((err) => {
       console.log(err.response.data);
-
       navigate('/');
     })
   }, []);
