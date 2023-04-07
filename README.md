@@ -1,1 +1,1 @@
-Group 45 project for Software Engineering. 
+Group 45 project for Software Engineering

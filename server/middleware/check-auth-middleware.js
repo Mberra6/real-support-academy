@@ -1,25 +1,24 @@
 require('dotenv').config();
-const session = require('express-session');
 const jwt = require('jsonwebtoken');
 
 
 
-// Create session
-exports.createSession = session({secret: process.env.SESSION_SECRET, resave: true, saveUninitialized: true});
-
 // Check if user is authenticated
 exports.auth = (req, res, next) => {
-    if (req.session.authorization) {
-        token = req.session.authorization["accessToken"];
-        try {
-            const verified = jwt.verify(token, 'access');
-            req.user = verified;
-            next();
-        } catch (error) {
-            return res.status(400).json("User not authenticated.");
-        }
+    const authHeader = req.headers.authorization;
+    if (authHeader) {
+        const token = authHeader.split(" ")[1];
 
+        jwt.verify(token, process.env.SESSION_SECRET, (err, user) => {
+            if (err) {
+                return res.status(403).json("Token is not valid!");
+            }
+
+            req.user = user;
+            res.status(200).json("You are authenticated");
+            next();
+        });
     } else {
-        return res.status(403).send("User not logged in.");
+        res.status(401).json("You are not authenticated!");
     }
 };
