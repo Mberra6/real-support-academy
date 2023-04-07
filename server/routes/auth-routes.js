@@ -12,6 +12,9 @@ router.get('/auth', checkAuth.auth);
 // Get user's details
 router.get('/account/:userId', userControllers.userDetails);
 
+// Update user's details
+router.put('/account/update/:userId', userControllers.userUpdateDetails);
+
 
 
 module.exports = router;

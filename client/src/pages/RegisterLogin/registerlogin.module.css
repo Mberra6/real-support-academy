@@ -34,6 +34,23 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
 }
 
+.back_button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+.back_button:hover {
+    background: none;
+    color: black;
+}
+
 .heading {
     display: flex;
     width: 200%;
@@ -119,6 +136,10 @@
     transition: all 0.5s ease;
 }
 
+.update {
+    width: 100%;
+}
+
 .fields {
     height: 55px;
     width: 100%;
@@ -142,6 +163,10 @@
 }
 
 .register .fields .input:focus {
+    border-color: #007bff;
+}
+
+.update .fields .input:focus {
     border-color: #007bff;
 }
 

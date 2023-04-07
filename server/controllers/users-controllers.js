@@ -10,6 +10,12 @@ const checkPasswords = (passwordOne, passwordTwo) => {
     return false;
 };
 
+// Function to check if emails match
+const checkEmails = (emailOne, emailTwo) => {
+    if (emailOne.toLowerCase() === emailTwo.toLowerCase()) return true;
+    return false;
+};
+
 // Function to check if username exists in db
 const doesExistUsername = async (username) => {
     try {
@@ -25,10 +31,40 @@ const doesExistUsername = async (username) => {
     }
 };
 
+// Function to check if username exists in db, to be used in Update Profile, as this function does not check for the username already in use by the user
+const doesExistUsernameUpdate = async (username, id) => {
+    try {
+        let [user, _] = await User.findByUsernameUpdate(username, id);
+        if (user.length > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+};
+
 // Function to check if email exists in db
 const doesExistEmail = async (email) => {
     try {
         let [user, _] = await User.findByEmail(email);
+        if (user.length > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+};
+
+// Function to check if email exists in db, to be used in Update Profile, as this function does not check for the email already in use by the user
+const doesExistEmailUpdate = async (email, id) => {
+    try {
+        let [user, _] = await User.findByEmailUpdate(email, id);
         if (user.length > 0) {
             return true;
         } else {
@@ -67,28 +103,6 @@ const authenticateUserByEmail = async (email, password) => {
 // function to create json web token
 const generateAccessToken = (user) => {
     return jwt.sign({ id: user.id, username: user.username}, process.env.SESSION_SECRET, { expiresIn: "3600s" });
-};
-
-// Function to get user id by email
-const getIdByEmail = async (email) => {
-    try {
-        let [user, _] = await User.getIdByEmail(email);
-        return user[0].user_id;
-    } catch (error) {
-        console.log(error);
-        next(error);
-    }
-};
-
-// Function to get user id by username
-const getIdByUsername = async (username) => {
-    try {
-        let [user, _] = await User.getIdByUsername(username);
-        return user[0].user_id;
-    } catch (error) {
-        console.log(error);
-        next(error);
-    }
 };
 
 // Function to register new user
@@ -154,6 +168,29 @@ exports.userDetails = async (req, res, next) => {
         let [user, _] = await User.findById(id);
 
         res.status(200).json({user});
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+// Function to update user details
+exports.userUpdateDetails = async (req, res, next) => {
+    try {
+        let id = req.params.userId;
+        let { firstName, lastName, email, confirmationEmail, username } = req.body;
+
+        if (!checkEmails(email, confirmationEmail)) {
+            res.status(403).json({ message: "Emails do not match!" });
+        } else if (await doesExistEmailUpdate(email, id)) {
+            res.status(403).json({ message: 'Email already exists! Please choose a different email' });
+        } else if (await doesExistUsernameUpdate(username, id)) {
+            res.status(403).json({ message: 'Username already exists!' });
+        } else {
+            await User.updateById(id, firstName, lastName, email, username);
+            res.status(200).json({message: "Details successfully updated!"});
+        }
+
     } catch (error) {
         console.log(error);
         next(error);

@@ -10,6 +10,7 @@ import CoursesLoggedin from './pages/CoursesLoggedin';
 import Contact from './pages/Contact';
 import ContactLoggedin from './pages/ContactLoggedin';
 import Account from './pages/Account';
+import UpdateProfile from './pages/UpdateProfile';
 import RegisterLogin from './pages/RegisterLoginPage';
 import { Route, Routes } from 'react-router-dom';
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/user/courses" element={<CoursesLoggedin/>}/>
           <Route path="/user/contact" element={<ContactLoggedin Us/>}/>
           <Route path="/user/account" element={<Account/>}/>
+          <Route path="/user/account/update" element={<UpdateProfile/>}/>
         </Route>
         <Route element={<GeneralRoutes/>}>
           <Route path="/" element={<Home/>}/>

@@ -1,9 +1,11 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./profile.css"
 import Certificate from '../../assets/certificate.png';
 // import ProfileIcon from './assets/profileIcon.png';
 
 const Profile = (props) => {
+  let navigate = useNavigate();
   return (
     <div className="profile-container">
       <div className="box1">
@@ -11,7 +13,7 @@ const Profile = (props) => {
           <h1>{props.username}</h1>
           <img className="profileIcon" alt='user-icon' src={props.profileImg}></img>
           <br/>
-          <button className='profileBtn'>Edit Profile</button>          
+          <button className='profileBtn' onClick={() => navigate('/user/account/update')}>Edit Profile</button>          
         </div>
         <div className="userTextArea">
           <h3>Full Name</h3>
