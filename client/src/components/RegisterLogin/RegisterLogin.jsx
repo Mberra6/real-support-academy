@@ -6,7 +6,7 @@ import styles from './registerlogin.module.css';
 
 
 
-export const RegisterLogin = (props) => {
+export const RegisterLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPass] = useState('');
     const [rPassword, setRpass] = useState('');

@@ -22,7 +22,7 @@ const Profile = (props) => {
             <p>{props.email} </p>
           <h3>Member Since</h3>
             <p>{props.memberSince}</p>
-          <button className='profileBtn'>Change Password</button>          
+          <button className='profileBtn' onClick={() => navigate('/user/account/changepassword')}>Change Password</button>          
         </div>
       </div> 
       <div className="box2">

@@ -79,7 +79,7 @@ const doesExistEmailUpdate = async (email, id) => {
 // Function to check if username and password pair exist in the db
 const authenticateUserByUsername = async (username, password) => {
     try {
-        let [user, _] = await User.findByUsername(username.toLowerCase());
+        let [user, _] = await User.findByUsername(username);
         if (user.length > 0) return user[0].password === password;
         return false;
     } catch (error) {
@@ -92,6 +92,18 @@ const authenticateUserByUsername = async (username, password) => {
 const authenticateUserByEmail = async (email, password) => {
     try {
         let [user, _] = await User.findByEmail(email);
+        if (user.length > 0) return user[0].password === password;
+        return false;
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+};
+
+// Function to check if password entered in changePassword form matches existing user password
+const authenticateUserById = async (id, password) => {
+    try {
+        let [user, _] = await User.findById(id);
         if (user.length > 0) return user[0].password === password;
         return false;
     } catch (error) {
@@ -189,6 +201,29 @@ exports.userUpdateDetails = async (req, res, next) => {
         } else {
             await User.updateById(id, firstName, lastName, email, username);
             res.status(200).json({message: "Details successfully updated!"});
+        }
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+// Function to change user password
+exports.userChangePassword = async (req, res, next) => {
+    try {
+        let id = req.params.userId;
+        let { currentPassword, newPassword, confirmNewPassword } = req.body;
+
+        if (! await authenticateUserById(id, currentPassword)) {
+            res.status(403).json({ message: "Incorrect Password!" });
+        } else if (newPassword !== confirmNewPassword) {
+            res.status(403).json({ message: 'Passwords do not match!' });
+        } else if (newPassword.length < 8) {
+            res.status(403).json({ message: "Password must be at least 8 characters long!" });
+        } else {
+            await User.updatePasswordById(id, newPassword);
+            res.status(200).json({message: "Password successfully updated!"});
         }
 
     } catch (error) {
