@@ -6,6 +6,8 @@ function Hero(props) {
   const [backendData, setBackendData] = useState(null);
   const [backendErrorData, setBackendErrorData] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
+  const [showSearchBar, setShowSearchBar] = useState(true);
+  const [showSearchBar2, setShowSearchBar2] = useState(false);
 
   const createCourse = (title, description, length, difficulty) => {
     return (
@@ -55,8 +57,18 @@ function Hero(props) {
           {/* make text dyamnic too */}
           <h1>{props.title}</h1>
           <p>{props.subHeading}</p>
+          {props.showSearchBar && (
+            <>
           <input type="text" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} className={props.searchBtnClass} placeholder={props.searchBarText} />
           <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
+            </>
+          )}
+          {props.showSearchBar2 && (
+            <>
+              <input type="text" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} className={props.searchBtnClass} placeholder={props.searchBarText} />
+              <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
+            </>
+          )}
           {backendData ? backendData : <p>{backendErrorData}</p>}
           <a href={props.url} className={props.btnClass}> {props.buttonText} </a>
         </div>

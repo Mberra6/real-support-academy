@@ -10,7 +10,7 @@ const Courses = () => {
   return (
     <>
     <Navbar/>
-    <Hero
+    <Hero showSearchBar = {true}
       cName="hero-mid2"
       // alternative backgorunds
       // heroImg="https://c4.wallpaperflare.com/wallpaper/582/336/1010/samsung-galaxy-7-edge-wallpaper-preview.jpg"

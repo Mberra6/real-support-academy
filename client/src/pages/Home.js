@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <>
     <Navbar/>
-    <Hero
+    <Hero showSearchBar = {false} showSearchBar2 = {true}
       cName="hero"
       // alternative backgorunds
       // heroImg="https://c4.wallpaperflare.com/wallpaper/582/336/1010/samsung-galaxy-7-edge-wallpaper-preview.jpg"
