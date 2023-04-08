@@ -30,8 +30,10 @@
 
 .form-container button{
     height: 3rem;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     font-weight: 500;
+    transform: translate(50%,50%);
+    width: 50%;
     margin-bottom: 2rem;
     border-radius: 0.3rem;
     border: 1px solid black;
@@ -41,4 +43,18 @@
 .form-container button:hover{
     background-color:rgb(241, 119, 48);
     color: white;
+}
+
+@media screen and (max-width: 1000px) {
+    .form-container button{
+        font-size: 1.2rem;
+        
+        padding: 0;
+        margin-top: 1rem;
+        transform: translateY(-50%);
+    }
+
+    .form-container form{
+        width: 100%;
+    }
 }
