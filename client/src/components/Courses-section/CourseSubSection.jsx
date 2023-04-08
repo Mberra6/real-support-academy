@@ -75,57 +75,57 @@ const coursesData = [
 
 
 const CourseSubSection = () => {
-  return (
-    <section>
-      {/*  CSS STYLING reference - container,row,col className*/}
-      <Container className="container">
-        {/* Roq aligns courses into  */}
-        <Row>
-          <Col lg="12" className="mb-5">
-            <div className="course__top d-flex justify-content-between align-items-center">
-              <div className="course__top__left w-50">
-                <h1 className="courses">Courses</h1>
-                <p className="para">
-                  Explore the range of courses we have available, where you can gain essential digital skills 
-                  opening many employment opportunities for their future.
-                  Courses vary in difficulty level; easy, medium and hard, and each course comes with a
-                  set of practice quizzes and a final exam to test your knowledge. 
-                </p>
-                <div class="search">
-                  <label for="difficulty-select">Filter:</label>
-                  <select id="difficulty-select" name="difficulty">
-                    <option value="" disabled selected>Select Difficulty</option>
-                    <option value="All">All</option>
-                    <option value="Easy">Easy</option>
-                    <option value="Medium">Medium</option>
-                    <option value="Hard">Hard</option>
-                  </select>
+    return (
+        <section>
+            <Container className="container">
+                <Row>
+                    <Col lg="12">
+                        <div className="filter-bar d-flex justify-content-start align-items-center">
+                            <select id="difficulty-select" name="difficulty">
+                                <option value="" disabled selected>Select Difficulty</option>
+                                <option value="All">All</option>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
+                            </select>
 
-              
-                  <select id="time-select" name="time">
-                    <option value="" disabled selected>Select Time</option>
-                    <option value="All">All</option>
-                    <option value="4weeks">Less than 4 weeks</option>
-                    <option value="8weeks">Less than 8 weeks</option>
-                    <option value="8weeksmore">More than 8 weeks</option>
-                  </select>
-                </div>
-              </div>
-
-
-            </div>
-          </Col>
-          <div className="flexcontainer">
-          {coursesData.map((item) => (
-            <Col className="flexitem" lg="4" md="6" sm="6">
-              <CourseCard key={item.id} item={item} />
-            </Col>
-          ))}
-          </div>
-        </Row>
-      </Container>
-    </section>
-  );
+                            <select id="time-select" name="time">
+                                <option value="" disabled selected>Select Time</option>
+                                <option value="All">All</option>
+                                <option value="4weeks">Less than 4 weeks</option>
+                                <option value="8weeks">Less than 8 weeks</option>
+                                <option value="8weeksmore">More than 8 weeks</option>
+                            </select>
+                        </div>
+                    </Col>
+                </Row>
+                <Row>
+                    <Col lg="12" className="mb-5">
+                        <div className="course__top d-flex justify-content-between align-items-center">
+                            <div className="course__top__left w-50">
+                                <h1 className="courses">Courses</h1>
+                                <p className="para">
+                                    Explore the range of courses we have available, where you can gain essential digital skills
+                                    opening many employment opportunities for their future.
+                                    Courses vary in difficulty level; easy, medium and hard, and each course comes with a
+                                    set of practice quizzes and a final exam to test your knowledge.
+                                </p>
+                            </div>
+                        </div>
+                    </Col>
+                </Row>
+                
+                <Row>
+                    <div className="flexcontainer">
+                        {coursesData.map((item) => (
+                            <Col className="flexitem" lg="4" md="6" sm="6">
+                                <CourseCard key={item.id} item={item} />
+                            </Col>
+                        ))}
+                    </div>
+                </Row>
+            </Container>
+        </section>
+    );
 };
-
 export default CourseSubSection;

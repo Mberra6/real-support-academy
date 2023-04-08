@@ -21,7 +21,7 @@ const Courses = () => {
       searchBarText = "What do you want to learn?"
       searchBtnText = "Search"
       buttonText = "Explore all courses"
-      btnClass = "hide"
+      btnClass="hide" 
     />
     <CourseSubSection/>
     <Footer/> 
