@@ -24,6 +24,11 @@ export const MenuItems2 = [
         url : "/user/account",
         cName : "nav-links"
     }, 
+    {
+        title : "My Courses",
+        url : "/user/my-courses",
+        cName : "nav-links"
+    }, 
 
 ]
 

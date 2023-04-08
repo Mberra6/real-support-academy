@@ -10,6 +10,7 @@ import CoursesLoggedin from './pages/CoursesLoggedin';
 import Contact from './pages/Contact';
 import ContactLoggedin from './pages/ContactLoggedin';
 import Account from './pages/Account';
+import MyCourses from './pages/MyCourses';
 import UpdateProfile from './pages/UpdateProfilePage';
 import ChangePassword from './pages/ChangePasswordPage';
 import RegisterLogin from './pages/RegisterLoginPage';
@@ -27,6 +28,7 @@ function App() {
           <Route path="/user/courses" element={<CoursesLoggedin/>}/>
           <Route path="/user/contact" element={<ContactLoggedin Us/>}/>
           <Route path="/user/account" element={<Account/>}/>
+          <Route path="/user/my-courses" element={<MyCourses/>}/>
           <Route path="/user/account/update" element={<UpdateProfile/>}/>
           <Route path="/user/account/changepassword" element={<ChangePassword/>}/>
         </Route>
