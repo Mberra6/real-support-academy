@@ -24,7 +24,8 @@
 }
 
 .flexitem {
-    flex: 1 0 30%;
+    flex: 0 0 auto;
+    margin: 0 15px;
 }
 
 .star {
