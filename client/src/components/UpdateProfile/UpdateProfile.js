@@ -40,7 +40,7 @@ const UpdateProfile = () => {
                 <button className={styles.back_button} onClick={() => navigate('/user/account')}><FaTimes/></button>
                 <div className={styles.heading}>
                         <div className={styles.head}>
-                            Update Details
+                            Update Profile
                         </div>
                 </div>
                 <form className={styles.update} onSubmit={handleSubmitUpdate}>
@@ -61,7 +61,7 @@ const UpdateProfile = () => {
                     </div>
                     <div className={styles.btn}>
                         <div className={styles.btn_style}></div>
-                        <input type="submit" value="Update Details" className={styles.input}/>
+                        <input type="submit" value="Update Profile" className={styles.input}/>
                     </div>
                     { (() => {
                         if (backendPositiveData.length > 0) {
