@@ -15,6 +15,9 @@ router.get('/account/:userId', userControllers.userDetails);
 // Update user's details
 router.put('/account/update/:userId', userControllers.userUpdateDetails);
 
+// Change user's password
+router.put('/account/changepassword/:userId', userControllers.userChangePassword);
+
 
 
 module.exports = router;

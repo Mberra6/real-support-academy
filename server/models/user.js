@@ -80,6 +80,16 @@ class User {
 
         return db.execute(sql);
     }
+
+    static updatePasswordById = (id, newPassword) => {
+        let sql = `
+        UPDATE users
+        SET password = '${newPassword}'
+        WHERE user_id = '${id}';
+        `
+
+        return db.execute(sql);
+    }
 }
 
 
