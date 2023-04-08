@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 // images of the three courses
 import courseImg1 from "../../assets/english-course.png";
@@ -75,6 +75,33 @@ const coursesData = [
 
 
 const CourseSubSection = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage] = useState(6);
+  const [filteredCourses, setFilteredCourses] = useState(coursesData);
+
+  const handlePageChange = (newPage) => {
+    setCurrentPage(newPage);
+  };
+
+  const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const visibleCourses = filteredCourses.slice(startIndex, endIndex);
+
+  const handlePrevClick = (e) => {
+    e.preventDefault();
+    if (currentPage > 1) {
+    setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const handleNextClick = (e) => {
+    e.preventDefault();
+    if (currentPage < totalPages) {
+    setCurrentPage(currentPage + 1);
+    }
+  };
+
     return (
         <section>
             <Container className="container">
@@ -113,7 +140,34 @@ const CourseSubSection = () => {
                             </div>
                         </div>
                     </Col>
-                </Row>
+              </Row>
+         <Row>
+          <Col className="d-flex justify-content-end">
+            <div className="pagination-container">
+              <nav>
+                <ul className="pagination">
+                  <li>
+                    <a href="#!" onClick={(e) => handlePrevClick(e)}>&laquo;</a>
+                  </li>
+                  {[...Array(totalPages)].map((_, idx) => {
+                    const pageNum = idx + 1;
+                    return (
+                      <li key={`page-${pageNum}`} className={pageNum === currentPage ? "active" : ""}>
+                        <a href="#!" onClick={(e) => {
+                          e.preventDefault();
+                          setCurrentPage(pageNum);
+                        }}>{pageNum}</a>
+                      </li>
+                    );
+                  })}
+                  <li>
+                    <a href="#!" onClick={(e) => handleNextClick(e)}>&raquo;</a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </Col>
+        </Row>
                 
                 <Row>
                     <div className="flexcontainer">
@@ -124,8 +178,9 @@ const CourseSubSection = () => {
                         ))}
                     </div>
                 </Row>
-            </Container>
-        </section>
+                
+       </Container>
+     </section>
     );
 };
 export default CourseSubSection;
