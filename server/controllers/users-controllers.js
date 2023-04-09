@@ -122,16 +122,20 @@ exports.userRegister = async (req, res, next) => {
     try {
         let { firstName, lastName, email, password, repeatPassword, username } = req.body;
         
-        if (await doesExistEmail(email)) {
+        if (firstName.trim().length === 0 || lastName.trim().length === 0 || email.trim().length === 0 || password.trim().length === 0 || repeatPassword.trim().length === 0 || username.trim().length === 0) {
+            res.status(403).json({ message: 'Fields cannot be left blank!' });
+        } else if (await doesExistEmail(email)) {
             res.status(403).json({ message: 'Email already exists! Please choose a different email' });
         } else if (await doesExistUsername(username)) {
             res.status(403).json({ message: 'Username already exists!' });
+        } else if (/\s/g.test(username.trim())) {
+            res.status(403).json({ message: 'Username cannot contain white spaces!' });
         } else if (password.length < 8) {
             res.status(403).json({ message: "Password must be at least 8 characters long!" });
         } else if (!checkPasswords(password, repeatPassword)) {
             res.status(403).json({ message: "Passwords do not match!" });
         } else {
-            let user = new User(firstName, lastName, email, password, username.toLowerCase());
+            let user = new User(firstName.replace(/\s+/g, ' ').trim(), lastName.replace(/\s+/g, ' ').trim(), email.replace(/\s+/g, ' ').trim(), password.replace(/\s+/g, ' ').trim(), username.replace(/\s+/g, ' ').trim());
             user = await user.save();
             res.status(201).json({ message: 'Registration successful. You can now login.'});
         }
@@ -153,7 +157,8 @@ exports.userRegister = async (req, res, next) => {
 
             return res.status(201).json({
                 id: user[0].user_id,
-                accessToken
+                isAdmin: user[0].is_admin,
+                accessToken: accessToken
             });
         } else if (await authenticateUserByUsername(username, password)) {
             let [user, _] = await User.findByUsername(username);
@@ -161,7 +166,8 @@ exports.userRegister = async (req, res, next) => {
 
             return res.status(201).json({
                 id: user[0].user_id,
-                accessToken
+                isAdmin: user[0].is_admin,
+                accessToken: accessToken
             });
         } else {
             return res.status(403).json({ message: 'Invalid authentication. Check your credentials.' });

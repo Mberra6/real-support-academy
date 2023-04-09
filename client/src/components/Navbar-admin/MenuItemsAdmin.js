@@ -1,34 +1,39 @@
 export const MenuItems2 = [
     {
         title : "Home",
-        url : "/user/home",
+        url : "/admin/home",
         cName : "nav-links"
     },
     {
         title : "About",
-        url : "/user/about",
+        url : "/admin/about",
         cName : "nav-links"
     },    
     {
         title : "Courses",
-        url : "/user/courses",
+        url : "/admin/courses",
         cName : "nav-links"
     },
     {
         title : "Contact Us",
-        url : "/user/contact",
+        url : "/admin/contact",
         cName : "nav-links"
     }, 
     {
         title : "Account",
-        url : "/user/account",
+        url : "/admin/account",
         cName : "nav-links"
     }, 
     {
         title : "My Courses",
-        url : "/user/mycourses",
+        url : "/admin/mycourses",
         cName : "nav-links"
-    },
+    }, 
+    {
+        title : "Add New Course",
+        url : "/admin/addcourse",
+        cName : "nav-links"
+    }
 
 ]
 

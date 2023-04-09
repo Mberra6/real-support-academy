@@ -36,6 +36,12 @@ class Course {
     }
 
     static findByTitle = (title) => {
+        let sql = `SELECT * FROM courses WHERE course_title = '${title}';`;
+
+        return db.execute(sql);
+    }
+
+    static findByTitlePortion = (title) => {
         let sql = `SELECT * FROM courses WHERE course_title LIKE '%${title}%';`;
 
         return db.execute(sql);

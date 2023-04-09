@@ -26,7 +26,8 @@ class User {
             email,
             password,
             username,
-            created_at
+            created_at,
+            is_admin
         )
         VALUES(
             '${this.firstName}',
@@ -34,7 +35,9 @@ class User {
             '${this.email}',
             '${this.password}',
             '${this.username}',
-            '${createdAtDate}'
+            '${createdAtDate}',
+            False
+
         );
         `;
 
