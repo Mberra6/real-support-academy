@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const PrivateRoutes = () => {
     const [auth, setAuth] = useState(null);
+    const isAdmin = parseInt(localStorage.getItem('isAdmin'));
     const token = localStorage.getItem('token');
 
     useEffect(() => {
@@ -19,7 +20,20 @@ const PrivateRoutes = () => {
     }, [])
     
     if (auth === null) return null;
-    return ( auth ? <Outlet/> : <Navigate to="/"/> )
+    return (
+        <>
+        { (() => {
+            if (auth && isAdmin === 1) {
+                return <Navigate to="/admin/home"/>
+            } else if (auth) {
+                return <Outlet/>
+            } else {
+                return <Navigate to="/"/>
+            }
+        })()}
+        </>
+    )
+
     
 }
 

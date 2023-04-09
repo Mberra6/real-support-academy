@@ -2,10 +2,10 @@ import { Outlet, Navigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const GeneralRoutes = () => {
+const AdminRoutes = () => {
     const [auth, setAuth] = useState(null);
-    const isAdmin = parseInt(localStorage.getItem('isAdmin'));
     const token = localStorage.getItem('token');
+    const isAdmin = parseInt(localStorage.getItem('isAdmin'));
 
     useEffect(() => {
         axios.get('http://localhost:3333/user/auth', {
@@ -15,7 +15,6 @@ const GeneralRoutes = () => {
               setAuth(true);
           })
           .catch((err) => {
-              console.log(err);
               setAuth(false);
           })
     }, [])
@@ -25,11 +24,11 @@ const GeneralRoutes = () => {
         <>
         { (() => {
             if (auth && isAdmin === 1) {
-                return <Navigate to="/admin/home"/>
+                return <Outlet/>
             } else if (auth) {
                 return <Navigate to="/user/home"/>
             } else {
-                return <Outlet/>
+                return <Navigate to="/"/>
             }
         })()}
         </>
@@ -37,4 +36,4 @@ const GeneralRoutes = () => {
     
 }
 
-export default GeneralRoutes;
+export default AdminRoutes;

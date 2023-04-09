@@ -74,7 +74,8 @@ const coursesData = [
 ];
 
 
-const CourseSubSection = () => {
+const CourseSubSection = (props) => {
+    const { searchResults } = props;
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
   const [filteredCourses, setFilteredCourses] = useState(coursesData);
@@ -100,7 +101,25 @@ const CourseSubSection = () => {
     if (currentPage < totalPages) {
     setCurrentPage(currentPage + 1);
     }
-  };
+    };
+
+    useEffect(() => {
+  if (searchResults.length > 0) {
+    const mappedResults = searchResults.map(course => {
+      return {
+        id: course.course_id, // or any unique identifier for the course
+        title: course.course_title,
+        lesson: course.course_length,
+        difficulty: course.course_difficulty,
+        rating: course.course_rating, // add this to your backend response, if applicable
+        imgUrl: course.course_imgUrl, // add this to your backend response, if applicable
+      };
+    });
+    setFilteredCourses(mappedResults);
+  } else {
+    setFilteredCourses(coursesData);
+  }
+}, [searchResults]);
 
     return (
         <section>
@@ -171,9 +190,16 @@ const CourseSubSection = () => {
                 
                 <Row>
                     <div className="flexcontainer">
-                        {coursesData.map((item) => (
+                        {visibleCourses.map(course => (
                             <Col className="flexitem" lg="4" md="6" sm="6">
-                                <CourseCard key={item.id} item={item} />
+                                <CourseCard
+                                    key={course.id}
+                                    title={course.title}
+                                    lesson={course.lesson}
+                                    difficulty={course.difficulty}
+                                    rating={course.rating}
+                                    imgUrl={course.imgUrl}
+                                />
                             </Col>
                         ))}
                     </div>

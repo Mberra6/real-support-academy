@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/Navbar/Navbar';
+import NavbarAdmin from '../components/Navbar-admin/NavbarAdmin';
 import Hero from '../components/Hero/Hero';
 import HomeImg from "../assets/homeHeroImg.jpg";
 import Footer from '../components/Footer/Footer';
@@ -7,10 +7,10 @@ import HomeSub from '../components/HomeSubSection/HomeSub';
 import Testimonials from '../components/Testimonials/Testimonials'
 
 
-const Home = () => {
+const HomeAdmin = () => {
   return (
     <>
-    <Navbar/>
+    <NavbarAdmin/>
     <Hero
       cName="hero"
       // alternative backgorunds
@@ -22,7 +22,7 @@ const Home = () => {
       searchBarText = "Search our 1000+ courses"
       searchBtnText = "Search"
       buttonText = "Explore all courses"
-      url = "/courses"
+      url = "/admin/courses"
       btnClass = "show"
     />
     <HomeSub/>
@@ -33,4 +33,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default HomeAdmin;
