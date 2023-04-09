@@ -37,14 +37,7 @@ function Hero(props) {
             setSearchResults(courses);
 
           console.log(courses);
-          const courseList = courses.map(course => {
-            return createCourse(course.course_title, course.course_description, course.course_length, course.course_difficulty);
-          });
-          if (courseList.length > 0) {
-            setBackendData(courseList);
-          } else {
-            setBackendErrorData("No courses found!");
-          }
+         
         })
         .catch(error => {
           console.log(error);
