@@ -78,7 +78,9 @@ const CourseSubSection = (props) => {
     const { searchResults } = props;
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
-  const [filteredCourses, setFilteredCourses] = useState(coursesData);
+    const [filteredCourses, setFilteredCourses] = useState([]);
+    const [selectedDifficulty, setSelectedDifficulty] = useState("All");
+
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
@@ -103,23 +105,32 @@ const CourseSubSection = (props) => {
     }
     };
 
-    useEffect(() => {
-  if (searchResults.length > 0) {
-    const mappedResults = searchResults.map(course => {
-      return {
-        id: course.course_id, // or any unique identifier for the course
-        title: course.course_title,
-        lesson: course.course_length,
-        difficulty: course.course_difficulty,
-        rating: course.course_rating, // add this to your backend response, if applicable
-        imgUrl: course.course_imgUrl, // add this to your backend response, if applicable
-      };
-    });
-    setFilteredCourses(mappedResults);
-  } else {
-    setFilteredCourses(coursesData);
+const filterCoursesByDifficulty = () => {
+  const allCourses = searchResults.length > 0
+    ? searchResults.map(course => {
+        return {
+          id: course.course_id,
+          title: course.course_title,
+          lesson: course.course_length,
+          difficulty: course.course_difficulty,
+          rating: course.course_rating,
+          imgUrl: course.course_imgUrl,
+        };
+      })
+    : coursesData;
+
+  if (selectedDifficulty === "All") {
+    return allCourses;
   }
-}, [searchResults]);
+
+  return allCourses.filter(course => course.difficulty === selectedDifficulty);
+};
+
+    useEffect(() => {
+        setFilteredCourses(filterCoursesByDifficulty());
+    }, [searchResults, selectedDifficulty]);
+
+
 
     return (
         <section>
@@ -127,7 +138,8 @@ const CourseSubSection = (props) => {
                 <Row>
                     <Col lg="12">
                         <div className="filter-bar d-flex justify-content-start align-items-center">
-                            <select id="difficulty-select" name="difficulty">
+                            <select id="difficulty-select" name="difficulty" value={selectedDifficulty}
+                                onChange={(e) => setSelectedDifficulty(e.target.value)}>
                                 <option value="" disabled selected>Select Difficulty</option>
                                 <option value="All">All</option>
                                 <option value="Easy">Easy</option>
