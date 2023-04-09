@@ -10,6 +10,7 @@ const Courses = () => {
 
   const [searchResults, setSearchResults] = useState([]);
 
+
   return (
     <>
     <Navbar/>
@@ -28,7 +29,8 @@ const Courses = () => {
       buttonText = "Explore all courses"
       btnClass="hide" 
     />
-          <CourseSubSection searchResults={searchResults} />
+          <CourseSubSection
+              searchResults={searchResults}/>
     <Footer/> 
     </>
 

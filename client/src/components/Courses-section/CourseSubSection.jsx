@@ -75,7 +75,7 @@ const coursesData = [
 
 
 const CourseSubSection = (props) => {
-  const { searchResults } = props;
+    const { searchResults } = props;
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
   const [filteredCourses, setFilteredCourses] = useState([]);
@@ -149,6 +149,7 @@ const filterCourses = () => {
 
 
     return (
+        <>
         <section>
             <Container className="container">
                 <Row>
@@ -215,27 +216,36 @@ const filterCourses = () => {
               </nav>
             </div>
           </Col>
-        </Row>
-                
-                <Row>
-                    <div className="flexcontainer">
-                        {visibleCourses.map(course => (
-                            <Col className="flexitem" lg="4" md="6" sm="6">
-                                <CourseCard
-                                    key={course.id}
-                                    title={course.title}
-                                    lesson={course.lesson}
-                                    difficulty={course.difficulty}
-                                    rating={course.rating}
-                                    imgUrl={course.imgUrl}
-                                />
-                            </Col>
-                        ))}
-                    </div>
-                </Row>
+         </Row>             
+               <Row>
+  <div className="flexcontainer">
+    {visibleCourses.length > 0 ? (
+      visibleCourses.map(course => (
+        <Col className="flexitem" lg="4" md="6" sm="6">
+          <CourseCard
+            key={course.id}
+            title={course.title}
+            lesson={course.lesson}
+            difficulty={course.difficulty}
+            rating={course.rating}
+            imgUrl={course.imgUrl}
+          />
+        </Col>
+      ))
+    ) : (
+      <Col>
+        <div className="no-results">
+          <h3>No results found</h3>
+          <p>Please try again with different filters.</p>
+        </div>
+      </Col>
+    )}
+  </div>
+</Row>
                 
        </Container>
-     </section>
+      </section>
+     </>
     );
 };
 export default CourseSubSection;
