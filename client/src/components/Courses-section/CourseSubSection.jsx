@@ -75,11 +75,13 @@ const coursesData = [
 
 
 const CourseSubSection = (props) => {
-    const { searchResults } = props;
+  const { searchResults } = props;
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
-    const [filteredCourses, setFilteredCourses] = useState([]);
-    const [selectedDifficulty, setSelectedDifficulty] = useState("All");
+  const [filteredCourses, setFilteredCourses] = useState([]);
+  const [selectedDifficulty, setSelectedDifficulty] = useState("All");
+  const [selectedTime, setSelectedTime] = useState("All");
+
 
 
   const handlePageChange = (newPage) => {
@@ -105,7 +107,7 @@ const CourseSubSection = (props) => {
     }
     };
 
-const filterCoursesByDifficulty = () => {
+const filterCourses = () => {
   const allCourses = searchResults.length > 0
     ? searchResults.map(course => {
         return {
@@ -119,16 +121,30 @@ const filterCoursesByDifficulty = () => {
       })
     : coursesData;
 
-  if (selectedDifficulty === "All") {
-    return allCourses;
+  let filteredCourses = allCourses;
+
+  if (selectedDifficulty !== "All") {
+    filteredCourses = filteredCourses.filter(course => course.difficulty === selectedDifficulty);
   }
 
-  return allCourses.filter(course => course.difficulty === selectedDifficulty);
+  if (selectedTime !== "All") {
+    filteredCourses = filteredCourses.filter(course => {
+      if (selectedTime === "4weeks") {
+        return course.lesson < 4;
+      } else if (selectedTime === "8weeks") {
+        return course.lesson >= 4 && course.lesson < 8;
+      } else {
+        return course.lesson >= 8;
+      }
+    });
+  }
+
+  return filteredCourses;
 };
 
     useEffect(() => {
-        setFilteredCourses(filterCoursesByDifficulty());
-    }, [searchResults, selectedDifficulty]);
+        setFilteredCourses(filterCourses());
+    }, [searchResults, selectedDifficulty, selectedTime]);
 
 
 
@@ -147,7 +163,8 @@ const filterCoursesByDifficulty = () => {
                                 <option value="Hard">Hard</option>
                             </select>
 
-                            <select id="time-select" name="time">
+                            <select id="time-select" name="time" value={selectedTime}
+                                onChange={(e) => setSelectedTime(e.target.value)}>
                                 <option value="" disabled selected>Select Time</option>
                                 <option value="All">All</option>
                                 <option value="4weeks">Less than 4 weeks</option>
