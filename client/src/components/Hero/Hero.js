@@ -78,7 +78,6 @@ function Hero(props) {
               <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
             </>
           )}
-          {backendData ? backendData : <p>{backendErrorData}</p>}
 
           <a href={props.url} className={props.btnClass}> {props.buttonText} </a>
         </div>
