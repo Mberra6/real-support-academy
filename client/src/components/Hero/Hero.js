@@ -8,9 +8,9 @@ function Hero(props) {
   const [backendErrorData, setBackendErrorData] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [showSearchBar, setShowSearchBar] = useState(true);
-    const [showSearchBar2, setShowSearchBar2] = useState(false);
-    const { setSearchResults } = props;
-
+  const [showSearchBar2, setShowSearchBar2] = useState(false);
+  const { setSearchResults } = props;
+  const [showNoCoursesPopup, setShowNoCoursesPopup] = useState(false);
 
   const createCourse = (title, description, length, difficulty) => {
     return (
@@ -26,18 +26,15 @@ function Hero(props) {
   const handleSearchClick = () => {
     setBackendData(null);
     setBackendErrorData(null);
-    setSearchTerm(searchTerm); // change from debouncedSearchTerm
-    console.log("Search button clicked, searchTerm:", searchTerm); // change from debouncedSearchTerm
+    setSearchTerm(searchTerm);
     if (searchTerm) {
       axios.post('http://localhost:3333/searchcourses', {
         title: searchTerm
       })
         .then((response) => {
-            const courses = response.data.courses;
-            setSearchResults(courses);
-
-          console.log(courses);
-         
+          const courses = response.data.courses;
+          setSearchResults(courses);
+          setShowNoCoursesPopup(courses.length === 0);
         })
         .catch(error => {
           console.log(error);
@@ -48,25 +45,23 @@ function Hero(props) {
 
   const handleClosePopup = () => {
     setBackendErrorData(null);
-    setSearchTerm(''); // Clear search term on popup close
+    setSearchTerm('');
+    setShowNoCoursesPopup(false);
   };
 
   return (
     <>
       <div className={props.cName}>
-        {/* make image course dynamic so that hero page is different for each page */}
         <img alt="HeroImg" src={props.heroImg} />
         <div className='hero-text'>
-          {/* make text dynamic too */}
           <h1>{props.title}</h1>
           <p>{props.subHeading}</p>
           {props.showSearchBar && (
             <>
-          <input type="text" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} className={props.searchBtnClass} placeholder={props.searchBarText} />
-          <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
-
-
-          {backendData ? backendData : <p>{backendErrorData && <div className="popup"><span>{backendErrorData}<button onClick={handleClosePopup} className="popup-close-btn">&#10006;</button></span></div>}</p>}
+              <input type="text" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} className={props.searchBtnClass} placeholder={props.searchBarText} />
+              <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
+              {backendData ? backendData : <p>{backendErrorData && <div className="popup"><span>{backendErrorData}<button onClick={handleClosePopup} className="popup-close-btn">&#10006;</button></span></div>}</p>}
+              {showNoCoursesPopup && <div className="popup"><span>No courses found!<button onClick={handleClosePopup} className="popup-close-btn">&#10006;</button></span></div>}
             </>
           )}
           {props.showSearchBar2 && (
@@ -75,12 +70,10 @@ function Hero(props) {
               <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
             </>
           )}
-
           <a href={props.url} className={props.btnClass}> {props.buttonText} </a>
         </div>
       </div>
     </>
-
   );
 }
 
