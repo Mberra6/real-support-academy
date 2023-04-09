@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import "./hero.css";
 import axios from 'axios';
 
-
 function Hero(props) {
   const [backendData, setBackendData] = useState(null);
   const [backendErrorData, setBackendErrorData] = useState(null);
@@ -39,7 +38,7 @@ function Hero(props) {
           if (courseList.length > 0) {
             setBackendData(courseList);
           } else {
-            setBackendErrorData("No courses found!");
+            setBackendErrorData("No courses found");
           }
         })
         .catch(error => {
@@ -49,27 +48,19 @@ function Hero(props) {
     }
   };
 
-  const handleClosePopup = () => {
-    setBackendErrorData(null);
-    setSearchTerm(''); // Clear search term on popup close
-  };
-
   return (
     <>
       <div className={props.cName}>
-        {/* make image course dynamic so that hero page is different for each page */}
+        {/* make image course dyamnic so that hero page is different for each page */}
         <img alt="HeroImg" src={props.heroImg} />
         <div className='hero-text'>
-          {/* make text dynamic too */}
+          {/* make text dyamnic too */}
           <h1>{props.title}</h1>
           <p>{props.subHeading}</p>
           {props.showSearchBar && (
             <>
           <input type="text" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} className={props.searchBtnClass} placeholder={props.searchBarText} />
           <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
-
-
-          {backendData ? backendData : <p>{backendErrorData && <div className="popup"><span>{backendErrorData}<button onClick={handleClosePopup} className="popup-close-btn">&#10006;</button></span></div>}</p>}
             </>
           )}
           {props.showSearchBar2 && (
@@ -78,7 +69,7 @@ function Hero(props) {
               <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
             </>
           )}
-
+          {backendData ? backendData : <p>{backendErrorData}</p>}
           <a href={props.url} className={props.btnClass}> {props.buttonText} </a>
         </div>
       </div>
@@ -88,3 +79,4 @@ function Hero(props) {
 }
 
 export default Hero;
+

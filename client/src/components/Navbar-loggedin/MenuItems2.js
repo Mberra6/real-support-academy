@@ -26,9 +26,9 @@ export const MenuItems2 = [
     }, 
     {
         title : "My Courses",
-        url : "/user/mycourses",
+        url : "/user/my-courses",
         cName : "nav-links"
-    },
+    }, 
 
 ]
 

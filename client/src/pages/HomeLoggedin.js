@@ -21,7 +21,7 @@ const HomeLoggedin = () => {
       searchBarText = "Search our 1000+ courses"
       searchBtnText = "Search"
       buttonText = "Explore all courses"
-      url = "/user/courses"
+      url = "/courses"
       btnClass = "show"
     />
     <HomeSub/>

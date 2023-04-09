@@ -4,27 +4,6 @@
     position: relative;
 }
 
-/*POP UP STYLING*/
-.popup {
-    position: fixed;
-    top: 155%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    border: 1px solid black;
-    padding: 20px;
-    text-align: center;
-  }
-    
-  .popup button {
-    font-size: 12px;
-    margin-left: 10px;
-    padding: 5px 10px;
-  }
-  
-  /*POP UP STYLING END*/
-  
-
 
 /* ACCOUNT PAGE STYLING - START*/
     .hero-mid1 .hero-text{

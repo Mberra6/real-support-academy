@@ -10,7 +10,7 @@ const Courses = () => {
   return (
     <>
     <Navbar2/>
-    <Hero showSearchBar = {true}
+    <Hero
       cName="hero-mid2"
       // alternative backgorunds
       // heroImg="https://c4.wallpaperflare.com/wallpaper/582/336/1010/samsung-galaxy-7-edge-wallpaper-preview.jpg"
@@ -21,7 +21,7 @@ const Courses = () => {
       searchBarText = "What do you want to learn?"
       searchBtnText = "Search"
       buttonText = "Explore all courses"
-      btnClass="hide" 
+      btnClass = "hide"
     />
     <CourseSubSection/>
     <Footer/> 

@@ -4,7 +4,6 @@ import axios from 'axios';
 
 const GeneralRoutes = () => {
     const [auth, setAuth] = useState(null);
-    const isAdmin = parseInt(localStorage.getItem('isAdmin'));
     const token = localStorage.getItem('token');
 
     useEffect(() => {
@@ -15,25 +14,12 @@ const GeneralRoutes = () => {
               setAuth(true);
           })
           .catch((err) => {
-              console.log(err);
               setAuth(false);
           })
     }, [])
     
     if (auth === null) return null;
-    return (
-        <>
-        { (() => {
-            if (auth && isAdmin === 1) {
-                return <Navigate to="/admin/home"/>
-            } else if (auth) {
-                return <Navigate to="/user/home"/>
-            } else {
-                return <Outlet/>
-            }
-        })()}
-        </>
-    )
+    return ( auth ? <Navigate to="/user/home"/> : <Outlet/> )
     
 }
 

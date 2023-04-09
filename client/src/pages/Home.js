@@ -4,6 +4,7 @@ import Hero from '../components/Hero/Hero';
 import HomeImg from "../assets/homeHeroImg.jpg";
 import Footer from '../components/Footer/Footer';
 import HomeSub from '../components/HomeSubSection/HomeSub';
+import Testimonials from '../components/Testimonials/Testimonials'
 
 
 const Home = () => {
@@ -25,6 +26,7 @@ const Home = () => {
       btnClass = "show"
     />
     <HomeSub/>
+    <Testimonials/>
     <Footer/>
     </>
 
