@@ -96,6 +96,7 @@ export const RegisterLogin = () => {
         .then(
             response => {
                 localStorage.setItem('userId', response.data.id);
+                localStorage.setItem('isAdmin', response.data.isAdmin);
                 localStorage.setItem('token', response.data.accessToken);
                 navigate('/user/home');
             }
@@ -107,9 +108,6 @@ export const RegisterLogin = () => {
 
     return(
         <body className={styles.body}>
-            <Link to="/">
-            <button className={styles.home_button}></button>
-            </Link>
             <div className={styles.auth_form_container}>
                 <div className={styles.heading}>
                     <div ref={heading} className={styles.head}>

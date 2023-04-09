@@ -1,15 +1,15 @@
 import React from 'react';
-import Navbar2 from '../components/Navbar-loggedin/Navbar-loggedin';
+import NavbarAdmin from '../components/Navbar-admin/NavbarAdmin';
 import Hero from '../components/Hero/Hero';
 import CourseHeroImg from "../assets/coursesHeroImg.jpg";
 import Footer from '../components/Footer/Footer';
 import CourseSubSection from '../components/Courses-section/CourseSubSection';
 
 
-const Courses = () => {
+const CoursesAdmin = () => {
   return (
     <>
-    <Navbar2/>
+    <NavbarAdmin/>
     <Hero showSearchBar = {true}
       cName="hero-mid2"
       // alternative backgorunds
@@ -30,4 +30,4 @@ const Courses = () => {
   );
 }
 
-export default Courses;
+export default CoursesAdmin;
