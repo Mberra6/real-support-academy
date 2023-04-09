@@ -7,6 +7,7 @@ import courseImg3 from "../../assets/wifi-course.png";
 import courseImg4 from "../../assets/maths.png";
 import courseImg5 from "../../assets/story.webp";
 import courseImg6 from "../../assets/science.png";
+import defaultCourseImg from "../../assets/defaultCourse.png";
 
 // import styling
 import "./courses.css";
@@ -116,7 +117,7 @@ const filterCourses = () => {
           lesson: course.course_length,
           difficulty: course.course_difficulty,
           rating: course.course_rating,
-          imgUrl: course.course_imgUrl,
+          imgUrl: course.course_imgUrl || defaultCourseImg,
         };
       })
     : coursesData;
