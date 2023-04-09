@@ -74,7 +74,8 @@ const coursesData = [
 ];
 
 
-const CourseSubSection = () => {
+const CourseSubSection = (props) => {
+    const { searchResults } = props;
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
   const [filteredCourses, setFilteredCourses] = useState(coursesData);
@@ -171,7 +172,7 @@ const CourseSubSection = () => {
                 
                 <Row>
                     <div className="flexcontainer">
-                        {coursesData.map((item) => (
+                        {(searchResults.length > 0 ? searchResults : coursesData).map((item) => (
                             <Col className="flexitem" lg="4" md="6" sm="6">
                                 <CourseCard key={item.id} item={item} />
                             </Col>

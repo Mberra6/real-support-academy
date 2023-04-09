@@ -8,7 +8,9 @@ function Hero(props) {
   const [backendErrorData, setBackendErrorData] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [showSearchBar, setShowSearchBar] = useState(true);
-  const [showSearchBar2, setShowSearchBar2] = useState(false);
+    const [showSearchBar2, setShowSearchBar2] = useState(false);
+    const { setSearchResults } = props;
+
 
   const createCourse = (title, description, length, difficulty) => {
     return (
@@ -30,8 +32,10 @@ function Hero(props) {
       axios.post('http://localhost:3333/searchcourses', {
         title: searchTerm
       })
-        .then(response => {
-          const courses = response.data.courses;
+        .then((response) => {
+            const courses = response.data.courses;
+            setSearchResults(courses);
+
           console.log(courses);
           const courseList = courses.map(course => {
             return createCourse(course.course_title, course.course_description, course.course_length, course.course_difficulty);
