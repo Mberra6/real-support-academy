@@ -1,6 +1,14 @@
 import React from 'react';
 import "./myCoursesSub.css"
 
+const myCoursesData = [{
+
+
+
+  
+}]
+
+
 const MyCoursesSubSection = (props) => {
   return (
     <div className='mycourses-container'>

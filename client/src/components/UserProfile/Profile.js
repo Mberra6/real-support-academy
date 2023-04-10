@@ -29,7 +29,7 @@ const Profile = (props) => {
         <h2>Certificates</h2>
         <img alt='certificate' src={Certificate}></img>
         <img alt='certificate' src={Certificate}></img>
-          <div className="box3">
+          {/* <div className="box3">
             <div className='quizzes'>
               <h3>Quiz Scores</h3>
               <p>Quiz 1: 80%</p>
@@ -44,7 +44,7 @@ const Profile = (props) => {
               <p>...</p>
               <button className='profileBtn'>View all exam scores</button> 
             </div>          
-          </div>        
+          </div>         */}
 
         
       </div>
