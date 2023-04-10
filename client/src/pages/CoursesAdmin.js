@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import NavbarAdmin from '../components/Navbar-admin/NavbarAdmin';
 import Hero from '../components/Hero/Hero';
 import CourseHeroImg from "../assets/coursesHeroImg.jpg";
@@ -7,10 +7,14 @@ import CourseSubSection from '../components/Courses-section/CourseSubSection';
 
 
 const CoursesAdmin = () => {
+  const [searchResults, setSearchResults] = useState([]);
+  
   return (
     <>
     <NavbarAdmin/>
-    <Hero showSearchBar = {true}
+    <Hero
+      setSearchResults={setSearchResults} 
+      showSearchBar={true}
       cName="hero-mid2"
       // alternative backgorunds
       // heroImg="https://c4.wallpaperflare.com/wallpaper/582/336/1010/samsung-galaxy-7-edge-wallpaper-preview.jpg"
@@ -23,7 +27,9 @@ const CoursesAdmin = () => {
       buttonText = "Explore all courses"
       btnClass="hide" 
     />
-    <CourseSubSection/>
+    <CourseSubSection
+      searchResults={searchResults}
+    />
     <Footer/> 
     </>
 

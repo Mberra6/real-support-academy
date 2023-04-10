@@ -7,6 +7,7 @@ import courseImg3 from "../../assets/wifi-course.png";
 import courseImg4 from "../../assets/maths.png";
 import courseImg5 from "../../assets/story.webp";
 import courseImg6 from "../../assets/science.png";
+import defaultCourseImg from "../../assets/defaultCourse.png";
 
 // import styling
 import "./courses.css";
@@ -78,7 +79,11 @@ const CourseSubSection = (props) => {
     const { searchResults } = props;
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
-  const [filteredCourses, setFilteredCourses] = useState(coursesData);
+  const [filteredCourses, setFilteredCourses] = useState([]);
+  const [selectedDifficulty, setSelectedDifficulty] = useState("All");
+  const [selectedTime, setSelectedTime] = useState("All");
+
+
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
@@ -103,31 +108,56 @@ const CourseSubSection = (props) => {
     }
     };
 
-    useEffect(() => {
-  if (searchResults.length > 0) {
-    const mappedResults = searchResults.map(course => {
-      return {
-        id: course.course_id, // or any unique identifier for the course
-        title: course.course_title,
-        lesson: course.course_length,
-        difficulty: course.course_difficulty,
-        rating: course.course_rating, // add this to your backend response, if applicable
-        imgUrl: course.course_imgUrl, // add this to your backend response, if applicable
-      };
-    });
-    setFilteredCourses(mappedResults);
-  } else {
-    setFilteredCourses(coursesData);
+const filterCourses = () => {
+  const allCourses = searchResults.length > 0
+    ? searchResults.map(course => {
+        return {
+          id: course.course_id,
+          title: course.course_title,
+          lesson: course.course_length,
+          difficulty: course.course_difficulty,
+          rating: course.course_rating,
+          imgUrl: course.course_imgUrl || defaultCourseImg,
+        };
+      })
+    : coursesData;
+
+  let filteredCourses = allCourses;
+
+  if (selectedDifficulty !== "All") {
+    filteredCourses = filteredCourses.filter(course => course.difficulty === selectedDifficulty);
   }
-}, [searchResults]);
+
+  if (selectedTime !== "All") {
+    filteredCourses = filteredCourses.filter(course => {
+      if (selectedTime === "4weeks") {
+        return course.lesson < 4;
+      } else if (selectedTime === "8weeks") {
+        return course.lesson >= 4 && course.lesson < 8;
+      } else {
+        return course.lesson >= 8;
+      }
+    });
+  }
+
+  return filteredCourses;
+};
+
+    useEffect(() => {
+        setFilteredCourses(filterCourses());
+    }, [searchResults, selectedDifficulty, selectedTime]);
+
+
 
     return (
+        <>
         <section>
             <Container className="container">
                 <Row>
                     <Col lg="12">
                         <div className="filter-bar d-flex justify-content-start align-items-center">
-                            <select id="difficulty-select" name="difficulty">
+                            <select id="difficulty-select" name="difficulty" value={selectedDifficulty}
+                                onChange={(e) => setSelectedDifficulty(e.target.value)}>
                                 <option value="" disabled selected>Select Difficulty</option>
                                 <option value="All">All</option>
                                 <option value="Easy">Easy</option>
@@ -135,7 +165,8 @@ const CourseSubSection = (props) => {
                                 <option value="Hard">Hard</option>
                             </select>
 
-                            <select id="time-select" name="time">
+                            <select id="time-select" name="time" value={selectedTime}
+                                onChange={(e) => setSelectedTime(e.target.value)}>
                                 <option value="" disabled selected>Select Time</option>
                                 <option value="All">All</option>
                                 <option value="4weeks">Less than 4 weeks</option>
@@ -186,27 +217,36 @@ const CourseSubSection = (props) => {
               </nav>
             </div>
           </Col>
-        </Row>
-                
-                <Row>
-                    <div className="flexcontainer">
-                        {visibleCourses.map(course => (
-                            <Col className="flexitem" lg="4" md="6" sm="6">
-                                <CourseCard
-                                    key={course.id}
-                                    title={course.title}
-                                    lesson={course.lesson}
-                                    difficulty={course.difficulty}
-                                    rating={course.rating}
-                                    imgUrl={course.imgUrl}
-                                />
-                            </Col>
-                        ))}
-                    </div>
-                </Row>
+         </Row>             
+               <Row>
+  <div className="flexcontainer">
+    {visibleCourses.length > 0 ? (
+      visibleCourses.map(course => (
+        <Col className="flexitem" lg="4" md="6" sm="6">
+          <CourseCard
+            key={course.id}
+            title={course.title}
+            lesson={course.lesson}
+            difficulty={course.difficulty}
+            rating={course.rating}
+            imgUrl={course.imgUrl}
+          />
+        </Col>
+      ))
+    ) : (
+      <Col>
+        <div className="no-results">
+          <h3>No results found</h3>
+          <p>Please try again with different filters.</p>
+        </div>
+      </Col>
+    )}
+  </div>
+</Row>
                 
        </Container>
-     </section>
+      </section>
+     </>
     );
 };
 export default CourseSubSection;
