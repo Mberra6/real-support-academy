@@ -5,7 +5,8 @@
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     max-width: 300px;
-    min-height: 465px; 
+    min-width: 300px;
+    min-height: 465px;
     margin: 1rem;
     padding: 30px;
 }
@@ -21,6 +22,7 @@
     flex-direction: row;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .flexitem {
@@ -65,6 +67,7 @@
     justify-content: center;
     margin-bottom: 1rem;
     position: relative;
+    min-height: 200px
 }
 
 .course__img img {
@@ -115,6 +118,8 @@
 .course__title {
     font-size: 17px;
     line-height: 2rem;
+    max-height: 4rem;
+    overflow: hidden; 
 }
 
 .course__top__left h2 {
