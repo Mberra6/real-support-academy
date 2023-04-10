@@ -8,7 +8,7 @@ const AdminProfile = (props) => {
   let navigate = useNavigate();
   return (
     <div className="profile-container">
-      <div className="box1">
+      <div className="box1-admin">
         <div className="userIconArea">
           <h1>{props.username}</h1>
           <img className="profileIcon" alt='user-icon' src={props.profileImg}></img>
