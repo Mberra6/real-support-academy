@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
 // implemented constructor with parameters intialised in Courses.jsx
 
 
@@ -7,8 +6,7 @@ const CourseCard = (props) => {
   const { imgUrl, courseId, title, lesson, difficulty } = props;
   const enrollBtn = useRef();
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate();
-
+  
   const togglePopup = () => {
     setIsOpen(!isOpen);
   }
@@ -41,7 +39,7 @@ const CourseCard = (props) => {
 
         <div className="enroll__container">
           <p ref={enrollBtn} className="enroll" onClick={handleEnrollment}>
-              <button className="enroll_now" onClick={() => navigate("/loginreg")} > Sign in to Enroll</button>
+              <button className="enroll_now" > Modify Course</button>
             </p>
         
       </div>
