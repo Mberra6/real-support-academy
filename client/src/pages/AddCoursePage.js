@@ -1,5 +1,5 @@
 import React from 'react';
-import NavbarAdmin from '../components/Navbar-admin/NavbarAdmin';
+import NavbarAdmin from '../components/NavbarAdmin/NavbarAdmin';
 import Footer from '../components/Footer/Footer';
 import AddCourse from '../components/AddCourse/AddCourse';
 

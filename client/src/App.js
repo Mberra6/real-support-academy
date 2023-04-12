@@ -13,7 +13,6 @@ import CoursesLoggedin from './pages/CoursesLoggedin';
 import CoursesAdmin from './pages/CoursesAdmin';
 import Contact from './pages/Contact';
 import ContactLoggedin from './pages/ContactLoggedin';
-import ContactAdmin from './pages/ContactAdmin';
 import Account from './pages/Account';
 import AccountAdmin from './pages/AccountAdmin';
 import UpdateProfile from './pages/UpdateProfilePage';
@@ -36,7 +35,6 @@ function App() {
           <Route path="/admin/home" element={<HomeAdmin/>}/>
           <Route path="/admin/about" element={<AboutAdmin/>}/>
           <Route path="/admin/courses" element={<CoursesAdmin/>}/>
-          <Route path="/admin/contact" element={<ContactAdmin Us/>}/>
           <Route path="/admin/account" element={<AccountAdmin/>}/>       
           <Route path="/admin/account/update" element={<UpdateProfileAdmin/>}/>
           <Route path="/admin/account/changepassword" element={<ChangePasswordAdmin/>}/>

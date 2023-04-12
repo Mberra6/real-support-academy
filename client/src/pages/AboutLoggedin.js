@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar2 from '../components/Navbar-loggedin/Navbar-loggedin';
+import NavbarLoggedin from '../components/NavbarLoggedin/NavbarLoggedin';
 import Hero from '../components/Hero/Hero';
 import AboutImg from "../assets/aboutHeroImg.jpg";
 import AboutUs from '../components/AboutSubSection/AboutUs';
@@ -8,7 +8,7 @@ import Footer from '../components/Footer/Footer';
 const About = () => {
   return (
     <>
-    <Navbar2/>
+    <NavbarLoggedin/>
     <Hero
       cName="hero-mid"
       heroImg={AboutImg}

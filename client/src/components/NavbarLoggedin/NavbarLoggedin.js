@@ -1,11 +1,11 @@
 import { Component } from 'react';
-import "./navbar-loggedin.css";
-import { MenuItems2 } from './MenuItems2';
+import "./navbarloggedin.css";
+import { MenuItems2 } from './MenuItemsLoggedin';
 import { Link } from 'react-router-dom';
 import LogoutBtn from '../LogoutButton/LogoutBtn';
 
 
-class Navbar2 extends Component {
+class NavbarLoggedin extends Component {
   state = {clicked: false};
   // make state of clicked true when icon is clicked
   handleClick = () =>{
@@ -45,4 +45,4 @@ class Navbar2 extends Component {
   );
 }
 }
-export default Navbar2;
+export default NavbarLoggedin;

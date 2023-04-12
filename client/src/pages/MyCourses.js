@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar2 from '../components/Navbar-loggedin/Navbar-loggedin';
+import NavbarLoggedin from '../components/NavbarLoggedin/NavbarLoggedin';
 import Hero from '../components/Hero/Hero';
 import MyCoursesHeroImg from "../assets/MyCoursesHeroImg.jpg";
 import Footer from '../components/Footer/Footer';
@@ -9,12 +9,11 @@ import MyCoursesSubSection from '../components/MyCoursesSubSection/MyCoursesSubS
 const MyCourses = () => {
   return (
     <>
-    <Navbar2/>
+    <NavbarLoggedin/>
     <Hero
       cName="hero-mid2"
       heroImg={MyCoursesHeroImg}
       title="My Courses"
-      // subHeading = "hide"
       // hide these buttons for hero of about section in hero.css (only needed in hero of home page)
       btnClass = "hide"
       searchBtnClass = "hide"
