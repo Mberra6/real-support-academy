@@ -1,4 +1,4 @@
-Group 45 project for Software Engineering
+# Group 45 Software Engineering Project
 
 First of all, clone the repository into vs code.
 
@@ -15,3 +15,5 @@ In the second terminal, run the following commands:
 1. cd client
 2. npm install
 3. npm start
+
+You can now access the application at http://localhost:3000/
