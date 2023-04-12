@@ -41,7 +41,7 @@ const CourseCard = (props) => {
 
         <div className="enroll__container">
           <p ref={enrollBtn} className="enroll" onClick={handleEnrollment}>
-              <button className="enroll_now" onClick={() => navigate("/loginreg")} > Sign in to Enroll</button>
+              <button className="enroll_now" onClick={() => navigate("/loginreg")} > Login to Enroll</button>
             </p>
         
       </div>
