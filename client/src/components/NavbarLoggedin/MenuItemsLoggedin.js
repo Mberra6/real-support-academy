@@ -1,4 +1,4 @@
-export const MenuItems2 = [
+export const MenuItemsLoggedin = [
     {
         title : "Home",
         url : "/user/home",

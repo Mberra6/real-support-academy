@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import "./navbarloggedin.css";
-import { MenuItems2 } from './MenuItemsLoggedin';
+import { MenuItemsLoggedin } from './MenuItemsLoggedin';
 import { Link } from 'react-router-dom';
 import LogoutBtn from '../LogoutButton/LogoutBtn';
 
@@ -26,7 +26,7 @@ class NavbarLoggedin extends Component {
       <ul className={this.state.clicked ?
       "nav-menu active" : "nav-menu"}>
         {/* retrieve index number menu items using map */}
-        {MenuItems2.map((item, index) => {
+        {MenuItemsLoggedin.map((item, index) => {
           return(
             // list tag needs to target index number
             <li key={index}>

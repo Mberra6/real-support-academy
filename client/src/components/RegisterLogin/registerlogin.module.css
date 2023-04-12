@@ -6,15 +6,15 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-    width: auto;
+    width: 100vw;
     /* margin-top: 2rem; */
     
 }
 
 
 .auth_form_container {
-    position: relative;
-    top: 35rem;
+    position: absolute;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 450px;
@@ -23,7 +23,6 @@
     padding: 35px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    /* margin-top: 2rem; */
 }
 
 .heading {
@@ -114,7 +113,7 @@
 .fields {
     height: 55px;
     width: 100%;
-    margin: 20px 0px 10px 0px;
+    margin: 15px 0px 10px 0px;
 }
 
 .input {
@@ -155,13 +154,13 @@
 
 .registerlink a {
     color:rgb(241, 119, 48);
-    font-weight: bolder;
+    font-weight: bold;
     text-decoration: none;
 }
 
 .loginlink a {
     color:rgb(241, 119, 48);
-    font-weight: bolder;
+    font-weight: bold;
     text-decoration: none;
 }
 

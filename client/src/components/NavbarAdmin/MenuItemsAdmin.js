@@ -1,4 +1,4 @@
-export const MenuItems2 = [
+export const MenuItemsAdmin = [
     {
         title : "Home",
         url : "/admin/home",

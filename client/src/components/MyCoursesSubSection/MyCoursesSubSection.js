@@ -118,7 +118,7 @@ const MyCoursesSubSection = () => {
           } else {
             return (<Col>
             <div className="no-results">
-              <h3>No Courses Enrolled Yet</h3>
+              <h4>No Courses Enrolled Yet</h4>
             </div>
           </Col>)
           }
