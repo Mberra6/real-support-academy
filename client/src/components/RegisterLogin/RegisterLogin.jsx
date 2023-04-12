@@ -107,7 +107,7 @@ export const RegisterLogin = () => {
     }
 
     return(
-        <body className={styles.body}>
+        <div className={styles.body}>
             <div className={styles.auth_form_container}>
                 <div className={styles.heading}>
                     <div ref={heading} className={styles.head}>
@@ -128,10 +128,10 @@ export const RegisterLogin = () => {
                     <div className={styles.form_data}>
                         <form className={styles.login} ref={formData} onSubmit={handleSubmitLogin}>
                             <div className={styles.fields}>
-                                <input value={email} onChange={(e) => {setEmail(e.target.value); setUsername(e.target.value)}} placeholder="Email/Username" id="Email" name="Email" className={styles.input} required/>
+                                <input value={email} onChange={(e) => {setEmail(e.target.value); setUsername(e.target.value)}} placeholder="Email/Username" id="EmailUsername" name="Email" className={styles.input} required/>
                             </div>
                             <div className={styles.fields}>
-                                <input value={password} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="Password" name="Password" className={styles.input} required/>
+                                <input value={password} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="PasswordLogin" name="Password" className={styles.input} required/>
                             </div>
                             <div className={styles.btn}>
                                 <div className={styles.btn_style}></div>
@@ -160,10 +160,10 @@ export const RegisterLogin = () => {
                                 <input value={username} onChange={(e) => setUsername(e.target.value)} type="username" placeholder="Username" id="Username" name="Username" className={styles.input} required/>
                             </div>
                             <div className={styles.fields}>
-                                <input value={password} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="Password" name="Password" className={styles.input} required/>
+                                <input value={password} onChange={(e) => setPass(e.target.value)} type="password" placeholder="Password" id="PasswordRegister" name="Password" className={styles.input} required/>
                             </div>
                             <div className={styles.fields}>
-                                <input value={rPassword} onChange={(e) => setRpass(e.target.value)} type="password" placeholder="Confirm password" id="Password" name="Password" className={styles.input} required/>
+                                <input value={rPassword} onChange={(e) => setRpass(e.target.value)} type="password" placeholder="Confirm password" id="PasswordConfirm" name="Password" className={styles.input} required/>
                             </div>
                             <div className={styles.btn}>
                                 <div className={styles.btn_style}></div>
@@ -184,6 +184,6 @@ export const RegisterLogin = () => {
                 </div>
 
             </div>
-        </body>
+        </div>
     )
 }

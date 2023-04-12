@@ -15,7 +15,6 @@ const GeneralRoutes = () => {
               setAuth(true);
           })
           .catch((err) => {
-              console.log(err);
               setAuth(false);
           })
     }, [])
