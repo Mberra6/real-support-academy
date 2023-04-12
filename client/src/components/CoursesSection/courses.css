@@ -204,6 +204,7 @@
     flex-wrap: wrap;
     gap: 10px;
     margin-bottom: 1rem;
+    margin-top: 1rem;
     flex-direction: row;
     justify-content: center;
 }
