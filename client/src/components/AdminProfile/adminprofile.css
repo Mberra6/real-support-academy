@@ -19,6 +19,7 @@
 }
 .profile-container button:hover{
     color: rgb(241, 119, 48);
+    background-color: #007bff;
 }
 
 
@@ -63,7 +64,7 @@
 .box1-admin button{
     padding: 0.5rem ;
     color: white;
-    background-color: rgb(169, 192, 223);
+    background-color: #007bff;
     font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: 2rem;

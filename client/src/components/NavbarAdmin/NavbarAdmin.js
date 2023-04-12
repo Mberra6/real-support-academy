@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import "./navbaradmin.css";
-import { MenuItems2 } from './MenuItemsAdmin';
+import { MenuItemsAdmin } from './MenuItemsAdmin';
 import { Link } from 'react-router-dom';
 import LogoutBtn from '../LogoutButton/LogoutBtn';
 
@@ -26,7 +26,7 @@ class NavbarAdmin extends Component {
       <ul className={this.state.clicked ?
       "nav-menu active" : "nav-menu"}>
         {/* retrieve index number menu items using map */}
-        {MenuItems2.map((item, index) => {
+        {MenuItemsAdmin.map((item, index) => {
           return(
             // list tag needs to target index number
             <li key={index}>
