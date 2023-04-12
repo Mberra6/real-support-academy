@@ -114,7 +114,7 @@ const authenticateUserById = async (id, password) => {
 
 // function to create json web token
 const generateAccessToken = (user) => {
-    return jwt.sign({ id: user.id, username: user.username}, process.env.SESSION_SECRET, { expiresIn: "3600s" });
+    return jwt.sign({ id: user.id, username: user.username}, process.env.SESSION_SECRET, { expiresIn: "24h" });
 };
 
 // Function to register new user
