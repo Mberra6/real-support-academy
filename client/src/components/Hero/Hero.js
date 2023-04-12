@@ -7,21 +7,7 @@ function Hero(props) {
   const [backendData, setBackendData] = useState(null);
   const [backendErrorData, setBackendErrorData] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [showSearchBar, setShowSearchBar] = useState(true);
-  const [showSearchBar2, setShowSearchBar2] = useState(false);
   const { setSearchResults } = props;
-  const [showNoCoursesPopup, setShowNoCoursesPopup] = useState(false);
-
-  const createCourse = (title, description, length, difficulty) => {
-    return (
-      <div>
-        <h2>{title}</h2>
-        <p>{description}</p>
-        <p>Length: {length} Weeks</p>
-        <p>Difficulty: {difficulty}</p>
-      </div>
-    );
-  };
 
   const handleSearchClick = () => {
     setBackendData(null);
@@ -36,16 +22,9 @@ function Hero(props) {
           courses.length === 0 ? setSearchResults(["No courses Found"]) : setSearchResults(courses);
         })
         .catch(error => {
-          console.log(error);
           setBackendData(null);
         });
     }
-  };
-
-  const handleClosePopup = () => {
-    setBackendErrorData(null);
-    setSearchTerm('');
-    setShowNoCoursesPopup(false);
   };
 
   return (

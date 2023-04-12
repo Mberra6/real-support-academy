@@ -6,7 +6,7 @@ import CourseCard from "./CourseCard";
 import defaultCourseImg from "../../assets/defaultCourse.png";
 
 
-const MyCoursesSubSection = (props) => {
+const MyCoursesSubSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
   const [courses, setCourses] = useState([]);
