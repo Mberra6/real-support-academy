@@ -35,7 +35,7 @@ const AddCourse = () => {
     }
 
     return (
-        <body className={styles.body}>
+        <div className={styles.body}>
             <div className={styles.auth_form_container}>
                 <div className={styles.heading}>
                         <div className={styles.head}>
@@ -68,7 +68,7 @@ const AddCourse = () => {
                     })()}
                 </form>
             </div>
-        </body>
+        </div>
     )
 }
 

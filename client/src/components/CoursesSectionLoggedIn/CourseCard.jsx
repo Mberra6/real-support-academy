@@ -17,7 +17,6 @@ const CourseCard = (props) => {
     })
     .then(
       response => {
-        console.log(response.data.course);
         response.data.course.length > 0 ? setEnrolled(true) : setEnrolled(false);
       }
     )

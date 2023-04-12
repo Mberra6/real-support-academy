@@ -25,11 +25,6 @@ export const MenuItems2 = [
         cName : "nav-links"
     }, 
     {
-        title : "Messages",
-        url : "/admin/messages",
-        cName : "nav-links"
-    }, 
-    {
         title : "Add New Course",
         url : "/admin/addcourse",
         cName : "nav-links"

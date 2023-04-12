@@ -35,7 +35,7 @@ const UpdateProfile = () => {
     }
 
     return (
-        <body className={styles.body}>
+        <div className={styles.body}>
             <div className={styles.auth_form_container}>
                 <button className={styles.back_button} onClick={() => navigate('/admin/account')}><FaTimes/></button>
                 <div className={styles.heading}>
@@ -72,7 +72,7 @@ const UpdateProfile = () => {
                     })()}
                 </form>
             </div>
-        </body>
+        </div>
     )
 }
 
