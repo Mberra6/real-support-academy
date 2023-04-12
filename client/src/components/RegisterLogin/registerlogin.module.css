@@ -6,24 +6,15 @@
     background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
-    width: 100vw;
+    width: auto;
+    /* margin-top: 2rem; */
+    
 }
 
-.home_button {
-    width: 75px;
-    height: 75px;
-    border: none;
-    cursor: pointer;
-    margin-top: 15px;
-    margin-left: 15px;
-    background-image: url("../../assets/home-button.png");
-    background-color: transparent;
-    background-size: cover;
-}
 
 .auth_form_container {
-    position: absolute;
-    top: 50%;
+    position: relative;
+    top: 35rem;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 450px;
@@ -32,6 +23,7 @@
     padding: 35px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    /* margin-top: 2rem; */
 }
 
 .heading {
