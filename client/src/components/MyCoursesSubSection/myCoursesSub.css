@@ -90,17 +90,17 @@
 
 .resume_course {
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     border: none;
     background: none;
     color: rgb(241, 119, 48);
 }
 
 .resume_course:hover {
-    text-decoration: underline;
+    text-decoration: none;
     background-color: white;
-    color: rgb(241, 119, 48);
-    font-weight: bolder;
+    color: #0077cc;
+    font-weight: 700;
     cursor: pointer;
 }
 
