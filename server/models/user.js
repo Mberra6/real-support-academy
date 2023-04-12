@@ -26,7 +26,8 @@ class User {
             email,
             password,
             username,
-            created_at
+            created_at,
+            is_admin
         )
         VALUES(
             '${this.firstName}',
@@ -34,7 +35,9 @@ class User {
             '${this.email}',
             '${this.password}',
             '${this.username}',
-            '${createdAtDate}'
+            '${createdAtDate}',
+            False
+
         );
         `;
 
@@ -47,8 +50,20 @@ class User {
         return db.execute(sql);
     }
 
+    static findByEmailUpdate = (email, id) => {
+        let sql = `SELECT * FROM users WHERE email = '${email}' AND user_id != '${id}';`;
+
+        return db.execute(sql);
+    }
+
     static findByUsername = (username) => {
         let sql = `SELECT * FROM users WHERE username = '${username}';`;
+
+        return db.execute(sql);
+    }
+
+    static findByUsernameUpdate = (username, id) => {
+        let sql = `SELECT * FROM users WHERE username = '${username}' AND user_id != '${id}';`;
 
         return db.execute(sql);
     }
@@ -59,14 +74,22 @@ class User {
         return db.execute(sql);
     }
 
-    static getIdByEmail = (email) => {
-        let sql = `SELECT user_id FROM users where email = '${email}';`
+    static updateById = (id, firstName, lastName, email, username) => {
+        let sql = `
+        UPDATE users
+        SET first_name = '${firstName}', last_name = '${lastName}', email = '${email}', username = '${username}'
+        WHERE user_id = '${id}';
+        `
 
         return db.execute(sql);
     }
 
-    static getIdByUsername = (username) => {
-        let sql = `SELECT user_id FROM users where username = '${username}';`
+    static updatePasswordById = (id, newPassword) => {
+        let sql = `
+        UPDATE users
+        SET password = '${newPassword}'
+        WHERE user_id = '${id}';
+        `
 
         return db.execute(sql);
     }

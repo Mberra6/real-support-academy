@@ -2,7 +2,7 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../Hero/hero.css";
 
-const LogoutBtn = (props) => {
+const LogoutBtn = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {

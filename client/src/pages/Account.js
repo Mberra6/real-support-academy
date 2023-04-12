@@ -2,13 +2,12 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
-import Navbar2 from '../components/Navbar-loggedin/Navbar-loggedin';
+import NavbarLoggedin from '../components/NavbarLoggedin/NavbarLoggedin';
 import Hero from '../components/Hero/Hero';
 import ProfileHeroImg from '../assets/profileHeroImg1.jpg';
 import Profile from '../components/UserProfile/Profile';
 import Footer from '../components/Footer/Footer';
 
-// import MetaData from ''
 
 
 const Account = () => {
@@ -40,12 +39,11 @@ const Account = () => {
   
   return (
     <>
-    <Navbar2/>
+    <NavbarLoggedin/>
     <Hero
       cName="hero-mid1"
       heroImg={ProfileHeroImg}
       title="Profile"
-      // subHeading = "hide"
       // hide these buttons for hero of about section in hero.css (only needed in hero of home page)
       btnClass = "hide"
       searchBtnClass = "hide"

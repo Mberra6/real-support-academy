@@ -34,10 +34,19 @@ class Enrollment {
 
     static findAll = (userId) => {
         let sql = `
-        SELECT courses.course_title, courses.course_description, courses.course_length, courses.course_difficulty, enrollments.enrollment_date
+        SELECT courses.course_id, courses.course_title, courses.course_description, courses.course_length, courses.course_difficulty, enrollments.enrollment_date
         FROM courses
         INNER JOIN enrollments ON courses.course_id = enrollments.course_id
-        WHERE enrollemnts.user_id = ${userId};`;
+        WHERE enrollments.user_id = ${userId};`;
+
+        return db.execute(sql);
+    }
+
+    static findOne = (userId, courseId) => {
+        let sql = `
+        SELECT enrollment_date
+        FROM enrollments
+        WHERE user_id = ${userId} AND course_id = ${courseId};`;
 
         return db.execute(sql);
     }

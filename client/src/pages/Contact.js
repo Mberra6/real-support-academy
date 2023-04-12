@@ -13,7 +13,6 @@ const Contact = () => {
       cName="hero-mid1"
       heroImg={ContactHero}
       title="Need Help?"
-      // subHeading = "hide"
       // hide these buttons for hero of about section in hero.css (only needed in hero of home page)
       btnClass = "hide"
       searchBtnClass = "hide"

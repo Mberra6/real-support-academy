@@ -1,33 +1,87 @@
-.about-us-container{
+.History{
     margin: 4rem 6rem;
-    flex-direction: column;
+}
+
+.History h1{
+    font-size: 3rem;
+}
+
+.Mission{
     display: flex;
     align-items: center;
-    text-align: start;
     justify-content: space-between;
+    margin-top: 4.5rem;
 }
 
-.about-us-container h1{
+.missionText{
+    width: 45%;
+    text-align: start ;
+    font-size: 1.1rem;
+}
+
+.missionText h2{
     padding-bottom: 1rem;
 }
+ .image{
+    padding-left: 100px;
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    z-index: -99;
+ }
 
-.about-us-container p{
-    padding-bottom: 2rem;
-}
+ .img2{
+    width: 55%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 6px;
+ }
 
-.about-us-container img{
-    width:50%;
 
-}
+ .image img{
+    width: 55%;
+    height: 340px;
+    object-fit: cover;
+    border-radius: 6px;
+ }
 
-@media screen and (max-width:1000px){
-    .about-us-container h1{
-        padding: 10px 20px;
+ @media screen and (max-width:850px){
+    .History{
+        margin: 4rem 6rem;
     }
 
-    .about-us-container p{
-        font-size: 1.1rem;
-        padding: 0 0 2rem 0;
+    .Mission{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 4.5rem;
     }
+}
 
+.imag{
+    width: 20%;
+    height: 30%;
+    display: block;
+    margin: 0 auto;
+    padding-top: 5%;
+    padding-bottom: 1%;
+}
+
+.feedback{
+    margin: 1rem 6rem;
+}
+
+.feedback p{ 
+    padding-top: 2%;
+}
+
+.imagf{
+    width: 40%;
+    height: 30%;
+    display: block;
+    margin: 0 auto;
+    padding-top: 5%;
+    padding-bottom: 1%;
 }
