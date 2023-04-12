@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
-// images of the three courses
-import courseImg1 from "../../assets/english-course.png";
-import courseImg2 from "../../assets/cloud-storage-course.png";
-import courseImg3 from "../../assets/wifi-course.png";
-import courseImg4 from "../../assets/maths.png";
-import courseImg5 from "../../assets/story.webp";
-import courseImg6 from "../../assets/science.png";
+import axios from 'axios';
+
 import defaultCourseImg from "../../assets/defaultCourse.png";
 
 // import styling
@@ -15,73 +10,43 @@ import "./courses.css";
 import CourseCard from "./CourseCard";
 
 
-// intialised variables from constructor CourseCard
-const coursesData = [
-  {
-    id: "01",
-    title: "English",
-    lesson: 12,
-    difficulty: "Medium",
-    rating: 7.8,
-    imgUrl: courseImg1,
-  },
-
-  {
-    id: "02",
-    title: "Managing Cloud Storage",
-    lesson: 12,
-    difficulty : "Hard",
-    rating: 6.7,
-    imgUrl: courseImg2,
-  },
-
-  {
-    id: "03",
-    title: "Wifi Connections",
-    lesson: 12,
-    difficulty: "Easy",
-    rating: 11.3,
-    imgUrl: courseImg3,
-  },
-
-  {
-    id: "01",
-    title: "Maths",
-    lesson: 12,
-    difficulty: "Medium",
-    rating: 7.8,
-    imgUrl: courseImg4,
-  },
-
-  {
-    id: "02",
-    title: "Storytelling Workshop",
-    lesson: 12,
-    difficulty: "Hard",
-    rating: 6.7,
-    imgUrl: courseImg5,
-  },
-
-  {
-    id: "03",
-    title: "Science",
-    lesson: 12,
-    difficulty: "Easy",
-    rating: 11.3,
-    imgUrl: courseImg6,
-  },
-
-
-];
-
 
 const CourseSubSection = (props) => {
     const { searchResults } = props;
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
+  const [courses, setCourses] = useState([]);
   const [filteredCourses, setFilteredCourses] = useState([]);
   const [selectedDifficulty, setSelectedDifficulty] = useState("All");
   const [selectedTime, setSelectedTime] = useState("All");
+
+  useEffect(() => {
+    axios.get('http://localhost:3333/allcourses')
+    .then((response) => {
+      setFilteredCourses(response.data.courses.map((course) => {
+        return {
+          id: course.course_id,
+          title: course.course_title,
+          lesson: course.course_length,
+          difficulty: course.course_difficulty.charAt(0).toUpperCase() + course.course_difficulty.slice(1),
+          imgUrl: course.course_imgUrl || defaultCourseImg,
+        };
+      }));
+      setCourses(response.data.courses.map((course) => {
+        return {
+          id: course.course_id,
+          title: course.course_title,
+          lesson: course.course_length,
+          difficulty: course.course_difficulty.charAt(0).toUpperCase() + course.course_difficulty.slice(1),
+          imgUrl: course.course_imgUrl || defaultCourseImg,
+        };
+      }));
+
+    })
+    .catch(error => {
+      console.log(error);
+    })
+  },[])
 
 
 
@@ -109,18 +74,18 @@ const CourseSubSection = (props) => {
     };
 
 const filterCourses = () => {
+  if (searchResults[0] === "No courses Found") return searchResults;
   const allCourses = searchResults.length > 0
     ? searchResults.map(course => {
         return {
           id: course.course_id,
           title: course.course_title,
           lesson: course.course_length,
-          difficulty: course.course_difficulty,
-          rating: course.course_rating,
+          difficulty: course.course_difficulty.charAt(0).toUpperCase() + course.course_difficulty.slice(1),
           imgUrl: course.course_imgUrl || defaultCourseImg,
         };
       })
-    : coursesData;
+    : courses;
 
   let filteredCourses = allCourses;
 
@@ -133,7 +98,7 @@ const filterCourses = () => {
       if (selectedTime === "4weeks") {
         return course.lesson < 4;
       } else if (selectedTime === "8weeks") {
-        return course.lesson >= 4 && course.lesson < 8;
+        return course.lesson < 8;
       } else {
         return course.lesson >= 8;
       }
@@ -171,7 +136,7 @@ const filterCourses = () => {
                                 <option value="All">All</option>
                                 <option value="4weeks">Less than 4 weeks</option>
                                 <option value="8weeks">Less than 8 weeks</option>
-                                <option value="8weeksmore">More than 8 weeks</option>
+                                <option value="8weeksmore">8 or more weeks</option>
                             </select>
                         </div>
                     </Col>
@@ -220,27 +185,37 @@ const filterCourses = () => {
          </Row>             
                <Row>
   <div className="flexcontainer">
-    {visibleCourses.length > 0 ? (
-      visibleCourses.map(course => (
-        <Col className="flexitem" lg="4" md="6" sm="6">
-          <CourseCard
-            key={course.id}
-            title={course.title}
-            lesson={course.lesson}
-            difficulty={course.difficulty}
-            rating={course.rating}
-            imgUrl={course.imgUrl}
-          />
-        </Col>
-      ))
-    ) : (
-      <Col>
-        <div className="no-results">
-          <h3>No results found</h3>
-          <p>Please try again with different filters.</p>
-        </div>
-      </Col>
-    )}
+  { (() => {
+            if (visibleCourses[0] === "No courses Found") {
+              return (<Col>
+                <div className="no-results">
+                  <h3>No results found</h3>
+                  <p>Please try again with different course name.</p>
+                </div>
+              </Col>)
+          } else if (visibleCourses.length > 0) {
+            return (visibleCourses.map(course => (
+              console.log(course.id),
+              <Col className="flexitem" lg="4" md="6" sm="6">
+                <CourseCard
+                  courseId={course.id}
+                  title={course.title}
+                  lesson={course.lesson}
+                  difficulty={course.difficulty}
+                  rating={course.rating}
+                  imgUrl={course.imgUrl}
+                />
+              </Col>
+            )))
+          } else {
+            return (<Col>
+            <div className="no-results">
+              <h3>No results found</h3>
+              <p>Please try again with different filters.</p>
+            </div>
+          </Col>)
+          }
+          })()}
   </div>
 </Row>
                 

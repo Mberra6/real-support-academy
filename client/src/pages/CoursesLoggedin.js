@@ -3,7 +3,7 @@ import Navbar2 from '../components/Navbar-loggedin/Navbar-loggedin';
 import Hero from '../components/Hero/Hero';
 import CourseHeroImg from "../assets/coursesHeroImg.jpg";
 import Footer from '../components/Footer/Footer';
-import CourseSubSection from '../components/Courses-section/CourseSubSection';
+import CourseSubSection from '../components/CoursesSectionLoggedIn/CourseSubSection';
 
 
 const Courses = () => {

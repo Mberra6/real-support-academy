@@ -1,4 +1,5 @@
 const Course = require('../models/course');
+const Enrollment = require('../models/enrollment');
 
 // Function to check if course with such title already exists in the db
 const doesExistCourse = async (title) => {
@@ -60,6 +61,49 @@ exports.addCourse = async (req, res, next) => {
             await course.save();
             res.status(201).json({ message: "Course successfully added." });
         }
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+// Function to handle user enrollment into course
+exports.courseEnrollment = async (req, res, next) => {
+    try {
+        const userId = req.params.userId;
+        const { courseId } = req.body;
+        let enrollment = new Enrollment(courseId, userId);
+        await enrollment.save();
+
+        res.status(201).json({ message: "User succesfully enrolled into course." });
+
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+// Function to check if user enrolled into course
+exports.getCourseEnrolled = async (req, res, next) => {
+    try {
+        let userId = req.params.userId;
+        let {courseId} = req.body;
+        let [course, _] = await Enrollment.findOne(userId, courseId);
+
+        res.status(201).json({course});
+    } catch (error) {
+        console.log(error);
+        next(error);
+    }
+}
+
+// Function to get all courses user is enrolled into
+exports.getCoursesEnrolled = async (req, res, next) => {
+    try {
+        let id = req.params.userId;
+        let [courses, _] = await Enrollment.findAll(id);
+
+        res.status(201).json({courses});
     } catch (error) {
         console.log(error);
         next(error);

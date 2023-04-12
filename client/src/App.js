@@ -21,7 +21,6 @@ import UpdateProfileAdmin from './pages/UpdateProfileAdminPage';
 import ChangePassword from './pages/ChangePasswordPage';
 import ChangePasswordAdmin from './pages/ChangePasswordAdminPage';
 import MyCourses from './pages/MyCourses';
-// import MyCoursesAdmin from './pages/MyCoursesAdmin';
 import AdminContactFormMessages from './pages/AdminContactFormMessages';
 import AddCourse from './pages/AddCoursePage';
 import RegisterLogin from './pages/RegisterLoginPage';
@@ -43,7 +42,6 @@ function App() {
           <Route path="/admin/messages" element={<AdminContactFormMessages/>}/>          
           <Route path="/admin/account/update" element={<UpdateProfileAdmin/>}/>
           <Route path="/admin/account/changepassword" element={<ChangePasswordAdmin/>}/>
-          {/* <Route path="/admin/mycourses" element={<MyCoursesAdmin/>}/> */}
           <Route path="/admin/addcourse" element={<AddCourse/>}/>
         </Route>
         <Route element={<PrivateRoutes/>}>

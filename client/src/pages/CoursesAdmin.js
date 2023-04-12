@@ -3,7 +3,7 @@ import NavbarAdmin from '../components/Navbar-admin/NavbarAdmin';
 import Hero from '../components/Hero/Hero';
 import CourseHeroImg from "../assets/coursesHeroImg.jpg";
 import Footer from '../components/Footer/Footer';
-import CourseSubSection from '../components/Courses-section/CourseSubSection';
+import CourseSubSection from '../components/CoursesSection/CourseSubSection';
 
 
 const CoursesAdmin = () => {

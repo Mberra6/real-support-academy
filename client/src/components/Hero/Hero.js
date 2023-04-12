@@ -33,8 +33,7 @@ function Hero(props) {
       })
         .then((response) => {
           const courses = response.data.courses;
-          setSearchResults(courses);
-          setShowNoCoursesPopup(courses.length === 0);
+          courses.length === 0 ? setSearchResults(["No courses Found"]) : setSearchResults(courses);
         })
         .catch(error => {
           console.log(error);
@@ -60,8 +59,7 @@ function Hero(props) {
             <>
               <input type="text" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} className={props.searchBtnClass} placeholder={props.searchBarText} />
               <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
-              {backendData ? backendData : <p>{backendErrorData && <div className="popup"><span>{backendErrorData}<button onClick={handleClosePopup} className="popup-close-btn">&#10006;</button></span></div>}</p>}
-              {showNoCoursesPopup && <div className="popup"><span>No courses found!<button onClick={handleClosePopup} className="popup-close-btn">&#10006;</button></span></div>}
+              {backendData ? backendData : <p>{backendErrorData}</p>}
             </>
           )}
           {props.showSearchBar2 && (
