@@ -6,13 +6,13 @@ import defaultCourseImg from "../../assets/defaultCourse.png";
 
 // import styling
 import "./courses.css";
-// import function CourseCard
+// import component CourseCard
 import CourseCard from "./CourseCard";
 
 
 
 const CourseSubSection = (props) => {
-    const { searchResults } = props;
+  const { searchResults } = props;
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
   const [courses, setCourses] = useState([]);

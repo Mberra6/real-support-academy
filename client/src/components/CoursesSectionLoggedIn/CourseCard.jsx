@@ -6,7 +6,6 @@ import axios from 'axios';
 
 const CourseCard = (props) => {
   const { imgUrl, courseId, title, lesson, difficulty } = props;
-  console.log(courseId);
   const userId = localStorage.getItem('userId');
   const [enrolled, setEnrolled] = useState(null);
   const enrollBtn = useRef();

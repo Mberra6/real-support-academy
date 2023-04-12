@@ -1,19 +1,9 @@
-import React, { useState, useRef } from "react";
+import React from "react";
 // implemented constructor with parameters intialised in Courses.jsx
 
 
 const CourseCard = (props) => {
   const { imgUrl, courseId, title, lesson, difficulty } = props;
-  const enrollBtn = useRef();
-  const [isOpen, setIsOpen] = useState(false);
-  
-  const togglePopup = () => {
-    setIsOpen(!isOpen);
-  }
-
-  const handleEnrollment = () => {
-    togglePopup();
-  };
 
   return (
     <div className="single__course__item">
@@ -38,7 +28,7 @@ const CourseCard = (props) => {
         </div>
 
         <div className="enroll__container">
-          <p ref={enrollBtn} className="enroll" onClick={handleEnrollment}>
+          <p className="enroll">
               <button className="enroll_now" > Modify Course</button>
             </p>
         
