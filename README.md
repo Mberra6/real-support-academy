@@ -1,15 +1,15 @@
 # Group 45 Software Engineering Project
 
-First of all, clone the repository into vs code.
+First of all, clone the repository.
 
-To run the system, open 2 terminals in vs code and make sure ports 3000 and 3333 are available to use in your computer.
+To run the system, open 2 terminals and make sure ports 3000 and 3333 are available to use in your computer.
 
 In the first terminal, run the following commands:
 1. cd server
 2. npm install
 3. npm start
 
-It is vital that the server is running in order for the system to function as expected.
+The server is will now be running on Port 3333.
 
 In the second terminal, run the following commands:
 1. cd client
