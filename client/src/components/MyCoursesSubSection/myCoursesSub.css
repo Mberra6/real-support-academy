@@ -278,3 +278,11 @@
      pointer-events: none;
 
 }
+
+.pagination li.nextDisabled2 a {
+    display: none;
+}
+
+.pagination li.prevDisabled2 a {
+    display: none;
+}

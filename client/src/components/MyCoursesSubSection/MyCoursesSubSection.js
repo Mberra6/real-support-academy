@@ -26,7 +26,6 @@ const MyCoursesSubSection = () => {
             enrollmentDate: course.enrollment_date.slice(0, 10),
           };
         }));
-        console.log(courses);
       }
     )
     .catch(error => {
@@ -76,7 +75,7 @@ const MyCoursesSubSection = () => {
             <div className="pagination-container">
               <nav>
                 <ul className="pagination">
-                  <li>
+                  <li className={currentPage === 1 ? "prevDisabled2" : ""}>
                     <a href="#!" onClick={(e) => handlePrevClick(e)}>&laquo;</a>
                   </li>
                   {[...Array(totalPages)].map((_, idx) => {
@@ -90,7 +89,7 @@ const MyCoursesSubSection = () => {
                       </li>
                     );
                   })}
-                  <li>
+                  <li className={currentPage >= totalPages ? "nextDisabled2" : ""}>
                     <a href="#!" onClick={(e) => handleNextClick(e)}>&raquo;</a>
                   </li>
                 </ul>

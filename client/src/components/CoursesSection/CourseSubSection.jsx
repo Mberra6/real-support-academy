@@ -5,7 +5,7 @@ import axios from 'axios';
 import defaultCourseImg from "../../assets/defaultCourse.png";
 
 // import styling
-import "./courses.css";
+import "./coursesNotLogged.css";
 // import component CourseCard
 import CourseCard from "./CourseCard";
 
@@ -41,7 +41,6 @@ const CourseSubSection = (props) => {
           imgUrl: course.course_imgUrl || defaultCourseImg,
         };
       }));
-
     })
     .catch(error => {
       console.log(error);
@@ -74,6 +73,7 @@ const CourseSubSection = (props) => {
     };
 
 const filterCourses = () => {
+  setCurrentPage(1);
   if (searchResults[0] === "No courses Found") return searchResults;
   const allCourses = searchResults.length > 0
     ? searchResults.map(course => {
@@ -161,7 +161,7 @@ const filterCourses = () => {
             <div className="pagination-container">
               <nav>
                 <ul className="pagination">
-                  <li>
+                  <li className={currentPage === 1 ? "prevDisabled" : ""}>
                     <a href="#!" onClick={(e) => handlePrevClick(e)}>&laquo;</a>
                   </li>
                   {[...Array(totalPages)].map((_, idx) => {
@@ -175,7 +175,7 @@ const filterCourses = () => {
                       </li>
                     );
                   })}
-                  <li>
+                  <li className={currentPage === totalPages ? "nextDisabled" : ""}>
                     <a href="#!" onClick={(e) => handleNextClick(e)}>&raquo;</a>
                   </li>
                 </ul>

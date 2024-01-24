@@ -5,7 +5,7 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 100vh;
+    height: 110vh;
     width: 100vw;
     /* margin-top: 2rem; */
     
@@ -14,7 +14,7 @@
 
 .auth_form_container {
     position: absolute;
-    top: 55%;
+    top: 60%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 450px;

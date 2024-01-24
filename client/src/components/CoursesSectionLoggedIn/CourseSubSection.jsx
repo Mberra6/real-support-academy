@@ -161,7 +161,7 @@ const filterCourses = () => {
             <div className="pagination-container">
               <nav>
                 <ul className="pagination">
-                  <li>
+                  <li className={currentPage === 1 ? "prevDisabled" : ""}>
                     <a href="#!" onClick={(e) => handlePrevClick(e)}>&laquo;</a>
                   </li>
                   {[...Array(totalPages)].map((_, idx) => {
@@ -175,7 +175,7 @@ const filterCourses = () => {
                       </li>
                     );
                   })}
-                  <li>
+                  <li className={currentPage === totalPages ? "nextDisabled" : ""}>
                     <a href="#!" onClick={(e) => handleNextClick(e)}>&raquo;</a>
                   </li>
                 </ul>

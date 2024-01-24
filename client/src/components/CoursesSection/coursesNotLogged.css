@@ -296,3 +296,11 @@
      pointer-events: none;
 
 }
+
+.pagination li.nextDisabled a {
+    display: none;
+}
+
+.pagination li.prevDisabled a {
+    display: none;
+}

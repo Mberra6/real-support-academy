@@ -51,7 +51,7 @@
 }
 .box1 img{
     height: auto;
-    width: 25rem;
+    width: 20rem;
 }
 
 
@@ -135,7 +135,7 @@
     border: 1px solid black;
 } 
 
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1001px) {
     .profile-container{
         margin: 1rem 1rem;
         position: relative;
@@ -172,7 +172,7 @@
     }
     .profile-container img{
         height: auto;
-        width: 20rem;
+        width: 15rem;
     }
     .userIconArea {
         margin-right: 1rem;

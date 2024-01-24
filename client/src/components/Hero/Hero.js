@@ -24,7 +24,10 @@ function Hero(props) {
         .catch(error => {
           setBackendData(null);
         });
+    } else {
+      alert("Search cannot be empty");
     }
+    setSearchTerm('');
   };
 
   return (
@@ -35,17 +38,10 @@ function Hero(props) {
           <h1>{props.title}</h1>
           <p>{props.subHeading}</p>
           {props.showSearchBar && (
-            <>
+            <div className='search'>
               <input type="text" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} className={props.searchBtnClass} placeholder={props.searchBarText} />
               <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
-              {backendData ? backendData : <p>{backendErrorData}</p>}
-            </>
-          )}
-          {props.showSearchBar2 && (
-            <>
-              <input type="text" value={searchTerm} onChange={event => setSearchTerm(event.target.value)} className={props.searchBtnClass} placeholder={props.searchBarText} />
-              <button onClick={ handleSearchClick} className={props.searchBtnClass}>{props.searchBtnText}</button>
-            </>
+            </div>
           )}
           <a href={props.url} className={props.btnClass}> {props.buttonText} </a>
         </div>
