@@ -26,7 +26,7 @@ This E-Learning Platform is a full-stack web application designed to provide a c
 * **Manage Profile**: Update your profile information and password through the profile settings.
 
 ## Access the Live Application
-The live application can be accessed at: http://rsafrontend.s3-website.eu-west-2.amazonaws.com
+The live application can be accessed [here](http://rsafrontend.s3-website.eu-west-2.amazonaws.com)
 
 ## Support
 
