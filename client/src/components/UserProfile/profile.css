@@ -16,6 +16,7 @@
 }
 .profile-container button{
     cursor: pointer;
+    font-size: 1.5rem;
 }
 .profile-container button:hover{
     color: rgb(241, 119, 48);
@@ -51,7 +52,7 @@
 }
 .box1 img{
     height: auto;
-    width: 20rem;
+    width: 18rem;
 }
 
 
@@ -202,4 +203,179 @@
     }
     
     
+}
+
+/* make the section dynamic */
+
+@media screen and (max-width: 480px) {
+    .profile-container .box1 .userIconArea .profileIcon {
+        width: 14rem;
+    }
+
+    .profile-container .box1 .userIconArea h1{
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box1 .userTextArea h3 {
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box1 .userTextArea p {
+        font-size: 1.1rem;
+    }
+
+    .box1 button {
+        font-size: 1rem;
+    }
+
+    #changeBtn {
+        font-size: 0.9rem;
+    }
+
+    .profile-container .box2 h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .profile-container .box1 .userIconArea .profileIcon {
+        width: 14rem;
+    }
+
+    .profile-container .box1 .userIconArea h1{
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box1 .userTextArea h3 {
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box1 .userTextArea p {
+        font-size: 1.2rem;
+    }
+
+    .box1 button {
+        font-size: 1.2rem;
+    }
+
+    #changeBtn {
+        font-size: 1rem;
+    }
+
+    .profile-container .box2 h1 {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .profile-container .box1 .userIconArea .profileIcon {
+        width: 16rem;
+    }
+
+    .profile-container .box1 .userIconArea h1{
+        font-size: 1.6rem;
+    }
+
+    .profile-container .box1 .userTextArea h3 {
+        font-size: 1.6rem;
+    }
+
+    .profile-container .box1 .userTextArea p {
+        font-size: 1.4rem;
+    }
+
+    .box1 button {
+        font-size: 1.4rem;
+    }
+
+    #changeBtn {
+        font-size: 1.3rem;
+    }
+
+    .profile-container .box2 h1 {
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box2 img {
+        width: 25rem;
+        
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .profile-container .box1 .userIconArea .profileIcon {
+        width: 18rem;
+    }
+
+    .profile-container .box1 .userIconArea h1{
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1 .userTextArea h3 {
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1 .userTextArea p {
+        font-size: 1.5rem;
+    }
+
+    .box1 button {
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box2 h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    .profile-container .box1 .userIconArea .profileIcon {
+        width: 18rem;
+    }
+
+    .profile-container .box1 .userIconArea h1{
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1 .userTextArea h3 {
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1 .userTextArea p {
+        font-size: 1.5rem;
+    }
+
+    .box1 button {
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box2 h1 {
+        font-size: 1.8rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .profile-container .box1 .userIconArea .profileIcon {
+        width: 18rem;
+    }
+
+    .profile-container .box1 .userIconArea h1{
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1 .userTextArea h3 {
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1 .userTextArea p {
+        font-size: 1.5rem;
+    }
+
+    .box1 button {
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box2 h1 {
+        font-size: 1.8rem;
+    }
 }

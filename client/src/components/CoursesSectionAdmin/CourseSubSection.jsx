@@ -21,7 +21,7 @@ const CourseSubSection = (props) => {
   const [selectedTime, setSelectedTime] = useState("All");
 
   useEffect(() => {
-    axios.get('http://localhost:3333/allcourses')
+    axios.get(`http://${process.env.REACT_APP_SERVER_URL}/allcourses`)
     .then((response) => {
       setFilteredCourses(response.data.courses.map((course) => {
         return {
@@ -120,7 +120,7 @@ const filterCourses = () => {
             <Container className="container">
                 <Row>
                     <Col lg="12">
-                        <div className="filter-bar d-flex justify-content-start align-items-center">
+                        <div id='filters' className="filter-bar d-flex justify-content-start align-items-center">
                             <select id="difficulty-select" name="difficulty" value={selectedDifficulty}
                                 onChange={(e) => setSelectedDifficulty(e.target.value)}>
                                 <option value="" disabled selected>Select Difficulty</option>
@@ -145,8 +145,8 @@ const filterCourses = () => {
                     <Col lg="12" className="mb-5">
                         <div className="course__top d-flex justify-content-between align-items-center">
                             <div className="course__top__left w-50">
-                                <h1 className="courses">Courses</h1>
-                                <p className="para">
+                                <h1 id='coursesHeading' className="courses">Courses</h1>
+                                <p id='para' className="para">
                                     Explore the range of courses we have available, where you can gain essential digital skills
                                     opening many employment opportunities for their future.
                                     Courses vary in difficulty level; easy, medium and hard, and each course comes with a
@@ -188,7 +188,7 @@ const filterCourses = () => {
   { (() => {
             if (visibleCourses[0] === "No courses Found") {
               return (<Col>
-                <div className="no-results">
+                <div id='noResults' className="no-results">
                   <h3>No results found</h3>
                   <p>Please try again with different course name.</p>
                 </div>
@@ -208,7 +208,7 @@ const filterCourses = () => {
             )))
           } else {
             return (<Col>
-            <div className="no-results">
+            <div id='noResults' className="no-results">
               <h3>No results found</h3>
               <p>Please try again with different filters.</p>
             </div>

@@ -20,14 +20,14 @@ const AboutUs = () => {
         <img className='img2' alt="img" src={Progress}/>
     </div>
     </div>
-    <div className='How?'>
+    <div className='How'>
       <h2>How do we do this?</h2>
       <p>They will learn new knowledge and skills in a variety of ways, from engaging video lectures and dynamic graphics to data visualizations and interactive elements. We believe demonstrating your knowledge is a critical part of learning. Real Support Academy courses and programs provide a space to practice with quizzes, open response assessments, virtual environments, and more.
       When learners are presented with different types of learning materials, such as videos, graphics, and interactive elements, they are more likely to stay engaged and interested in the content. This can lead to better retention of information and a more positive learning experience.
       </p>
-    </div>
-    <div className='imag'>
+      <div className='imag'>
         <img alt="img" src={Quiz}/>
+     </div>
     </div>
     <div className='feedback'>
       

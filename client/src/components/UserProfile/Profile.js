@@ -22,11 +22,11 @@ const Profile = (props) => {
             <p>{props.email} </p>
           <h3>Member Since</h3>
             <p>{props.memberSince}</p>
-          <button className='profileBtn' onClick={() => navigate('/user/account/changepassword')}>Change Password</button>          
+          <button id='changeBtn' className='profileBtn' onClick={() => navigate('/user/account/changepassword')}>Change Password</button>          
         </div>
       </div> 
       <div className="box2">
-        <h2>Certificates</h2>
+        <h1>Certificates</h1>
         <img alt='certificate' src={Certificate}></img>
         <img alt='certificate' src={Certificate}></img>
 

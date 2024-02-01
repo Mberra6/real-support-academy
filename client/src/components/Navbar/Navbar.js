@@ -38,7 +38,7 @@ class Navbar extends Component {
             </li>
           )
         })}
-        <LoginBtn/>
+        <LoginBtn className='navbarBtn'/>
       </ul>
 
     </nav>

@@ -66,3 +66,138 @@
         width: 50%;
     }
 }
+
+/* make the section dynamic */
+
+@media screen and (max-width: 480px) {
+    .top i{
+        font-size: 1.75rem;
+    }
+
+    .top div h1 {
+        font-size: 1.8rem;
+    }
+
+    .top div p {
+        font-size: 1.5rem;
+    }
+
+    .bottom h4{
+        font-size: 1.5rem;
+    }
+
+    .bottom a{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .top i{
+        font-size: 1.9rem;
+    }
+
+    .top div h1 {
+        font-size: 2rem;
+    }
+
+    .top div p {
+        font-size: 1.5rem;
+    }
+
+    .bottom h4{
+        font-size: 1.5rem;
+    }
+
+    .bottom a{
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .top i{
+        font-size: 2.2rem;
+    }
+
+    .top div h1 {
+        font-size: 2.2rem;
+    }
+
+    .top div p {
+        font-size: 1.7rem;
+    }
+
+    .bottom h4{
+        font-size: 1.7rem;
+    }
+
+    .bottom a{
+        font-size: 1.4rem;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .top i{
+        font-size: 3rem;
+    }
+
+    .top div h1 {
+        font-size: 2.5rem;
+    }
+
+    .top div p {
+        font-size: 2rem;
+    }
+
+    .bottom h4{
+        font-size: 2rem;
+    }
+
+    .bottom a{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    .top i{
+        font-size: 3rem;
+    }
+
+    .top div h1 {
+        font-size: 2.5rem;
+    }
+
+    .top div p {
+        font-size: 2rem;
+    }
+
+    .bottom h4{
+        font-size: 2rem;
+    }
+
+    .bottom a{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .top i{
+        font-size: 3rem;
+    }
+
+    .top div h1 {
+        font-size: 2.5rem;
+    }
+
+    .top div p {
+        font-size: 2rem;
+    }
+
+    .bottom h4{
+        font-size: 2rem;
+
+    }
+
+    .bottom a{
+        font-size: 1.5rem;
+    }
+}

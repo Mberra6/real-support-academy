@@ -84,7 +84,7 @@
 .btn {
     position: relative;
     overflow: hidden;
-    height: 60px;
+    height: auto;
     width: 100%;
     border-radius: 5px;
     background-color: #007bff;
@@ -119,4 +119,182 @@
     font-size: 1rem;
     color: #cc0000;
     padding-top: 15px;
+}
+
+/* make the section dynamic */
+
+@media screen and (max-width: 480px) {
+
+    .body {
+        height: 135vh;
+    }
+
+    .head {
+        font-size: 3rem;
+    }
+
+    .auth_form_container {
+        width: 350px;
+        top: 75%;
+    }
+
+    .add .fields input {
+        font-size: 1.2rem;
+        padding: 1.5rem;
+    }
+
+    .add .btn {
+       margin-top: 2rem;
+    }
+
+    .add .btn input[type="submit"] {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .body {
+        height: 125vh;
+    }
+
+    .head {
+        font-size: 3rem;
+    }
+
+    .auth_form_container {
+        width: 400px;
+        top: 70%;
+    }
+
+    .add .fields input {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .add .btn {
+       margin-top: 2rem;
+    }
+
+    .add .btn input[type="submit"] {
+        font-size: 1.75rem;
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+
+    .body {
+        height: 120vh;
+    }
+
+    .head {
+        font-size: 3.5rem;
+    }
+
+    .auth_form_container {
+        width: 450px;
+        top: 65%;
+    }
+
+    .add .fields input {
+        font-size: 1.5rem;
+        padding: 1.5rem;
+    }
+
+    .add .btn {
+       margin-top: 2rem;
+    }
+
+    .add .btn input[type="submit"] {
+        font-size: 1.75rem;
+        padding: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .body {
+        height: 120vh;
+    }
+
+    .head {
+        font-size: 3.5rem;
+    }
+
+    .auth_form_container {
+        width: 500px;
+        top: 65%;
+    }
+
+    .add .fields input {
+        font-size: 1.75rem;
+        padding: 1.75rem;
+    }
+
+    .add .btn {
+       margin-top: 2rem;
+    }
+
+    .add .btn input[type="submit"] {
+        font-size: 2rem;
+        padding: 1.75rem;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    .body {
+        height: 120vh;
+    }
+
+    .head {
+        font-size: 3.5rem;
+    }
+
+    .auth_form_container {
+        width: 500px;
+        top: 65%;
+    }
+
+    .add .fields input {
+        font-size: 1.75rem;
+        padding: 1.75rem;
+    }
+
+    .add .btn {
+       margin-top: 2rem;
+    }
+
+    .add .btn input[type="submit"] {
+        font-size: 2rem;
+        padding: 1.75rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .body {
+        height: 120vh;
+    }
+
+    .head {
+        font-size: 3.5rem;
+    }
+
+    .auth_form_container {
+        width: 500px;
+        top: 65%;
+    }
+
+    .add .fields input {
+        font-size: 1.75rem;
+        padding: 1.75rem;
+    }
+
+    .add .btn {
+       margin-top: 2rem;
+    }
+
+    .add .btn input[type="submit"] {
+        font-size: 2rem;
+        padding: 1.75rem;
+    }
 }

@@ -6,82 +6,445 @@
     font-size: 3rem;
 }
 
-.Mission{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: 4.5rem;
+.History p {
+    margin-top: 2rem;
 }
 
-.missionText{
-    width: 45%;
-    text-align: start ;
-    font-size: 1.1rem;
+.missionText p {
+    margin-top: 2rem;
 }
 
-.missionText h2{
-    padding-bottom: 1rem;
+.History .Mission .image {
+    margin-top: 2rem;
 }
- .image{
-    padding-left: 100px;
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    z-index: -99;
+
+.History .Mission .image img {
+    display: block;
+    margin: 0 auto;
+}
+
+.History .Mission {
+    margin-top: 6rem;
+}
+
+ .How {
+     margin-top: 6rem;
  }
 
- .img2{
-    width: 55%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 6px;
+ .How p {
+     margin-top: 2rem;
  }
 
-
- .image img{
-    width: 55%;
-    height: 340px;
-    object-fit: cover;
-    border-radius: 6px;
+ .feedback {
+     margin-top: 6rem;
  }
 
- @media screen and (max-width:850px){
-    .History{
-        margin: 4rem 6rem;
+ .feedback p {
+     margin-top: 2rem;
+ }
+
+ .How .imag img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+.feedback .imagf img {
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem;
+}
+
+/* make the section dynamic */
+
+@media screen and (max-width: 480px) {
+    .History h1{
+        font-size: 2rem;
+    }
+
+    .History p{
+        font-size: 1.2rem;
+    }
+
+    .History .Mission {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .History .Mission .missionText h2 {
+        font-size: 2rem;
+    }
+
+    .History .Mission .missionText p {
+        padding-left: 0;
+        font-size: 1.2rem;
+    }
+
+    .History .Mission .image {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+    }
+
+    .History .Mission .image img {
+        height: 15rem;
+        width: auto;
+    }
+
+    .How h2 {
+        font-size: 2rem;
+    }
+
+    .How p {
+        font-size: 1.2rem;
+    }
+
+    .How .imag img {
+        height: 15rem;
+        width: auto;
+    }
+
+    .feedback h2 {
+        font-size: 2rem;
+    }
+
+    .feedback p {
+        font-size: 1.2rem;
+    }
+
+    .feedback .imagf img {
+        height: 15rem;
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .History h1{
+        font-size: 2.2rem;
+    }
+
+    .History p{
+        font-size: 1.4rem;
+    }
+
+    .History .Mission {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .History .Mission .missionText h2 {
+        font-size: 2.2rem;
+    }
+
+    .History .Mission .missionText p {
+        padding-left: 0;
+        font-size: 1.4rem;
+    }
+
+    .History .Mission .image {
+        display: flex;
+        flex-direction: column;
+        gap: 6rem;
+    }
+
+    .History .Mission .image img {
+        height: 17.5rem;
+        width: auto;
+    }
+
+    .How h2 {
+        font-size: 2.2rem;
+    }
+
+    .How p {
+        font-size: 1.4rem;
+    }
+
+    .How .imag img {
+        height: 17.5rem;
+        width: auto;
+    }
+
+    .feedback h2 {
+        font-size: 2.2rem;
+    }
+
+    .feedback p {
+        font-size: 1.4rem;
+    }
+
+    .feedback .imagf img {
+        height: 17.5rem;
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .History h1{
+        font-size: 2.4rem;
+    }
+
+    .History p{
+        font-size: 1.6rem;
+    }
+
+    .History .Mission {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .History .Mission .missionText h2 {
+        font-size: 2.4rem;
+    }
+
+    .History .Mission .missionText p {
+        padding-left: 0;
+        font-size: 1.6rem;
+    }
+
+    .History .Mission .image {
+        display: flex;
+        flex-direction: row;
+        gap: 6rem;
+    }
+
+    .History .Mission .image img {
+        height: 20rem;
+        width: auto;
+    }
+
+    .How h2 {
+        font-size: 2.4rem;
+    }
+
+    .How p {
+        font-size: 1.6rem;
+    }
+
+    .How .imag img {
+        height: 20rem;
+        width: auto;
+    }
+
+    .feedback h2 {
+        font-size: 2.4rem;
+    }
+
+    .feedback p {
+        font-size: 1.6rem;
+    }
+
+    .feedback .imagf img {
+        height: 20rem;
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .History h1{
+        font-size: 2.6rem;
+    }
+
+    .History p{
+        font-size: 1.8rem;
+    }
+
+    .History .Mission {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .History .Mission .missionText h2 {
+        font-size: 2.6rem;
+    }
+
+    .History .Mission .missionText p {
+        padding-left: 0;
+        font-size: 1.8rem;
+    }
+
+    .History .Mission .image {
+        display: flex;
+        flex-direction: row;
+        gap: 6rem;
+    }
+
+    .History .Mission .image img {
+        height: 25rem;
+        width: auto;
+    }
+
+    .How h2 {
+        font-size: 2.6rem;
+    }
+
+    .How p {
+        font-size: 1.8rem;
+    }
+
+    .How .imag img {
+        height: 25rem;
+        width: auto;
+    }
+
+    .feedback h2 {
+        font-size: 2.6rem;
+    }
+
+    .feedback p {
+        font-size: 1.8rem;
+    }
+
+    .feedback .imagf img {
+        height: 25rem;
+        width: auto;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    .History h1{
+        font-size: 2.8rem;
+    }
+
+    .History p{
+        font-size: 2rem;
+    }
+
+    .History .Mission .missionText h2 {
+        font-size: 2.8rem;
+    }
+
+    .History .Mission .missionText p {
+        font-size: 2rem;
+    }
+
+    .History .Mission .image {
+        padding-left: 100px;
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: -99;
+    }
+
+    .History .Mission .image img {
+        max-width: 50%;
+        max-height: 50%;
+        height: 30rem;
+        width: auto;
     }
 
     .Mission{
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: space-between;
-        margin-top: 4.5rem;
+        margin-top: 6rem;
+    }
+    
+    .missionText{
+        width: 45%;
+        text-align: start ;
+    }
+
+    .How h2 {
+        font-size: 2.8rem;
+    }
+
+    .How p {
+        font-size: 2rem;
+    }
+
+    .How .imag img {
+        height: 30rem;
+        width: auto;
+    }
+
+    .feedback h2 {
+        font-size: 2.8rem;
+    }
+
+    .feedback p {
+        font-size: 2rem;
+    }
+
+    .feedback .imagf img {
+        height: 30rem;
+        width: auto;
     }
 }
 
-.imag{
-    width: 20%;
-    height: 30%;
-    display: block;
-    margin: 0 auto;
-    padding-top: 5%;
-    padding-bottom: 1%;
-}
+@media screen and (min-width: 1920px) {
+    .History h1{
+        font-size: 2.8rem;
+    }
 
-.feedback{
-    margin: 1rem 6rem;
-}
+    .History p{
+        font-size: 2rem;
+    }
 
-.feedback p{ 
-    padding-top: 2%;
-}
+    .History .Mission .missionText h2 {
+        font-size: 2.8rem;
+    }
 
-.imagf{
-    width: 40%;
-    height: 30%;
-    display: block;
-    margin: 0 auto;
-    padding-top: 5%;
-    padding-bottom: 1%;
+    .History .Mission .missionText p {
+        font-size: 2rem;
+    }
+
+    .History .Mission .image {
+        padding-left: 100px;
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: -99;
+    }
+
+    .History .Mission .image img {
+        max-width: 50%;
+        max-height: 50%;
+        height: 30rem;
+        width: auto;
+    }
+
+    .Mission{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 6rem;
+    }
+    
+    .missionText{
+        width: 45%;
+        text-align: start ;
+    }
+
+    .How h2 {
+        font-size: 2.8rem;
+    }
+
+    .How p {
+        font-size: 2rem;
+    }
+
+    .How .imag img {
+        height: 30rem;
+        width: auto;
+    }
+
+    .feedback h2 {
+        font-size: 2.8rem;
+    }
+
+    .feedback p {
+        font-size: 2rem;
+    }
+
+    .feedback .imagf img {
+        height: 30rem;
+        width: auto;
+    }
 }

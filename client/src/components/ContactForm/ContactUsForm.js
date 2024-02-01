@@ -69,8 +69,10 @@ const ContactUsForm = () => {
           setState({ ...state, message: e.target.value });
         }}
       />
-        <button type="submit" value="Send">Send</button>
-        <button onClick={reset}>Reset</button>
+        <div className="formBtns">
+          <button type="submit" value="Send">Send</button>
+          <button onClick={reset}>Reset</button>
+        </div>
       </form>
     </div>
   );

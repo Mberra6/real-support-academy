@@ -13,7 +13,7 @@ const AddCourse = () => {
 
     const handleSubmitAdd = (e) => {
         e.preventDefault();
-        axios.post('http://localhost:3333/user/admin/addcourse', {
+        axios.post(`http://${process.env.REACT_APP_SERVER_URL}/user/admin/addcourse`, {
         title: title,
         description: description,
         length: length,

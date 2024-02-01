@@ -8,7 +8,7 @@ const PrivateRoutes = () => {
     const token = localStorage.getItem('token');
 
     useEffect(() => {
-        axios.get('http://localhost:3333/user/auth', {
+        axios.get(`http://${process.env.REACT_APP_SERVER_URL}/user/auth`, {
             headers: { authorization: "Bearer " + token }
           })
           .then((response) => {

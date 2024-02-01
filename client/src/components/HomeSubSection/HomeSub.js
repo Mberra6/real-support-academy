@@ -1,14 +1,10 @@
 import React from 'react';
 import './homeSub.css'
-import Logo from "../../assets/logo.png";
 
 const HomeSub = () => {
   return (
     <div className="about-us-container">
         <div className="text"> 
-        <div className="homeimg">
-            <img alt="Logo" src={Logo}/>
-        </div>
             <h1>Learn and Grow</h1>
                 <p>Your Real Support Academy learning experience is grounded in cutting edge cognitive science. With more than two dozen distinct learning features to help you achieve your goals, our approach follows three key principles:</p>
             <h2>Experience</h2>

@@ -13,7 +13,7 @@ const MyCoursesSubSection = () => {
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
-    axios.get('http://localhost:3333/user/enrolledCourses/' + userId)
+    axios.get(`http://${process.env.REACT_APP_SERVER_URL}/user/enrolledCourses/` + userId)
     .then( 
       response => {
         setCourses(response.data.courses.map((course) => {

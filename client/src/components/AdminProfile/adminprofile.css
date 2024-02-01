@@ -51,7 +51,7 @@
 }
 .box1-admin img{
     height: auto;
-    width: 20rem;
+    width: 18rem;
 }
 
 
@@ -110,7 +110,7 @@
     }
     .profile-container img{
         height: auto;
-        width: 15rem;
+        width: 14rem;
     }
     .userIconArea {
         margin-right: 1rem;
@@ -122,4 +122,150 @@
     }
 
     
+}
+
+/* make the section dynamic */
+
+@media screen and (max-width: 480px) {
+    .profile-container .box1-admin .userIconArea .profileIcon {
+        width: 14rem;
+    }
+
+    .profile-container .box1-admin .userIconArea h1{
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box1-admin .userTextArea h3 {
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box1-admin .userTextArea p {
+        font-size: 1.1rem;
+    }
+
+    .box1-admin button {
+        font-size: 1rem;
+    }
+
+    #changeBtn {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .profile-container .box1-admin .userIconArea .profileIcon {
+        width: 14rem;
+    }
+
+    .profile-container .box1-admin .userIconArea h1{
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box1-admin .userTextArea h3 {
+        font-size: 1.5rem;
+    }
+
+    .profile-container .box1-admin .userTextArea p {
+        font-size: 1.2rem;
+    }
+
+    .box1-admin button {
+        font-size: 1.2rem;
+    }
+
+    #changeBtn {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .profile-container .box1-admin .userIconArea .profileIcon {
+        width: 16rem;
+    }
+
+    .profile-container .box1-admin .userIconArea h1{
+        font-size: 1.6rem;
+    }
+
+    .profile-container .box1-admin .userTextArea h3 {
+        font-size: 1.6rem;
+    }
+
+    .profile-container .box1-admin .userTextArea p {
+        font-size: 1.4rem;
+    }
+
+    .box1-admin button {
+        font-size: 1.4rem;
+    }
+
+    #changeBtn {
+        font-size: 1.3rem;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .profile-container .box1-admin .userIconArea .profileIcon {
+        width: 18rem;
+    }
+
+    .profile-container .box1-admin .userIconArea h1{
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1-admin .userTextArea h3 {
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1-admin .userTextArea p {
+        font-size: 1.5rem;
+    }
+
+    .box1-admin button {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    .profile-container .box1-admin .userIconArea .profileIcon {
+        width: 18rem;
+    }
+
+    .profile-container .box1-admin .userIconArea h1{
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1-admin .userTextArea h3 {
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1-admin .userTextArea p {
+        font-size: 1.5rem;
+    }
+
+    .box1-admin button {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .profile-container .box1-admin .userIconArea .profileIcon {
+        width: 18rem;
+    }
+
+    .profile-container .box1-admin .userIconArea h1{
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1-admin .userTextArea h3 {
+        font-size: 1.8rem;
+    }
+
+    .profile-container .box1-admin .userTextArea p {
+        font-size: 1.5rem;
+    }
+
+    .box1-admin button {
+        font-size: 1.5rem;
+    }
 }

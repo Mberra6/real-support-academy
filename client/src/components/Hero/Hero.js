@@ -14,7 +14,7 @@ function Hero(props) {
     setBackendErrorData(null);
     setSearchTerm(searchTerm);
     if (searchTerm) {
-      axios.post('http://localhost:3333/searchcourses', {
+      axios.post(`http://${process.env.REACT_APP_SERVER_URL}/searchcourses`, {
         title: searchTerm
       })
         .then((response) => {

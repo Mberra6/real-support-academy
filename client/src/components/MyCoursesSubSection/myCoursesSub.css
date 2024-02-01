@@ -52,6 +52,7 @@
 }
 
 .courses {
+    margin-top: 2rem;
     padding: 1%;
 }
 
@@ -285,4 +286,42 @@
 
 .pagination li.prevDisabled2 a {
     display: none;
+}
+
+/* make the section dynamic */
+
+@media screen and (max-width: 480px) {
+    .courses {
+        font-size: 2.5rem;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .courses {
+        font-size: 2.6rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .courses {
+        font-size: 2.7rem;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .courses {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    .courses {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .courses {
+        font-size: 3rem;
+    }
 }

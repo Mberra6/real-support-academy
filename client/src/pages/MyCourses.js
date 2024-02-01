@@ -11,7 +11,7 @@ const MyCourses = () => {
     <>
     <NavbarLoggedin/>
     <Hero
-      cName="hero-mid2"
+      cName="hero-mid1"
       heroImg={MyCoursesHeroImg}
       title="My Courses"
       // hide these buttons for hero of about section in hero.css (only needed in hero of home page)

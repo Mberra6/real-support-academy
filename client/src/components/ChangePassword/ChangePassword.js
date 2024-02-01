@@ -17,7 +17,7 @@ const ChangePassword = () => {
     const handleSubmitChange = (e) => {
         e.preventDefault();
         let userId = localStorage.getItem('userId');
-        axios.put('http://localhost:3333/user/account/changepassword/' + userId, {
+        axios.put(`http://${process.env.REACT_APP_SERVER_URL}/user/account/changepassword/ `+ userId, {
         currentPassword: currentPwd,
         newPassword: newPwd,
         confirmNewPassword: confirmNewPwd

@@ -38,7 +38,7 @@ class NavbarLoggedin extends Component {
             </li>
           )
         })}
-        <LogoutBtn/>
+        <LogoutBtn className='navbarBtn' />
       </ul>
 
     </nav>

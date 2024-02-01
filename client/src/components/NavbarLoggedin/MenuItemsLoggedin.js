@@ -15,20 +15,19 @@ export const MenuItemsLoggedin = [
         cName : "nav-links"
     },
     {
-        title : "Contact Us",
-        url : "/user/contact",
+        title : "My Courses",
+        url : "/user/mycourses",
         cName : "nav-links"
-    }, 
+    },
     {
         title : "Account",
         url : "/user/account",
         cName : "nav-links"
     }, 
     {
-        title : "My Courses",
-        url : "/user/mycourses",
+        title : "Contact Us",
+        url : "/user/contact",
         cName : "nav-links"
-    },
-
+    }, 
 ]
 

@@ -14,13 +14,94 @@
     padding-bottom: 2rem;
 }
 
-.about-us-container img{
-    float: right;
-    width:50%;
-    padding-left:370px ;
-}
-
 .about-us-container p{
     font-size: 1.1rem;
     padding: 0 0 2rem 0;
+}
+
+
+/* make the section dynamic */
+
+@media screen and (max-width: 480px) {
+    .about-us-container h1{
+        font-size: 2rem;
+    }
+
+    .about-us-container h2{
+        font-size:  1.5rem;
+    }
+    
+    .about-us-container p{
+        font-size: 1rem;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .about-us-container h1{
+        font-size: 2.25rem;
+    }
+
+    .about-us-container h2{
+        font-size:  1.75rem;
+    }
+    
+    .about-us-container p{
+        font-size: 1.25rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .about-us-container h1{
+        font-size: 2.5rem;
+    }
+
+    .about-us-container h2{
+        font-size:  2rem;
+    }
+    
+    .about-us-container p{
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .about-us-container h1{
+        font-size: 3rem;
+    }
+
+    .about-us-container h2{
+        font-size:  2.5rem;
+    }
+    
+    .about-us-container p{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    .about-us-container h1{
+        font-size: 3rem;
+    }
+
+    .about-us-container h2{
+        font-size:  2.5rem;
+    }
+    
+    .about-us-container p{
+        font-size: 2rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .about-us-container h1{
+        font-size: 3.5rem;
+    }
+
+    .about-us-container h2{
+        font-size:  3rem;
+    }
+    
+    .about-us-container p{
+        font-size: 2.5rem;
+    }
 }

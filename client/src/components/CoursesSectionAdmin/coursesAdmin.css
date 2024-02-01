@@ -301,3 +301,236 @@
 .pagination li.prevDisabled a {
     display: none;
 }
+
+/* make the section dynamic */
+
+@media screen and (max-width: 480px) {
+    #filters {
+        padding: 1.5rem;
+    }
+
+    #filters select {
+        font-size: 1.2rem;
+    }
+
+    #coursesHeading {
+        font-size: 2.5rem;
+    }
+
+    #para {
+        font-size: 1.5rem;
+        padding-top: 0;
+    }
+
+    #noResults h3 {
+        font-size: 1.75rem;
+    }
+
+    #noResults p {
+        font-size: 1.25rem;
+    }
+
+    .enroll__container .enroll .enroll_now {
+        font-size: 1.2rem;
+    }
+
+    .enroll__container .resume .resume_course {
+        font-size: 1.2rem;
+    }
+   
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    #filters {
+        padding: 1.5rem;
+    }
+
+    #filters select {
+        font-size: 1.3rem;
+    }
+
+    #coursesHeading {
+        font-size: 2.6rem;
+    }
+
+    #para {
+        font-size: 1.5rem;
+        padding-top: 0;
+    }
+
+    #noResults h3 {
+        font-size: 1.75rem;
+    }
+
+    #noResults p {
+        font-size: 1.25rem;
+    }
+
+    .enroll__container .enroll .enroll_now {
+        font-size: 1.3rem;
+    }
+
+    .enroll__container .resume .resume_course {
+        font-size: 1.3rem;
+    }
+    
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    #filters {
+        padding: 1.5rem;
+    }
+
+    #filters select {
+        font-size: 1.5rem;
+    }
+
+    #coursesHeading {
+        font-size: 2.7rem;
+    }
+
+    #para {
+        font-size: 1.75rem;
+        padding-top: 0;
+    }
+
+    #noResults h3 {
+        font-size: 2rem;
+    }
+
+    #noResults p {
+        font-size: 1.5rem;
+    }
+
+    .pagination-container .pagination li a {
+        font-size: 1.3rem;
+    }
+
+    .enroll__container .enroll .enroll_now {
+        font-size: 1.4rem;
+    }
+
+    .enroll__container .resume .resume_course {
+        font-size: 1.4rem;
+    }
+   
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    #filters {
+        padding: 1.7rem;
+    }
+
+    #filters select {
+        font-size: 1.75rem;
+    }
+
+    #coursesHeading {
+        font-size: 3rem;
+    }
+
+    #para {
+        font-size: 2rem;
+        padding-top: 0;
+    }
+
+    #noResults h3 {
+        font-size: 2rem;
+    }
+
+    #noResults p {
+        font-size: 1.5rem;
+    }
+
+    .pagination-container .pagination li a {
+        font-size: 1.4rem;
+    }
+
+    .enroll__container .enroll .enroll_now {
+        font-size: 1.5rem;
+    }
+
+    .enroll__container .resume .resume_course {
+        font-size: 1.5rem;
+    }
+
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    #filters {
+        padding: 1.7rem;
+    }
+
+    #filters select {
+        font-size: 1.75rem;
+    }
+
+    #coursesHeading {
+        font-size: 3rem;
+    }
+
+    #para {
+        font-size: 2rem;
+        padding-top: 0;
+    }
+
+    #noResults h3 {
+        font-size: 2rem;
+    }
+
+    #noResults p {
+        font-size: 1.5rem;
+    }
+
+    .pagination-container .pagination li a {
+        font-size: 1.5rem;
+    }
+
+    .enroll__container .enroll .enroll_now {
+        font-size: 1.5rem;
+    }
+
+    .enroll__container .resume .resume_course {
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media screen and (min-width: 1920px) {
+    #filters {
+        padding: 1.7rem;
+    }
+
+    #filters select {
+        font-size: 2rem;
+    }
+
+    #coursesHeading {
+        font-size: 3rem;
+    }
+
+    #para {
+        font-size: 2rem;
+        padding-top: 0;
+    }
+
+    #noResults h3 {
+        font-size: 2rem;
+    }
+
+    #noResults p {
+        font-size: 1.5rem;
+    }
+
+    .pagination-container .pagination li a {
+        font-size: 1.5rem;
+    }
+
+    .enroll__container .enroll .enroll_now {
+        font-size: 1.5rem;
+    }
+
+    .enroll__container .resume .resume_course {
+        font-size: 1.5rem;
+    }
+}

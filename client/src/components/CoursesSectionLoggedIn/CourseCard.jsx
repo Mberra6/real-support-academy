@@ -12,7 +12,7 @@ const CourseCard = (props) => {
   const resumeBtn = useRef();
 
   useEffect(() => {
-    axios.post('http://localhost:3333/user/enrolledCourse/' + userId, {
+    axios.post(`http://${process.env.REACT_APP_SERVER_URL}/user/enrolledCourse/` + userId, {
       courseId: courseId
     })
     .then(
@@ -26,7 +26,7 @@ const CourseCard = (props) => {
   }, [props])
 
   const handleEnrollment = () => {
-    axios.post('http://localhost:3333/user/enroll/' + userId, {
+    axios.post(`http://${process.env.REACT_APP_SERVER_URL}/user/enroll/` + userId, {
       courseId: courseId
     })
     .then(

@@ -38,7 +38,7 @@ class NavbarAdmin extends Component {
             </li>
           )
         })}
-        <LogoutBtn/>
+        <LogoutBtn className='navbarBtn' />
       </ul>
 
     </nav>

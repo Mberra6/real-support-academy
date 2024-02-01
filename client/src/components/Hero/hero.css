@@ -4,6 +4,10 @@
     position: relative;
 }
 
+.hero .hero-text h1 {
+    font-size: 4.5rem;
+}
+
 /*POP UP STYLING*/
 .popup {
     position: fixed;
@@ -44,7 +48,12 @@
         
     }
     .hero-mid1 h1{
-        font-size: 3.5rem !important;
+        font-size: 3.5rem;
+    }
+
+    .hero-mid1 img{
+        filter: blur(1.5px);
+        -webkit-filter: blur(1.5px);
     }
 
 /* ACCOUNT PAGE STYLING - END*/
@@ -59,12 +68,12 @@
     }
     /* override previous css styling for h1 using '!important' */
     .hero-mid p{
-        font-size: 1.3rem !important;
-        font-weight: 600 !important;
+        font-size: 1.3rem;
+        font-weight: 600;
         color:white;
     }
     .hero-mid h1{
-        padding-top: 2em !important;
+        padding-top: 2em;
     }
     .hero-mid img{
         filter: blur(5px);
@@ -84,11 +93,12 @@
         top: 30%;
     }
 
-    .hero-mid2 .hero-text input{
-        padding: 0.8rem;
+    .hero-mid2 .hero-text .search input{
         border-radius: 5px;
-        width: 18rem;
-        font-size: 1rem;
+    }
+
+    .hero-mid2 .hero-text .search button {
+        border-radius: 10px;
     }
 
     .hero-mid2 img{
@@ -145,7 +155,7 @@ img{
 
 .hero-text .show{
     text-decoration: none;
-    font-size:1.5rem;
+    font-size:2.5rem;
     font-weight: bold;
     letter-spacing: 2px;
     color: rgb(241, 119, 48);
@@ -165,14 +175,267 @@ img{
 }
 
 /* make the section dynamic */
-@media screen and (max-width:1000px){
-    .hero-text h1{
-        padding: 10px 20px;
+
+@media screen and (max-width: 480px) {
+    .hero .hero-text h1 {
+        font-size: 3.5rem;
     }
 
-    .hero-text p{
-        font-size: 1.1rem;
-        padding: 0 0 2rem 0;
+    .hero-text .show{
+        text-decoration: none;
+        font-size:2rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: rgb(241, 119, 48);
+        cursor: pointer;
     }
 
+    .hero-mid .hero-text h1 {
+        font-size: 2.75rem;
+        padding-top: 5em;
+    }
+
+    .hero-mid .hero-text p {
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .hero-mid2 .hero-text h1 {
+        font-size: 3rem;
+    }
+
+    .hero-mid2 .hero-text .search input {
+        padding: 1.5rem;
+        width: 20rem;
+        font-size: 1rem;
+    }
+
+    .hero-mid2 .hero-text .search button {
+        padding: 1.5rem;
+        width: 8rem;
+        font-size: 1rem;
+    }
+
+    .hero-mid1 .hero-text h1 {
+        font-size: 3rem;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .hero .hero-text h1 {
+        font-size: 3.75rem;
+    }
+
+    .hero-text .show{
+        text-decoration: none;
+        font-size:1.75rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: rgb(241, 119, 48);
+        cursor: pointer;
+    }
+
+    .hero-mid .hero-text h1 {
+        font-size: 3rem;
+        padding-top: 5em;
+    }
+
+    .hero-mid .hero-text p {
+        font-size: 1.3rem;
+        font-weight: 600;
+    }
+
+    .hero-mid2 .hero-text h1 {
+        font-size: 3.5rem;
+    }
+
+    .hero-mid2 .hero-text .search input {
+        padding: 1.5rem;
+        width: 22rem;
+        font-size: 1.2rem;
+    }
+
+    .hero-mid2 .hero-text .search button {
+        padding: 1.5rem;
+        width: 9rem;
+        font-size: 1.2rem;
+    }
+
+    .hero-mid1 .hero-text h1 {
+        font-size: 3.5rem;
+    }
+}
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+    .hero .hero-text h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero-text .show{
+        text-decoration: none;
+        font-size:2.5rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: rgb(241, 119, 48);
+        cursor: pointer;
+    }
+
+    .hero-mid .hero-text h1 {
+        font-size: 4rem; 
+    }
+
+    .hero-mid .hero-text p {
+        font-size: 1.6rem;
+        font-weight: 600;
+    }
+
+    .hero-mid2 .hero-text h1 {
+        font-size: 4rem;
+    }
+
+    .hero-mid2 .hero-text .search input {
+        padding: 1.5rem;
+        width: 25rem;
+        font-size: 1.4rem;
+    }
+
+    .hero-mid2 .hero-text .search button {
+        padding: 1.5rem;
+        width: 10rem;
+        font-size: 1.4rem;
+    }
+
+    .hero-mid1 .hero-text h1 {
+        font-size: 4rem;
+    }
+}
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+    .hero .hero-text h1 {
+        font-size: 5rem;
+    }
+
+    .hero-text .show{
+        text-decoration: none;
+        font-size:3rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: rgb(241, 119, 48);
+        cursor: pointer;
+    }
+
+    .hero-mid .hero-text h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero-mid .hero-text p {
+        font-size: 2rem;
+        font-weight: 600;
+    }
+
+    .hero-mid2 .hero-text h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero-mid2 .hero-text .search input {
+        padding: 1.5rem;
+        width: 27.5rem;
+        font-size: 1.5rem;
+    }
+
+    .hero-mid2 .hero-text .search button {
+        padding: 1.5rem;
+        width: 12.5rem;
+        font-size: 1.5rem;
+    }
+
+    .hero-mid1 .hero-text h1 {
+        font-size: 4.5rem;
+    }
+}
+
+@media screen and (min-width: 1200px) and (max-width: 1919px) {
+    .hero .hero-text h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero-text .show{
+        text-decoration: none;
+        font-size:2.5rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: rgb(241, 119, 48);
+        cursor: pointer;
+    }
+
+    .hero-mid .hero-text h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero-mid .hero-text p {
+        font-size: 2rem;
+    }
+
+    .hero-mid2 .hero-text h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero-mid2 .hero-text .search input {
+        padding: 1.5rem;
+        width: 30rem;
+        font-size: 1.5rem;
+    }
+
+    .hero-mid2 .hero-text .search button {
+        padding: 1.5rem;
+        width: 10rem;
+        font-size: 1.5rem;
+    }
+
+    .hero-mid1 .hero-text h1 {
+        font-size: 4.5rem;
+    }
+}
+
+@media screen and (min-width: 1920px) {
+    .hero .hero-text h1 {
+        font-size: 5rem;
+    }
+
+    .hero-text .show{
+        text-decoration: none;
+        font-size:3rem;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: rgb(241, 119, 48);
+        cursor: pointer;
+    }
+
+    .hero-mid .hero-text h1 {
+        font-size: 5rem;
+    }
+
+    .hero-mid .hero-text p {
+        font-size: 2.5rem;
+    }
+
+    .hero-mid2 .hero-text h1 {
+        font-size: 4.5rem;
+    }
+
+    .hero-mid2 .hero-text .search input {
+        padding: 1.5rem;
+        width: 30rem;
+        font-size: 1.5rem;
+    }
+
+    .hero-mid2 .hero-text .search button {
+        padding: 1.5rem;
+        width: 10rem;
+        font-size: 1.5rem;
+    }
+
+    .hero-mid1 .hero-text h1 {
+        font-size: 4.5rem;
+    }
 }

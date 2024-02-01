@@ -20,7 +20,7 @@ const AdminProfile = (props) => {
             <p>{props.email} </p>
           <h3>Member Since</h3>
             <p>{props.memberSince}</p>
-          <button className='profileBtn' onClick={() => navigate('/admin/account/changepassword')}>Change Password</button>          
+          <button id='changeBtn' className='profileBtn' onClick={() => navigate('/admin/account/changepassword')}>Change Password</button>          
         </div>
       </div> 
     </div>
