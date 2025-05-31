@@ -65,7 +65,7 @@ export const RegisterLogin = () => {
         e.preventDefault();
         setPass('');
         setRpass('');
-        axios.post(`http://${process.env.REACT_APP_SERVER_URL}/register`, {
+        axios.post(`https://${process.env.REACT_APP_SERVER_URL}/register`, {
         firstName: firstName,
         lastName: lastName,
         email: email,
@@ -88,7 +88,7 @@ export const RegisterLogin = () => {
         setEmail('');
         setUsername('');
         setPass('');
-        await axios.post(`http://${process.env.REACT_APP_SERVER_URL}/login`, {
+        await axios.post(`https://${process.env.REACT_APP_SERVER_URL}/login`, {
         email: email,
         username: username,
         password: password

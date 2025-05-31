@@ -21,7 +21,7 @@ const Account = () => {
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
-    axios.get(`http://${process.env.REACT_APP_SERVER_URL}/user/account/` + userId)
+    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/account/` + userId)
     .then(
       response => {
         setFirstName(response.data.user[0].first_name);

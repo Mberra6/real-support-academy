@@ -11,6 +11,10 @@ app.use(cors({credentials: true, origin: process.env.ORIGIN_URL}));
 
 app.use(express.json()); // parse json bodies in the request object
 
+app.get('/', (req, res) => {
+    res.status(200).send('Welcome!');
+});
+
 // Redirect requests to endpoint starting with / to general-routes.js
 app.use('/', genRoutes);
 // Redirect requests to endpoint starting with /user to auth-routes.js

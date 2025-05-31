@@ -21,7 +21,7 @@ const CourseSubSection = (props) => {
   const [selectedTime, setSelectedTime] = useState("All");
 
   useEffect(() => {
-    axios.get(`http://${process.env.REACT_APP_SERVER_URL}/allcourses`)
+    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/allcourses`)
     .then((response) => {
       setFilteredCourses(response.data.courses.map((course) => {
         return {

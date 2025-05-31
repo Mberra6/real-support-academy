@@ -19,7 +19,7 @@ const UpdateProfile = () => {
     const handleSubmitUpdate = (e) => {
         e.preventDefault();
         let userId = localStorage.getItem('userId');
-        axios.put(`http://${process.env.REACT_APP_SERVER_URL}/user/account/update/` + userId, {
+        axios.put(`https://${process.env.REACT_APP_SERVER_URL}/user/account/update/` + userId, {
         firstName: firstName,
         lastName: lastName,
         email: email,
