@@ -59,15 +59,24 @@
     color: white;
     padding-bottom: 0.4rem;
     font-size: 1.1rem;
-    cursor: pointer;
+    font-family: inherit;
+    line-height: 1.5;
     text-align: left;
     text-decoration: none;
+    cursor: pointer;
     transition: color 0.2s ease-in-out;
+    appearance: none; /* removes default button look in Safari */
   }
   
   .footer-link:hover {
     color: rgb(241, 119, 48);
+    text-decoration: none;
     transition: 2ms ease-in-out;
+  }
+  
+  .footer-link:focus {
+    outline: none;
+    box-shadow: none;
   }
 
 @media screen and (max-width: 1000px) {
@@ -106,6 +115,10 @@
     .bottom a{
         font-size: 1rem;
     }
+
+    .footer-link {
+        font-size: 1rem;
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
@@ -126,6 +139,10 @@
     }
 
     .bottom a{
+        font-size: 1.2rem;
+    }
+
+    .footer-link {
         font-size: 1.2rem;
     }
 }
@@ -150,6 +167,10 @@
     .bottom a{
         font-size: 1.4rem;
     }
+
+    .footer-link {
+        font-size: 1.4rem;
+    }
 }
 
 @media screen and (min-width: 992px) and (max-width: 1199px) {
@@ -170,6 +191,10 @@
     }
 
     .bottom a{
+        font-size: 1.5rem;
+    }
+
+    .footer-link {
         font-size: 1.5rem;
     }
 }
@@ -194,6 +219,10 @@
     .bottom a{
         font-size: 1.5rem;
     }
+
+    .footer-link {
+        font-size: 1.5rem;
+    }
 }
 
 @media screen and (min-width: 1920px) {
@@ -215,6 +244,10 @@
     }
 
     .bottom a{
+        font-size: 1.5rem;
+    }
+
+    .footer-link {
         font-size: 1.5rem;
     }
 }
