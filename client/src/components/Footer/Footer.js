@@ -27,31 +27,31 @@ const Footer = () => {
       <div className='bottom'> 
       <div>
         <h4>Explore</h4>
-        <a href='#'>Home</a>
-        <a href='#'>About Us</a>
-        <a href='#'>Courses</a>
+        <a href='/'>Home</a>
+        <a href='/about'>About Us</a>
+        <a href='/courses'>Courses</a>
       </div>
       <div>
         <h4>Information</h4>
-        <a href='#'>Membership</a>
-        <a href='#'>Purchases Guide</a>
-        <a href='#'>Contact Us</a>
-        <a href='#'>FAQs</a>
+        <button className="footer-link" type="button">Membership</button>
+        <button className="footer-link" type="button">Purchases Guide</button>
+        <button className="footer-link" type="button">Contact Us</button>
+        <button className="footer-link" type="button">FAQs</button>
       </div>
       <div>
       <h4>Other</h4>
-        <a href='#'>Terms of Service</a>
-        <a href='#'>Privacy Policy</a> 
-        <a href='#'>License</a>               
+      <button className="footer-link" type="button">Terms of Service</button>
+      <button className="footer-link" type="button">Privacy Policy</button>
+      <button className="footer-link" type="button">License</button>               
       </div>
       <div>
         <h4>Get in Touch</h4>
-        <a href='#'>
+        <button className="footer-link" type="button">
           <i className="fa-solid fa-envelope"></i> rsasupport@gmail.com
-        </a>
-        <a href='#'>
+        </button>
+        <button className="footer-link" type="button">
           <i className="fa-solid fa-phone"></i> +44 75784 90098
-        </a>
+        </button>
       </div>
       
       </div>

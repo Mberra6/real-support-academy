@@ -143,7 +143,7 @@ export const RegisterLogin = () => {
                                 }
                             })()}
                             <div className={styles.registerlink}>
-                                Not a Member? <a className={styles.registerlinka} href="#" ref={registerNow}>Register Now</a>
+                                Not a Member? <a className={styles.registerlinka} href="/loginreg" ref={registerNow}>Register Now</a>
                             </div>
                         </form>
                         <form className={styles.register} onSubmit={handleSubmitRegister}>
@@ -177,7 +177,7 @@ export const RegisterLogin = () => {
                                 }
                             })()}
                             <div className={styles.loginlink}>
-                                Already have an account? <a className={styles.loginlinka} href="#" ref={loginNow}>Login Now</a>
+                                Already have an account? <a className={styles.loginlinka} href="/loginreg" ref={loginNow}>Login Now</a>
                             </div>
                         </form>
                     </div>

@@ -37,7 +37,7 @@ export default function Slider() {
                     >
                         <img 
                         src={process.env.PUBLIC_URL + `/images/story${index + 1}.png`} 
-                        alt='Image'
+                        alt='Story from a testimonial'
                         />
                     </div>
                 )

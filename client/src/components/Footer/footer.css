@@ -53,6 +53,21 @@
     font-size: 1.1rem;
 }
 
+.footer-link {
+    background: none;
+    border: none;
+    color: inherit;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    display: block;
+    text-align: left;
+  }
+  
+  .footer-link:hover {
+    text-decoration: underline;
+  }
+
 @media screen and (max-width: 1000px) {
     .footer{
         padding: 4rem 2rem;
