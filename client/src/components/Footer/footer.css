@@ -62,10 +62,14 @@
     cursor: pointer;
     display: block;
     text-align: left;
+    padding-bottom: 0.4rem;
+    font-size: 1.1rem;
+    text-decoration: none;
   }
   
   .footer-link:hover {
-    text-decoration: underline;
+    color: rgb(241, 119, 48);
+    transition: 2ms ease-in-out;
   }
 
 @media screen and (max-width: 1000px) {
