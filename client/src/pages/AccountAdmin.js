@@ -34,7 +34,7 @@ const AccountAdmin = () => {
       console.log(err.response.data);
       navigate('/');
     })
-  }, []);
+  }, [navigate]);
   
   return (
     <>

@@ -1,5 +1,4 @@
 import React from "react";
-import axios from 'axios';
 // implemented constructor with parameters intialised in Courses.jsx
 
 

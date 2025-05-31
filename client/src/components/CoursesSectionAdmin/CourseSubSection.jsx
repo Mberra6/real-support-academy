@@ -48,12 +48,6 @@ const CourseSubSection = (props) => {
     })
   },[])
 
-
-
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-  };
-
   const totalPages = Math.ceil(filteredCourses.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -73,44 +67,40 @@ const CourseSubSection = (props) => {
     }
     };
 
-const filterCourses = () => {
-  if (searchResults[0] === "No courses Found") return searchResults;
-  const allCourses = searchResults.length > 0
-    ? searchResults.map(course => {
-        return {
-          id: course.course_id,
-          title: course.course_title,
-          lesson: course.course_length,
-          difficulty: course.course_difficulty.charAt(0).toUpperCase() + course.course_difficulty.slice(1),
-          imgUrl: course.course_imgUrl || defaultCourseImg,
-        };
-      })
-    : courses;
-
-  let filteredCourses = allCourses;
-
-  if (selectedDifficulty !== "All") {
-    filteredCourses = filteredCourses.filter(course => course.difficulty === selectedDifficulty);
-  }
-
-  if (selectedTime !== "All") {
-    filteredCourses = filteredCourses.filter(course => {
-      if (selectedTime === "4weeks") {
-        return course.lesson < 4;
-      } else if (selectedTime === "8weeks") {
-        return course.lesson < 8;
-      } else {
-        return course.lesson >= 8;
+  useEffect(() => {
+    const filterCourses = () => {
+      setCurrentPage(1);
+      if (searchResults[0] === "No courses Found") return searchResults;
+  
+      const allCourses = searchResults.length > 0
+        ? searchResults.map(course => ({
+            id: course.course_id,
+            title: course.course_title,
+            lesson: course.course_length,
+            difficulty: course.course_difficulty.charAt(0).toUpperCase() + course.course_difficulty.slice(1),
+            imgUrl: course.course_imgUrl || defaultCourseImg,
+          }))
+        : courses;
+  
+      let filtered = allCourses;
+  
+      if (selectedDifficulty !== "All") {
+        filtered = filtered.filter(course => course.difficulty === selectedDifficulty);
       }
-    });
-  }
-
-  return filteredCourses;
-};
-
-    useEffect(() => {
-        setFilteredCourses(filterCourses());
-    }, [searchResults, selectedDifficulty, selectedTime]);
+  
+      if (selectedTime !== "All") {
+        filtered = filtered.filter(course => {
+          if (selectedTime === "4weeks") return course.lesson < 4;
+          else if (selectedTime === "8weeks") return course.lesson < 8;
+          else return course.lesson >= 8;
+        });
+      }
+  
+      return filtered;
+    };
+  
+    setFilteredCourses(filterCourses());
+  }, [searchResults, selectedDifficulty, selectedTime, courses]);
 
 
 

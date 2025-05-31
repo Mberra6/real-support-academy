@@ -33,10 +33,6 @@ const MyCoursesSubSection = () => {
     })
   }, [])
 
-  const handlePageChange = (newPage) => {
-    setCurrentPage(newPage);
-  };
-
   const totalPages = Math.ceil(courses.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;

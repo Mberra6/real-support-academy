@@ -4,14 +4,10 @@ import axios from 'axios';
 
 
 function Hero(props) {
-  const [backendData, setBackendData] = useState(null);
-  const [backendErrorData, setBackendErrorData] = useState(null);
   const [searchTerm, setSearchTerm] = useState('');
   const { setSearchResults } = props;
 
   const handleSearchClick = () => {
-    setBackendData(null);
-    setBackendErrorData(null);
     setSearchTerm(searchTerm);
     if (searchTerm) {
       axios.post(`https://${process.env.REACT_APP_SERVER_URL}/searchcourses`, {
@@ -22,7 +18,7 @@ function Hero(props) {
           courses.length === 0 ? setSearchResults(["No courses Found"]) : setSearchResults(courses);
         })
         .catch(error => {
-          setBackendData(null);
+          console.error(error);
         });
     } else {
       alert("Search cannot be empty");

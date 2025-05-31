@@ -5,9 +5,9 @@ import axios from 'axios';
 const GeneralRoutes = () => {
     const [auth, setAuth] = useState(null);
     const isAdmin = parseInt(localStorage.getItem('isAdmin'));
-    const token = localStorage.getItem('token');
 
     useEffect(() => {
+        const token = localStorage.getItem('token');
         axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/auth`, {
             headers: { authorization: "Bearer " + token }
           })

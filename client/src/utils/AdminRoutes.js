@@ -4,10 +4,10 @@ import axios from 'axios';
 
 const AdminRoutes = () => {
     const [auth, setAuth] = useState(null);
-    const token = localStorage.getItem('token');
     const isAdmin = parseInt(localStorage.getItem('isAdmin'));
 
     useEffect(() => {
+        const token = localStorage.getItem('token');
         axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/auth`, {
             headers: { authorization: "Bearer " + token }
           })
