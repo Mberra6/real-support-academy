@@ -145,67 +145,69 @@ const CourseSubSection = (props) => {
                         </div>
                     </Col>
               </Row>
-         <Row>
-          <Col className="d-flex justify-content-end">
-            <div className="pagination-container">
-              <nav>
-                <ul className="pagination">
-                  <li className={currentPage === 1 ? "prevDisabled" : ""}>
-                    <a href="#!" onClick={(e) => handlePrevClick(e)}>&laquo;</a>
-                  </li>
-                  {[...Array(totalPages)].map((_, idx) => {
-                    const pageNum = idx + 1;
-                    return (
-                      <li key={`page-${pageNum}`} className={pageNum === currentPage ? "active" : ""}>
-                        <a href="#!" onClick={(e) => {
-                          e.preventDefault();
-                          setCurrentPage(pageNum);
-                        }}>{pageNum}</a>
-                      </li>
-                    );
-                  })}
-                  <li className={currentPage === totalPages ? "nextDisabled" : ""}>
-                    <a href="#!" onClick={(e) => handleNextClick(e)}>&raquo;</a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
-          </Col>
-         </Row>             
-               <Row>
-  <div className="flexcontainer">
-  { (() => {
-            if (visibleCourses[0] === "No courses Found") {
-              return (<Col>
-                <div id='noResults' className="no-results">
-                  <h3>No results found</h3>
-                  <p>Please try again with different course name.</p>
+              {filteredCourses.length > 0 && (
+                <Row>
+                  <Col className="d-flex justify-content-end">
+                    <div className="pagination-container">
+                      <nav>
+                        <ul className="pagination">
+                          <li className={currentPage === 1 ? "prevDisabled" : ""}>
+                            <a href="#!" onClick={(e) => handlePrevClick(e)}>&laquo;</a>
+                          </li>
+                          {[...Array(totalPages)].map((_, idx) => {
+                            const pageNum = idx + 1;
+                            return (
+                              <li key={`page-${pageNum}`} className={pageNum === currentPage ? "active" : ""}>
+                                <a href="#!" onClick={(e) => {
+                                  e.preventDefault();
+                                  setCurrentPage(pageNum);
+                                }}>{pageNum}</a>
+                              </li>
+                            );
+                          })}
+                          <li className={currentPage === totalPages ? "nextDisabled" : ""}>
+                            <a href="#!" onClick={(e) => handleNextClick(e)}>&raquo;</a>
+                          </li>
+                        </ul>
+                      </nav>
+                    </div>
+                  </Col>
+                </Row>
+              )} 
+              <Row>
+                <div className="flexcontainer">
+                { (() => {
+                          if (visibleCourses[0] === "No courses Found") {
+                            return (<Col>
+                              <div id='noResults' className="no-results">
+                                <h3>No results found</h3>
+                                <p>Please try again with different course name.</p>
+                              </div>
+                            </Col>)
+                        } else if (visibleCourses.length > 0) {
+                          return (visibleCourses.map(course => (
+                            <Col className="flexitem" lg="4" md="6" sm="6">
+                              <CourseCard
+                                courseId={course.id}
+                                title={course.title}
+                                lesson={course.lesson}
+                                difficulty={course.difficulty}
+                                rating={course.rating}
+                                imgUrl={course.imgUrl}
+                              />
+                            </Col>
+                          )))
+                        } else {
+                          return (<Col>
+                          <div id='noResults' className="no-results">
+                            <h3>No results found</h3>
+                            <p>Please try again with different filters.</p>
+                          </div>
+                        </Col>)
+                        }
+                        })()}
                 </div>
-              </Col>)
-          } else if (visibleCourses.length > 0) {
-            return (visibleCourses.map(course => (
-              <Col className="flexitem" lg="4" md="6" sm="6">
-                <CourseCard
-                  courseId={course.id}
-                  title={course.title}
-                  lesson={course.lesson}
-                  difficulty={course.difficulty}
-                  rating={course.rating}
-                  imgUrl={course.imgUrl}
-                />
-              </Col>
-            )))
-          } else {
-            return (<Col>
-            <div id='noResults' className="no-results">
-              <h3>No results found</h3>
-              <p>Please try again with different filters.</p>
-            </div>
-          </Col>)
-          }
-          })()}
-  </div>
-</Row>
+              </Row>
                 
        </Container>
       </section>

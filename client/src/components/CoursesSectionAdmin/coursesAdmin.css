@@ -302,6 +302,10 @@
     display: none;
 }
 
+.no-results {
+    margin-bottom: 2rem;
+}
+
 /* make the section dynamic */
 
 @media screen and (max-width: 480px) {
