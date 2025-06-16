@@ -112,8 +112,9 @@ const MyCoursesSubSection = () => {
             )))
           } else {
             return (<Col>
-            <div className="no-results">
-              <h4>No Courses Enrolled Yet</h4>
+            <div>
+              <h3 className="no-results">No Courses Enrolled Yet</h3>
+              <a href='/user/courses' className='enroll-link'>Enroll Now!</a>
             </div>
           </Col>)
           }

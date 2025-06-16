@@ -7,7 +7,22 @@ const authRoutes = require('./routes/auth-routes');
 
 const app = express();
 
-app.use(cors({credentials: true, origin: process.env.ORIGIN_URL}));
+const allowedOrigins = [
+    process.env.ORIGIN_URL, // Production frontend
+    'http://localhost:3000'                  // Local dev frontend
+  ];
+  
+  app.use(cors({
+    origin: function (origin, callback) {
+      // Allow requests with no origin (like curl/postman) or if origin is allowed
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
+    credentials: true
+  }));
 
 app.use(express.json()); // parse json bodies in the request object
 
