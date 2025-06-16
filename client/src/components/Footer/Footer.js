@@ -35,7 +35,7 @@ const Footer = () => {
         <h4>Information</h4>
         <button className="footer-link" type="button">Membership</button>
         <button className="footer-link" type="button">Purchases Guide</button>
-        <button className="footer-link" type="button">Contact Us</button>
+        <a href='/contact'>Contact Us</a>
         <button className="footer-link" type="button">FAQs</button>
       </div>
       <div>

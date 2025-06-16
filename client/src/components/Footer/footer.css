@@ -60,12 +60,10 @@
     padding-bottom: 0.4rem;
     font-size: 1.1rem;
     font-family: inherit;
-    line-height: 1.5;
     text-align: left;
-    text-decoration: none;
     cursor: pointer;
-    transition: color 0.2s ease-in-out;
     appearance: none; /* removes default button look in Safari */
+    background-color: transparent !important;
   }
   
   .footer-link:hover {
