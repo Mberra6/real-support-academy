@@ -26,7 +26,7 @@ const CourseCard = (props) => {
     .catch(error => {
       console.log(error);
     })
-  }, [courseId, userId])
+  }, [courseId, userId, token])
 
   const handleEnrollment = () => {
     axios.post(`https://${process.env.REACT_APP_SERVER_URL}/user/enroll/` + userId, {
