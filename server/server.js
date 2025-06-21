@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
+const checkAuth = require('./middleware/check-auth-middleware');
 const genRoutes = require('./routes/general-routes');
 const authRoutes = require('./routes/auth-routes');
 
@@ -33,7 +34,7 @@ app.get('/', (req, res) => {
 // Redirect requests to endpoint starting with / to general-routes.js
 app.use('/', genRoutes);
 // Redirect requests to endpoint starting with /user to auth-routes.js
-app.use('/user', authRoutes);
+app.use('/user', checkAuth.auth, authRoutes);
 
 
 

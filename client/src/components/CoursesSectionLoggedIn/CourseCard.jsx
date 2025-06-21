@@ -7,6 +7,7 @@ import axios from 'axios';
 const CourseCard = (props) => {
   const { imgUrl, courseId, title, lesson, difficulty } = props;
   const userId = localStorage.getItem('userId');
+  const token = localStorage.getItem('token');
   const [enrolled, setEnrolled] = useState(null);
   const enrollBtn = useRef();
   const resumeBtn = useRef();
@@ -14,6 +15,8 @@ const CourseCard = (props) => {
   useEffect(() => {
     axios.post(`https://${process.env.REACT_APP_SERVER_URL}/user/enrolledCourse/` + userId, {
       courseId: courseId
+    }, {
+      headers: { authorization: "Bearer " + token }
     })
     .then(
       response => {
@@ -28,6 +31,8 @@ const CourseCard = (props) => {
   const handleEnrollment = () => {
     axios.post(`https://${process.env.REACT_APP_SERVER_URL}/user/enroll/` + userId, {
       courseId: courseId
+    }, {
+      headers: { authorization: "Bearer " + token }
     })
     .then(
       response => {

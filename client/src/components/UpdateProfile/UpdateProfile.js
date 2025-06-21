@@ -19,12 +19,15 @@ const UpdateProfile = () => {
     const handleSubmitUpdate = (e) => {
         e.preventDefault();
         let userId = localStorage.getItem('userId');
+        let token = localStorage.getItem('token');
         axios.put(`https://${process.env.REACT_APP_SERVER_URL}/user/account/update/` + userId, {
         firstName: firstName,
         lastName: lastName,
         email: email,
         confirmationEmail: confirmationEmail,
         username: username
+        }, {
+            headers: { authorization: "Bearer " + token }
         })
         .then(
             response => setBackendPositiveData(response.data.message)

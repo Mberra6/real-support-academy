@@ -21,7 +21,10 @@ const Account = () => {
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
-    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/account/` + userId)
+    const token = localStorage.getItem('token');
+    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/account/` + userId, {
+      headers: { authorization: "Bearer " + token }
+    })
     .then(
       response => {
         setFirstName(response.data.user[0].first_name);

@@ -13,7 +13,10 @@ const MyCoursesSubSection = () => {
 
   useEffect(() => {
     const userId = localStorage.getItem('userId');
-    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/enrolledCourses/` + userId)
+    const token = localStorage.getItem('token');
+    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/enrolledCourses/` + userId, {
+      headers: { authorization: "Bearer " + token }
+    })
     .then( 
       response => {
         setCourses(response.data.courses.map((course) => {

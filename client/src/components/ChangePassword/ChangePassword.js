@@ -17,10 +17,13 @@ const ChangePassword = () => {
     const handleSubmitChange = (e) => {
         e.preventDefault();
         let userId = localStorage.getItem('userId');
+        let token = localStorage.getItem('token');
         axios.put(`https://${process.env.REACT_APP_SERVER_URL}/user/account/changepassword/ `+ userId, {
         currentPassword: currentPwd,
         newPassword: newPwd,
         confirmNewPassword: confirmNewPwd
+        }, {
+            headers: { authorization: "Bearer " + token }
         })
         .then(
             response => setBackendPositiveData(response.data.message)
