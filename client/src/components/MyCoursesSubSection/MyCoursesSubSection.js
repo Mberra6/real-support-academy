@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from "reactstrap";
 import axios from 'axios';
+import { TailSpin } from "react-loader-spinner";
+
+
 import "./myCoursesSub.css"
 import CourseCard from "./CourseCard";
 import defaultCourseImg from "../../assets/defaultCourse.png";
 
 
 const MyCoursesSubSection = () => {
+  const [loadingCourses, setLoadingCourses] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
+    setLoadingCourses(true);
     const userId = localStorage.getItem('userId');
     const token = localStorage.getItem('token');
     axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/enrolledCourses/` + userId, {
@@ -29,10 +34,12 @@ const MyCoursesSubSection = () => {
             enrollmentDate: course.enrollment_date.slice(0, 10),
           };
         }));
+        setLoadingCourses(false);
       }
     )
     .catch(error => {
       console.log(error);
+      setLoadingCourses(false);
     })
   }, [])
 
@@ -99,8 +106,9 @@ const MyCoursesSubSection = () => {
                <Row>
   <div className="flexcontainer">
   { (() => {
-          
-          if (visibleCourses.length > 0) {
+          if (loadingCourses) {
+            return <TailSpin color='#007bff' height="70" width="70" wrapperStyle={{marginBottom: '6rem', marginTop: '5rem'}}/>
+          } else if (visibleCourses.length > 0) {
             return (visibleCourses.map(course => (
               <Col className="flexitem" lg="4" md="6" sm="6">
                 <CourseCard

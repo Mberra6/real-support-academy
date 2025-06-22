@@ -21,3 +21,8 @@ exports.auth = (req, res, next) => {
         res.status(401).json("You are not authenticated!");
     }
 };
+
+// Explicit endpoint for /user/auth
+exports.authCheckHandler = (req, res) => {
+    res.status(200).json({ message: "Authenticated" });
+};

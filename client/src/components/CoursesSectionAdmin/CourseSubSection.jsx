@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "reactstrap";
 import axios from 'axios';
+import { TailSpin } from "react-loader-spinner";
 
 import defaultCourseImg from "../../assets/defaultCourse.png";
 
@@ -13,6 +14,7 @@ import CourseCard from "./CourseCard";
 
 const CourseSubSection = (props) => {
   const { searchResults } = props;
+  const [loadingCourses, setLoadingCourses] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
   const [courses, setCourses] = useState([]);
@@ -21,6 +23,7 @@ const CourseSubSection = (props) => {
   const [selectedTime, setSelectedTime] = useState("All");
 
   useEffect(() => {
+    setLoadingCourses(true);
     axios.get(`https://${process.env.REACT_APP_SERVER_URL}/allcourses`)
     .then((response) => {
       setFilteredCourses(response.data.courses.map((course) => {
@@ -41,10 +44,12 @@ const CourseSubSection = (props) => {
           imgUrl: course.course_imgUrl || defaultCourseImg,
         };
       }));
+      setLoadingCourses(false);
 
     })
     .catch(error => {
       console.log(error);
+      setLoadingCourses(false);
     })
   },[])
 
@@ -178,7 +183,9 @@ const CourseSubSection = (props) => {
               <Row>
                 <div className="flexcontainer">
                 { (() => {
-                          if (visibleCourses[0] === "No courses Found") {
+                          if (loadingCourses) {
+                            return <TailSpin color='#007bff' height="70" width="70" wrapperStyle={{marginBottom: '6rem', marginTop: '5rem'}}/>
+                        } else if (visibleCourses[0] === "No courses Found") {
                             return (<Col>
                               <div id='noResults' className="no-results">
                                 <h3>No results found</h3>

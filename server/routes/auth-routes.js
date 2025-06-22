@@ -7,7 +7,7 @@ const courseControllers = require('../controllers/course-controllers');
 const router = express.Router();
 
 // Check if user authorized
-router.get('/auth', checkAuth.auth);
+router.get('/auth', checkAuth.authCheckHandler);
 
 // Get user's details
 router.get('/account/:userId', userControllers.userDetails);
