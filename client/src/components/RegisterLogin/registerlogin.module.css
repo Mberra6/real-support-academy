@@ -132,7 +132,7 @@
     border-color: #007bff;
 }
 
-.register .fields .input:focus {
+.register .fields .input:not(.inputError):focus {
     border-color: #007bff;
 }
 
@@ -142,13 +142,13 @@
 
 .registerlink {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 1.5rem;
     font-weight: bolder;
 }
 
 .loginlink {
     text-align: center;
-    margin-top: 15px;
+    margin-top: 1.5rem;
     font-weight: bolder;
 }
 
@@ -201,15 +201,21 @@
 }
 
 .positive {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     color: green;
-    padding-top: 15px;
+    margin-top: 2rem;
 }
 
 .negative {
-    font-size: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
     color: #cc0000;
-    padding-top: 15px;
+    margin-top: 2rem;
+}
+
+.inputError {
+    border-color: red;
 }
 
 /* make the section dynamic */
@@ -269,6 +275,14 @@
     .loginlink {
         font-size: 1.25rem;
     }
+
+    .negative {
+        font-size: 1.1rem;
+    }
+
+    .positive {
+        font-size: 1.1rem;
+    }
 }
 
 @media screen and (min-width: 481px) and (max-width: 767px) {
@@ -325,6 +339,14 @@
     .loginlink {
         font-size: 1.25rem;
     }
+
+    .negative {
+        font-size: 1.2rem;
+    }
+
+    .positive {
+        font-size: 1.2rem;
+    }
 }
 
 @media screen and (min-width: 768px) and (max-width: 991px) {
@@ -380,6 +402,14 @@
 
     .loginlink {
         font-size: 1.4rem;
+    }
+
+    .negative {
+        font-size: 1.25rem;
+    }
+
+    .positive {
+        font-size: 1.25rem;
     }
 }
 
@@ -494,6 +524,7 @@
     .loginlink {
         font-size: 1.5rem;
     }
+    
 }
 
 @media screen and (min-width: 1920px) {
@@ -551,4 +582,11 @@
         font-size: 1.5rem;
     }
 
+    .negative {
+        font-size: 1.4rem;
+    }
+
+    .positive {
+        font-size: 1.4rem;
+    }
 }

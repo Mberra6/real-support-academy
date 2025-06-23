@@ -46,6 +46,10 @@
     align-items: center;
     cursor: pointer;
   }
+
+  .btn-slide:hover {
+    background-color: #007bff;
+  }
   
   .btn-slide img {
     width: 20px;
