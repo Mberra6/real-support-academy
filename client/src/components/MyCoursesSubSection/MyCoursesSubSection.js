@@ -43,7 +43,7 @@ const MyCoursesSubSection = () => {
       console.log(error);
       setLoadingCourses(false);
     })
-  }, [])
+  }, [user.id])
 
   const totalPages = Math.ceil(courses.length / itemsPerPage);
   const startIndex = (currentPage - 1) * itemsPerPage;

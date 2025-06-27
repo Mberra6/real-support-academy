@@ -39,7 +39,7 @@ const AccountAdmin = () => {
       console.log(err.response.data);
       navigate('/');
     })
-  }, [navigate]);
+  }, [navigate, user.id]);
   
   return (
     <>
