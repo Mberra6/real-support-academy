@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from '../AuthProvider';
+import { useAuth } from '../../AuthProvider';
 import "../Hero/hero.css";
 
 const LogoutBtn = () => {

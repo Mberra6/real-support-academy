@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from "reactstrap";
 import axios from 'axios';
 import { TailSpin } from "react-loader-spinner";
-import { useAuth } from '../AuthProvider';
+import { useAuth } from '../../AuthProvider';
 
 
 import "./myCoursesSub.css"

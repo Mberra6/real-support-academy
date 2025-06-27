@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useRef} from "react";
 import axios from 'axios';
-import { useAuth } from '../AuthProvider';
+import { useAuth } from '../../AuthProvider';
 
 // implemented constructor with parameters intialised in Courses.jsx
 

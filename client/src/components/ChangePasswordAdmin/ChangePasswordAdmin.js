@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaTimes } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { useAuth } from '../AuthProvider';
+import { useAuth } from '../../AuthProvider';
 
 import styles from './changepasswordadmin.module.css';
 
