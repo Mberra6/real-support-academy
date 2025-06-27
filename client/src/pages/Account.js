@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import { useNavigate} from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../AuthProvider';
 import NavbarLoggedin from '../components/NavbarLoggedin/NavbarLoggedin';
 import Hero from '../components/Hero/Hero';
 import ProfileHeroImg from '../assets/profileHeroImg1.jpg';
@@ -11,6 +12,7 @@ import Footer from '../components/Footer/Footer';
 
 
 const Account = () => {
+  const { user } = useAuth();
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -20,9 +22,9 @@ const Account = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const userId = localStorage.getItem('userId');
+    const userId = user.id;
     const token = localStorage.getItem('token');
-    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/account/` + userId, {
+    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/api/user/account/` + userId, {
       headers: { authorization: "Bearer " + token }
     })
     .then(

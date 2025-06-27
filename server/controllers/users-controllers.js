@@ -114,7 +114,7 @@ const authenticateUserById = async (id, password) => {
 
 // function to create json web token
 const generateAccessToken = (user) => {
-    return jwt.sign({ id: user.id, username: user.username}, process.env.SESSION_SECRET, { expiresIn: "24h" });
+    return jwt.sign({ id: user.user_id, username: user.username, isAdmin: user.is_admin}, process.env.SESSION_SECRET, { expiresIn: "24h" });
 };
 
 // Function to register new user
@@ -156,8 +156,6 @@ exports.userRegister = async (req, res, next) => {
             const accessToken = generateAccessToken(user[0]);
 
             return res.status(201).json({
-                id: user[0].user_id,
-                isAdmin: user[0].is_admin,
                 accessToken: accessToken
             });
         } else if (await authenticateUserByUsername(username, password)) {
@@ -165,8 +163,6 @@ exports.userRegister = async (req, res, next) => {
             const accessToken = generateAccessToken(user[0]);
 
             return res.status(201).json({
-                id: user[0].user_id,
-                isAdmin: user[0].is_admin,
                 accessToken: accessToken
             });
         } else {

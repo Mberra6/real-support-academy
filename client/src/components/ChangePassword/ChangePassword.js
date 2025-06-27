@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { FaTimes } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { useAuth } from '../AuthProvider';
 
 import styles from './changepassword.module.css';
 
 const ChangePassword = () => {
+    const { user } = useAuth();
     const [currentPwd, setCurrentPwd] = useState('');
     const [newPwd, setNewPwd] = useState('');
     const [confirmNewPwd, setConfirmNewPwd] = useState('');
@@ -16,9 +18,9 @@ const ChangePassword = () => {
 
     const handleSubmitChange = (e) => {
         e.preventDefault();
-        let userId = localStorage.getItem('userId');
+        let userId = user.id;
         let token = localStorage.getItem('token');
-        axios.put(`https://${process.env.REACT_APP_SERVER_URL}/user/account/changepassword/ `+ userId, {
+        axios.put(`https://${process.env.REACT_APP_SERVER_URL}/api/user/account/changepassword/ `+ userId, {
         currentPassword: currentPwd,
         newPassword: newPwd,
         confirmNewPassword: confirmNewPwd

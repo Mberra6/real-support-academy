@@ -10,7 +10,7 @@ function Hero(props) {
   const handleSearchClick = () => {
     setSearchTerm(searchTerm);
     if (searchTerm) {
-      axios.post(`https://${process.env.REACT_APP_SERVER_URL}/searchcourses`, {
+      axios.post(`https://${process.env.REACT_APP_SERVER_URL}/api/searchcourses`, {
         title: searchTerm
       })
         .then((response) => {

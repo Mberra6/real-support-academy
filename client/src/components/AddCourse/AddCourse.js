@@ -14,7 +14,7 @@ const AddCourse = () => {
     const handleSubmitAdd = (e) => {
         e.preventDefault();
         let token = localStorage.getItem('token');
-        axios.post(`https://${process.env.REACT_APP_SERVER_URL}/user/admin/addcourse`, {
+        axios.post(`https://${process.env.REACT_APP_SERVER_URL}/api/user/admin/addcourse`, {
         title: title,
         description: description,
         length: length,

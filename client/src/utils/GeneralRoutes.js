@@ -1,25 +1,10 @@
 import { Outlet, Navigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useAuth } from '../AuthProvider';
 
 const GeneralRoutes = () => {
-    const [auth, setAuth] = useState(null);
-    const isAdmin = parseInt(localStorage.getItem('isAdmin'));
-
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/auth`, {
-            headers: { authorization: "Bearer " + token }
-          })
-          .then((response) => {
-              setAuth(true);
-          })
-          .catch((err) => {
-              setAuth(false);
-          })
-    }, [])
+    const { auth, user } = useAuth();
+    const isAdmin = user ? parseInt(user.isAdmin) : 0;
     
-    if (auth === null) return null;
     return (
         <>
         { (() => {

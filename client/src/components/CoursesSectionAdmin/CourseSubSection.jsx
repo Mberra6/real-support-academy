@@ -24,7 +24,7 @@ const CourseSubSection = (props) => {
 
   useEffect(() => {
     setLoadingCourses(true);
-    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/allcourses`)
+    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/api/allcourses`)
     .then((response) => {
       setFilteredCourses(response.data.courses.map((course) => {
         return {

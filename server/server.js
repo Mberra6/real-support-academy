@@ -27,14 +27,10 @@ const allowedOrigins = [
 
 app.use(express.json()); // parse json bodies in the request object
 
-app.get('/', (req, res) => {
-    res.status(200).send('Welcome!');
-});
-
 // Redirect requests to endpoint starting with / to general-routes.js
-app.use('/', genRoutes);
+app.use('/api', genRoutes);
 // Redirect requests to endpoint starting with /user to auth-routes.js
-app.use('/user', checkAuth.auth, authRoutes);
+app.use('/api/user', checkAuth.auth, authRoutes);
 
 
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col } from "reactstrap";
 import axios from 'axios';
 import { TailSpin } from "react-loader-spinner";
+import { useAuth } from '../AuthProvider';
 
 
 import "./myCoursesSub.css"
@@ -10,6 +11,7 @@ import defaultCourseImg from "../../assets/defaultCourse.png";
 
 
 const MyCoursesSubSection = () => {
+  const { user } = useAuth();
   const [loadingCourses, setLoadingCourses] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(6);
@@ -17,9 +19,9 @@ const MyCoursesSubSection = () => {
 
   useEffect(() => {
     setLoadingCourses(true);
-    const userId = localStorage.getItem('userId');
+    const userId = user.id;
     const token = localStorage.getItem('token');
-    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/user/enrolledCourses/` + userId, {
+    axios.get(`https://${process.env.REACT_APP_SERVER_URL}/api/user/enrolledCourses/` + userId, {
       headers: { authorization: "Bearer " + token }
     })
     .then( 

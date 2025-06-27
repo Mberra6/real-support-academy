@@ -2,10 +2,12 @@ import React, { useState } from "react";
 import { FaTimes } from 'react-icons/fa';
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
+import { useAuth } from '../AuthProvider';
 
 import styles from './updateprofile.module.css';
 
 const UpdateProfile = () => {
+    const { user } = useAuth();
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
@@ -18,9 +20,9 @@ const UpdateProfile = () => {
 
     const handleSubmitUpdate = (e) => {
         e.preventDefault();
-        let userId = localStorage.getItem('userId');
+        let userId = user.id;
         let token = localStorage.getItem('token');
-        axios.put(`https://${process.env.REACT_APP_SERVER_URL}/user/account/update/` + userId, {
+        axios.put(`https://${process.env.REACT_APP_SERVER_URL}/api/user/account/update/` + userId, {
         firstName: firstName,
         lastName: lastName,
         email: email,

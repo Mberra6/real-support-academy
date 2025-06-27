@@ -1,19 +1,21 @@
 import React, {useEffect, useState, useRef} from "react";
 import axios from 'axios';
+import { useAuth } from '../AuthProvider';
 
 // implemented constructor with parameters intialised in Courses.jsx
 
 
 const CourseCard = (props) => {
+  const { user } = useAuth();
   const { imgUrl, courseId, title, lesson, difficulty } = props;
-  const userId = localStorage.getItem('userId');
+  const userId = user.id;
   const token = localStorage.getItem('token');
   const [enrolled, setEnrolled] = useState(null);
   const enrollBtn = useRef();
   const resumeBtn = useRef();
 
   useEffect(() => {
-    axios.post(`https://${process.env.REACT_APP_SERVER_URL}/user/enrolledCourse/` + userId, {
+    axios.post(`https://${process.env.REACT_APP_SERVER_URL}/api/user/enrolledCourse/` + userId, {
       courseId: courseId
     }, {
       headers: { authorization: "Bearer " + token }
@@ -29,7 +31,7 @@ const CourseCard = (props) => {
   }, [courseId, userId, token])
 
   const handleEnrollment = () => {
-    axios.post(`https://${process.env.REACT_APP_SERVER_URL}/user/enroll/` + userId, {
+    axios.post(`https://${process.env.REACT_APP_SERVER_URL}/api/user/enroll/` + userId, {
       courseId: courseId
     }, {
       headers: { authorization: "Bearer " + token }

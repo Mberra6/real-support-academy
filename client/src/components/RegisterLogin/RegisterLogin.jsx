@@ -1,12 +1,14 @@
 import React, { useState, useRef, useEffect } from "react";
 import axios from 'axios';
 import { useNavigate} from 'react-router-dom';
+import { useAuth } from '../AuthProvider';
 
 import styles from './registerlogin.module.css';
 
 
 
 export const RegisterLogin = () => {
+    const { setAuth } = useAuth();
     const [email, setEmail] = useState('');
     const [password, setPass] = useState('');
     const [rPassword, setRpass] = useState('');
@@ -70,7 +72,7 @@ export const RegisterLogin = () => {
 
     const handleSubmitRegister = (e) => {
         e.preventDefault();
-        axios.post(`https://${process.env.REACT_APP_SERVER_URL}/register`, {
+        axios.post(`https://${process.env.REACT_APP_SERVER_URL}/api/register`, {
         firstName: firstName,
         lastName: lastName,
         email: email,
@@ -118,16 +120,15 @@ export const RegisterLogin = () => {
 
     const handleSubmitLogin = async (e) => {
         e.preventDefault();
-        await axios.post(`https://${process.env.REACT_APP_SERVER_URL}/login`, {
+        await axios.post(`https://${process.env.REACT_APP_SERVER_URL}/api/login`, {
         email: email,
         username: username,
         password: password
         })
         .then(
             response => {
-                localStorage.setItem('userId', response.data.id);
-                localStorage.setItem('isAdmin', response.data.isAdmin);
                 localStorage.setItem('token', response.data.accessToken);
+                setAuth(true);
                 navigate('/user/home');
             }
         )
